@@ -1,0 +1,320 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EAA9E2C91722A4CC00585999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA9E2C81722A4CC00585999 /* UIKit.framework */; };
+		EAA9E2CB1722A4CC00585999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA9E2CA1722A4CC00585999 /* Foundation.framework */; };
+		EAA9E2CD1722A4CC00585999 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA9E2CC1722A4CC00585999 /* CoreGraphics.framework */; };
+		EAA9E2D31722A4CC00585999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2D11722A4CC00585999 /* InfoPlist.strings */; };
+		EAA9E2D51722A4CC00585999 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA9E2D41722A4CC00585999 /* main.m */; };
+		EAA9E2D91722A4CC00585999 /* mtxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA9E2D81722A4CC00585999 /* mtxAppDelegate.m */; };
+		EAA9E2DB1722A4CC00585999 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2DA1722A4CC00585999 /* Default.png */; };
+		EAA9E2DD1722A4CC00585999 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2DC1722A4CC00585999 /* Default@2x.png */; };
+		EAA9E2DF1722A4CC00585999 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2DE1722A4CC00585999 /* Default-568h@2x.png */; };
+		EAA9E2E21722A4CC00585999 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2E01722A4CC00585999 /* MainStoryboard_iPhone.storyboard */; };
+		EAA9E2E51722A4CC00585999 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2E31722A4CC00585999 /* MainStoryboard_iPad.storyboard */; };
+		EAA9E2E81722A4CC00585999 /* mtxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA9E2E71722A4CC00585999 /* mtxViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EAA9E2C51722A4CC00585999 /* MotoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAA9E2C81722A4CC00585999 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EAA9E2CA1722A4CC00585999 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EAA9E2CC1722A4CC00585999 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EAA9E2D01722A4CC00585999 /* MotoTracking-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MotoTracking-Info.plist"; sourceTree = "<group>"; };
+		EAA9E2D21722A4CC00585999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EAA9E2D41722A4CC00585999 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EAA9E2D61722A4CC00585999 /* MotoTracking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotoTracking-Prefix.pch"; sourceTree = "<group>"; };
+		EAA9E2D71722A4CC00585999 /* mtxAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxAppDelegate.h; sourceTree = "<group>"; };
+		EAA9E2D81722A4CC00585999 /* mtxAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxAppDelegate.m; sourceTree = "<group>"; };
+		EAA9E2DA1722A4CC00585999 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EAA9E2DC1722A4CC00585999 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EAA9E2DE1722A4CC00585999 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EAA9E2E11722A4CC00585999 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		EAA9E2E41722A4CC00585999 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		EAA9E2E61722A4CC00585999 /* mtxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxViewController.h; sourceTree = "<group>"; };
+		EAA9E2E71722A4CC00585999 /* mtxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAA9E2C21722A4CC00585999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA9E2C91722A4CC00585999 /* UIKit.framework in Frameworks */,
+				EAA9E2CB1722A4CC00585999 /* Foundation.framework in Frameworks */,
+				EAA9E2CD1722A4CC00585999 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAA9E2BC1722A4CC00585999 = {
+			isa = PBXGroup;
+			children = (
+				EAA9E2CE1722A4CC00585999 /* MotoTracking */,
+				EAA9E2C71722A4CC00585999 /* Frameworks */,
+				EAA9E2C61722A4CC00585999 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAA9E2C61722A4CC00585999 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAA9E2C51722A4CC00585999 /* MotoTracking.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAA9E2C71722A4CC00585999 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAA9E2C81722A4CC00585999 /* UIKit.framework */,
+				EAA9E2CA1722A4CC00585999 /* Foundation.framework */,
+				EAA9E2CC1722A4CC00585999 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAA9E2CE1722A4CC00585999 /* MotoTracking */ = {
+			isa = PBXGroup;
+			children = (
+				EAA9E2D71722A4CC00585999 /* mtxAppDelegate.h */,
+				EAA9E2D81722A4CC00585999 /* mtxAppDelegate.m */,
+				EAA9E2E01722A4CC00585999 /* MainStoryboard_iPhone.storyboard */,
+				EAA9E2E31722A4CC00585999 /* MainStoryboard_iPad.storyboard */,
+				EAA9E2E61722A4CC00585999 /* mtxViewController.h */,
+				EAA9E2E71722A4CC00585999 /* mtxViewController.m */,
+				EAA9E2CF1722A4CC00585999 /* Supporting Files */,
+			);
+			path = MotoTracking;
+			sourceTree = "<group>";
+		};
+		EAA9E2CF1722A4CC00585999 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAA9E2D01722A4CC00585999 /* MotoTracking-Info.plist */,
+				EAA9E2D11722A4CC00585999 /* InfoPlist.strings */,
+				EAA9E2D41722A4CC00585999 /* main.m */,
+				EAA9E2D61722A4CC00585999 /* MotoTracking-Prefix.pch */,
+				EAA9E2DA1722A4CC00585999 /* Default.png */,
+				EAA9E2DC1722A4CC00585999 /* Default@2x.png */,
+				EAA9E2DE1722A4CC00585999 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAA9E2C41722A4CC00585999 /* MotoTracking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAA9E2EB1722A4CC00585999 /* Build configuration list for PBXNativeTarget "MotoTracking" */;
+			buildPhases = (
+				EAA9E2C11722A4CC00585999 /* Sources */,
+				EAA9E2C21722A4CC00585999 /* Frameworks */,
+				EAA9E2C31722A4CC00585999 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MotoTracking;
+			productName = MotoTracking;
+			productReference = EAA9E2C51722A4CC00585999 /* MotoTracking.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAA9E2BD1722A4CC00585999 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = mtx;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "xTreme Software";
+			};
+			buildConfigurationList = EAA9E2C01722A4CC00585999 /* Build configuration list for PBXProject "MotoTracking" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EAA9E2BC1722A4CC00585999;
+			productRefGroup = EAA9E2C61722A4CC00585999 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAA9E2C41722A4CC00585999 /* MotoTracking */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAA9E2C31722A4CC00585999 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA9E2D31722A4CC00585999 /* InfoPlist.strings in Resources */,
+				EAA9E2DB1722A4CC00585999 /* Default.png in Resources */,
+				EAA9E2DD1722A4CC00585999 /* Default@2x.png in Resources */,
+				EAA9E2DF1722A4CC00585999 /* Default-568h@2x.png in Resources */,
+				EAA9E2E21722A4CC00585999 /* MainStoryboard_iPhone.storyboard in Resources */,
+				EAA9E2E51722A4CC00585999 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAA9E2C11722A4CC00585999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA9E2D51722A4CC00585999 /* main.m in Sources */,
+				EAA9E2D91722A4CC00585999 /* mtxAppDelegate.m in Sources */,
+				EAA9E2E81722A4CC00585999 /* mtxViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EAA9E2D11722A4CC00585999 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAA9E2D21722A4CC00585999 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EAA9E2E01722A4CC00585999 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAA9E2E11722A4CC00585999 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		EAA9E2E31722A4CC00585999 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAA9E2E41722A4CC00585999 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAA9E2E91722A4CC00585999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAA9E2EA1722A4CC00585999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAA9E2EC1722A4CC00585999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MotoTracking/MotoTracking-Prefix.pch";
+				INFOPLIST_FILE = "MotoTracking/MotoTracking-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EAA9E2ED1722A4CC00585999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MotoTracking/MotoTracking-Prefix.pch";
+				INFOPLIST_FILE = "MotoTracking/MotoTracking-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAA9E2C01722A4CC00585999 /* Build configuration list for PBXProject "MotoTracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAA9E2E91722A4CC00585999 /* Debug */,
+				EAA9E2EA1722A4CC00585999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAA9E2EB1722A4CC00585999 /* Build configuration list for PBXNativeTarget "MotoTracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAA9E2EC1722A4CC00585999 /* Debug */,
+				EAA9E2ED1722A4CC00585999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAA9E2BD1722A4CC00585999 /* Project object */;
+}
