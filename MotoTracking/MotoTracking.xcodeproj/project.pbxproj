@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EA4213411722A723000BD5F8 /* AM1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213321722A723000BD5F8 /* AM1.png */; };
-		EA4213421722A723000BD5F8 /* AM2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213331722A723000BD5F8 /* AM2.png */; };
-		EA4213431722A723000BD5F8 /* DC1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213341722A723000BD5F8 /* DC1.png */; };
-		EA4213441722A723000BD5F8 /* DC2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213351722A723000BD5F8 /* DC2.png */; };
-		EA4213451722A723000BD5F8 /* GAF.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213361722A723000BD5F8 /* GAF.png */; };
-		EA4213461722A723000BD5F8 /* GAI.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213371722A723000BD5F8 /* GAI.png */; };
-		EA4213471722A723000BD5F8 /* MO1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213381722A723000BD5F8 /* MO1.png */; };
-		EA4213481722A723000BD5F8 /* MO2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213391722A723000BD5F8 /* MO2.png */; };
-		EA4213491722A723000BD5F8 /* MO3.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42133A1722A723000BD5F8 /* MO3.png */; };
-		EA42134A1722A723000BD5F8 /* MO4.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42133B1722A723000BD5F8 /* MO4.png */; };
-		EA42134B1722A723000BD5F8 /* MO5.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42133C1722A723000BD5F8 /* MO5.png */; };
-		EA42134C1722A723000BD5F8 /* MO6.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42133D1722A723000BD5F8 /* MO6.png */; };
-		EA42134D1722A723000BD5F8 /* MO7.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42133E1722A723000BD5F8 /* MO7.png */; };
-		EA42134E1722A723000BD5F8 /* MO8.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42133F1722A723000BD5F8 /* MO8.png */; };
-		EA42134F1722A723000BD5F8 /* MO9.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213401722A723000BD5F8 /* MO9.png */; };
+		EA42135F1722A793000BD5F8 /* AM1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213501722A793000BD5F8 /* AM1.png */; };
+		EA4213601722A793000BD5F8 /* AM2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213511722A793000BD5F8 /* AM2.png */; };
+		EA4213611722A793000BD5F8 /* DC1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213521722A793000BD5F8 /* DC1.png */; };
+		EA4213621722A793000BD5F8 /* DC2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213531722A793000BD5F8 /* DC2.png */; };
+		EA4213631722A793000BD5F8 /* GAF.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213541722A793000BD5F8 /* GAF.png */; };
+		EA4213641722A793000BD5F8 /* GAI.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213551722A793000BD5F8 /* GAI.png */; };
+		EA4213651722A793000BD5F8 /* MO1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213561722A793000BD5F8 /* MO1.png */; };
+		EA4213661722A793000BD5F8 /* MO2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213571722A793000BD5F8 /* MO2.png */; };
+		EA4213671722A793000BD5F8 /* MO3.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213581722A793000BD5F8 /* MO3.png */; };
+		EA4213681722A793000BD5F8 /* MO4.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213591722A793000BD5F8 /* MO4.png */; };
+		EA4213691722A793000BD5F8 /* MO5.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42135A1722A793000BD5F8 /* MO5.png */; };
+		EA42136A1722A793000BD5F8 /* MO6.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42135B1722A793000BD5F8 /* MO6.png */; };
+		EA42136B1722A793000BD5F8 /* MO7.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42135C1722A793000BD5F8 /* MO7.png */; };
+		EA42136C1722A793000BD5F8 /* MO8.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42135D1722A793000BD5F8 /* MO8.png */; };
+		EA42136D1722A793000BD5F8 /* MO9.png in Resources */ = {isa = PBXBuildFile; fileRef = EA42135E1722A793000BD5F8 /* MO9.png */; };
 		EA4FABBD171DB69500410870 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABBC171DB69500410870 /* UIKit.framework */; };
 		EA4FABBF171DB69500410870 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABBE171DB69500410870 /* Foundation.framework */; };
 		EA4FABC1171DB69500410870 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABC0171DB69500410870 /* CoreGraphics.framework */; };
@@ -35,25 +35,26 @@
 		EA4FABD9171DB69500410870 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */; };
 		EA4FABDC171DB69500410870 /* mtxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4FABDB171DB69500410870 /* mtxViewController.m */; };
 		EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADC13FE17200D9F00346437 /* MapKit.framework */; };
-		EADC1402172069C100346437 /* mtxMapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EADC1401172069C100346437 /* mtxMapViewAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EA4213321722A723000BD5F8 /* AM1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AM1.png; path = Marker/AM1.png; sourceTree = "<group>"; };
-		EA4213331722A723000BD5F8 /* AM2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AM2.png; path = Marker/AM2.png; sourceTree = "<group>"; };
-		EA4213341722A723000BD5F8 /* DC1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DC1.png; path = Marker/DC1.png; sourceTree = "<group>"; };
-		EA4213351722A723000BD5F8 /* DC2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DC2.png; path = Marker/DC2.png; sourceTree = "<group>"; };
-		EA4213361722A723000BD5F8 /* GAF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GAF.png; path = Marker/GAF.png; sourceTree = "<group>"; };
-		EA4213371722A723000BD5F8 /* GAI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GAI.png; path = Marker/GAI.png; sourceTree = "<group>"; };
-		EA4213381722A723000BD5F8 /* MO1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO1.png; path = Marker/MO1.png; sourceTree = "<group>"; };
-		EA4213391722A723000BD5F8 /* MO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO2.png; path = Marker/MO2.png; sourceTree = "<group>"; };
-		EA42133A1722A723000BD5F8 /* MO3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO3.png; path = Marker/MO3.png; sourceTree = "<group>"; };
-		EA42133B1722A723000BD5F8 /* MO4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO4.png; path = Marker/MO4.png; sourceTree = "<group>"; };
-		EA42133C1722A723000BD5F8 /* MO5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO5.png; path = Marker/MO5.png; sourceTree = "<group>"; };
-		EA42133D1722A723000BD5F8 /* MO6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO6.png; path = Marker/MO6.png; sourceTree = "<group>"; };
-		EA42133E1722A723000BD5F8 /* MO7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO7.png; path = Marker/MO7.png; sourceTree = "<group>"; };
-		EA42133F1722A723000BD5F8 /* MO8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO8.png; path = Marker/MO8.png; sourceTree = "<group>"; };
-		EA4213401722A723000BD5F8 /* MO9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO9.png; path = Marker/MO9.png; sourceTree = "<group>"; };
+		EA4213501722A793000BD5F8 /* AM1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AM1.png; sourceTree = "<group>"; };
+		EA4213511722A793000BD5F8 /* AM2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AM2.png; sourceTree = "<group>"; };
+		EA4213521722A793000BD5F8 /* DC1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DC1.png; sourceTree = "<group>"; };
+		EA4213531722A793000BD5F8 /* DC2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DC2.png; sourceTree = "<group>"; };
+		EA4213541722A793000BD5F8 /* GAF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAF.png; sourceTree = "<group>"; };
+		EA4213551722A793000BD5F8 /* GAI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAI.png; sourceTree = "<group>"; };
+		EA4213561722A793000BD5F8 /* MO1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO1.png; sourceTree = "<group>"; };
+		EA4213571722A793000BD5F8 /* MO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO2.png; sourceTree = "<group>"; };
+		EA4213581722A793000BD5F8 /* MO3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO3.png; sourceTree = "<group>"; };
+		EA4213591722A793000BD5F8 /* MO4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO4.png; sourceTree = "<group>"; };
+		EA42135A1722A793000BD5F8 /* MO5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO5.png; sourceTree = "<group>"; };
+		EA42135B1722A793000BD5F8 /* MO6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO6.png; sourceTree = "<group>"; };
+		EA42135C1722A793000BD5F8 /* MO7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO7.png; sourceTree = "<group>"; };
+		EA42135D1722A793000BD5F8 /* MO8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO8.png; sourceTree = "<group>"; };
+		EA42135E1722A793000BD5F8 /* MO9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO9.png; sourceTree = "<group>"; };
+		EA4213701722A7CB000BD5F8 /* mtxMapViewAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxMapViewAnnotation.h; sourceTree = "<group>"; };
+		EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxMapViewAnnotation.m; sourceTree = "<group>"; };
 		EA4FABB9171DB69500410870 /* MotoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4FABBC171DB69500410870 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA4FABBE171DB69500410870 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,8 +73,6 @@
 		EA4FABDA171DB69500410870 /* mtxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxViewController.h; sourceTree = "<group>"; };
 		EA4FABDB171DB69500410870 /* mtxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxViewController.m; sourceTree = "<group>"; };
 		EADC13FE17200D9F00346437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		EADC1400172069C100346437 /* mtxMapViewAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxMapViewAnnotation.h; sourceTree = "<group>"; };
-		EADC1401172069C100346437 /* mtxMapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxMapViewAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +121,8 @@
 		EA4FABC2171DB69500410870 /* MotoTracking */ = {
 			isa = PBXGroup;
 			children = (
+				EA4213701722A7CB000BD5F8 /* mtxMapViewAnnotation.h */,
+				EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */,
 				EADC14211721A29700346437 /* Markers */,
 				EA4FABCB171DB69500410870 /* mtxAppDelegate.h */,
 				EA4FABCC171DB69500410870 /* mtxAppDelegate.m */,
@@ -130,8 +131,6 @@
 				EA4FABDA171DB69500410870 /* mtxViewController.h */,
 				EA4FABDB171DB69500410870 /* mtxViewController.m */,
 				EA4FABC3171DB69500410870 /* Supporting Files */,
-				EADC1400172069C100346437 /* mtxMapViewAnnotation.h */,
-				EADC1401172069C100346437 /* mtxMapViewAnnotation.m */,
 			);
 			path = MotoTracking;
 			sourceTree = "<group>";
@@ -153,21 +152,21 @@
 		EADC14211721A29700346437 /* Markers */ = {
 			isa = PBXGroup;
 			children = (
-				EA4213321722A723000BD5F8 /* AM1.png */,
-				EA4213331722A723000BD5F8 /* AM2.png */,
-				EA4213341722A723000BD5F8 /* DC1.png */,
-				EA4213351722A723000BD5F8 /* DC2.png */,
-				EA4213361722A723000BD5F8 /* GAF.png */,
-				EA4213371722A723000BD5F8 /* GAI.png */,
-				EA4213381722A723000BD5F8 /* MO1.png */,
-				EA4213391722A723000BD5F8 /* MO2.png */,
-				EA42133A1722A723000BD5F8 /* MO3.png */,
-				EA42133B1722A723000BD5F8 /* MO4.png */,
-				EA42133C1722A723000BD5F8 /* MO5.png */,
-				EA42133D1722A723000BD5F8 /* MO6.png */,
-				EA42133E1722A723000BD5F8 /* MO7.png */,
-				EA42133F1722A723000BD5F8 /* MO8.png */,
-				EA4213401722A723000BD5F8 /* MO9.png */,
+				EA4213501722A793000BD5F8 /* AM1.png */,
+				EA4213511722A793000BD5F8 /* AM2.png */,
+				EA4213521722A793000BD5F8 /* DC1.png */,
+				EA4213531722A793000BD5F8 /* DC2.png */,
+				EA4213541722A793000BD5F8 /* GAF.png */,
+				EA4213551722A793000BD5F8 /* GAI.png */,
+				EA4213561722A793000BD5F8 /* MO1.png */,
+				EA4213571722A793000BD5F8 /* MO2.png */,
+				EA4213581722A793000BD5F8 /* MO3.png */,
+				EA4213591722A793000BD5F8 /* MO4.png */,
+				EA42135A1722A793000BD5F8 /* MO5.png */,
+				EA42135B1722A793000BD5F8 /* MO6.png */,
+				EA42135C1722A793000BD5F8 /* MO7.png */,
+				EA42135D1722A793000BD5F8 /* MO8.png */,
+				EA42135E1722A793000BD5F8 /* MO9.png */,
 			);
 			name = Markers;
 			sourceTree = "<group>";
@@ -230,21 +229,21 @@
 				EA4FABD3171DB69500410870 /* Default-568h@2x.png in Resources */,
 				EA4FABD6171DB69500410870 /* MainStoryboard_iPhone.storyboard in Resources */,
 				EA4FABD9171DB69500410870 /* MainStoryboard_iPad.storyboard in Resources */,
-				EA4213411722A723000BD5F8 /* AM1.png in Resources */,
-				EA4213421722A723000BD5F8 /* AM2.png in Resources */,
-				EA4213431722A723000BD5F8 /* DC1.png in Resources */,
-				EA4213441722A723000BD5F8 /* DC2.png in Resources */,
-				EA4213451722A723000BD5F8 /* GAF.png in Resources */,
-				EA4213461722A723000BD5F8 /* GAI.png in Resources */,
-				EA4213471722A723000BD5F8 /* MO1.png in Resources */,
-				EA4213481722A723000BD5F8 /* MO2.png in Resources */,
-				EA4213491722A723000BD5F8 /* MO3.png in Resources */,
-				EA42134A1722A723000BD5F8 /* MO4.png in Resources */,
-				EA42134B1722A723000BD5F8 /* MO5.png in Resources */,
-				EA42134C1722A723000BD5F8 /* MO6.png in Resources */,
-				EA42134D1722A723000BD5F8 /* MO7.png in Resources */,
-				EA42134E1722A723000BD5F8 /* MO8.png in Resources */,
-				EA42134F1722A723000BD5F8 /* MO9.png in Resources */,
+				EA42135F1722A793000BD5F8 /* AM1.png in Resources */,
+				EA4213601722A793000BD5F8 /* AM2.png in Resources */,
+				EA4213611722A793000BD5F8 /* DC1.png in Resources */,
+				EA4213621722A793000BD5F8 /* DC2.png in Resources */,
+				EA4213631722A793000BD5F8 /* GAF.png in Resources */,
+				EA4213641722A793000BD5F8 /* GAI.png in Resources */,
+				EA4213651722A793000BD5F8 /* MO1.png in Resources */,
+				EA4213661722A793000BD5F8 /* MO2.png in Resources */,
+				EA4213671722A793000BD5F8 /* MO3.png in Resources */,
+				EA4213681722A793000BD5F8 /* MO4.png in Resources */,
+				EA4213691722A793000BD5F8 /* MO5.png in Resources */,
+				EA42136A1722A793000BD5F8 /* MO6.png in Resources */,
+				EA42136B1722A793000BD5F8 /* MO7.png in Resources */,
+				EA42136C1722A793000BD5F8 /* MO8.png in Resources */,
+				EA42136D1722A793000BD5F8 /* MO9.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +257,6 @@
 				EA4FABC9171DB69500410870 /* main.m in Sources */,
 				EA4FABCD171DB69500410870 /* mtxAppDelegate.m in Sources */,
 				EA4FABDC171DB69500410870 /* mtxViewController.m in Sources */,
-				EADC1402172069C100346437 /* mtxMapViewAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
