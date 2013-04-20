@@ -2,12 +2,21 @@
 //  mtxViewController.h
 //  MotoTracking
 //
-//  Created by Eugenio Pompei on 20/04/13.
+//  Created by Eugenio Pompei on 16/04/13.
 //  Copyright (c) 2013 xTreme Software. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface mtxViewController : UIViewController
+#import "mtxMapViewAnnotation.h"
+
+@interface mtxViewController : UIViewController <MKMapViewDelegate>
+{
+    MKMapView *myMapView;
+}
+
+@property (weak, nonatomic) IBOutlet MKMapView *iPhoneMapView;
+@property (strong, nonatomic) IBOutlet MKMapView *iPadMapView;
 
 @end

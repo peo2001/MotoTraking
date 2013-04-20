@@ -7,119 +7,181 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EAA9E2C91722A4CC00585999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA9E2C81722A4CC00585999 /* UIKit.framework */; };
-		EAA9E2CB1722A4CC00585999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA9E2CA1722A4CC00585999 /* Foundation.framework */; };
-		EAA9E2CD1722A4CC00585999 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA9E2CC1722A4CC00585999 /* CoreGraphics.framework */; };
-		EAA9E2D31722A4CC00585999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2D11722A4CC00585999 /* InfoPlist.strings */; };
-		EAA9E2D51722A4CC00585999 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA9E2D41722A4CC00585999 /* main.m */; };
-		EAA9E2D91722A4CC00585999 /* mtxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA9E2D81722A4CC00585999 /* mtxAppDelegate.m */; };
-		EAA9E2DB1722A4CC00585999 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2DA1722A4CC00585999 /* Default.png */; };
-		EAA9E2DD1722A4CC00585999 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2DC1722A4CC00585999 /* Default@2x.png */; };
-		EAA9E2DF1722A4CC00585999 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2DE1722A4CC00585999 /* Default-568h@2x.png */; };
-		EAA9E2E21722A4CC00585999 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2E01722A4CC00585999 /* MainStoryboard_iPhone.storyboard */; };
-		EAA9E2E51722A4CC00585999 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAA9E2E31722A4CC00585999 /* MainStoryboard_iPad.storyboard */; };
-		EAA9E2E81722A4CC00585999 /* mtxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA9E2E71722A4CC00585999 /* mtxViewController.m */; };
+		EA4FABBD171DB69500410870 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABBC171DB69500410870 /* UIKit.framework */; };
+		EA4FABBF171DB69500410870 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABBE171DB69500410870 /* Foundation.framework */; };
+		EA4FABC1171DB69500410870 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABC0171DB69500410870 /* CoreGraphics.framework */; };
+		EA4FABC7171DB69500410870 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABC5171DB69500410870 /* InfoPlist.strings */; };
+		EA4FABC9171DB69500410870 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4FABC8171DB69500410870 /* main.m */; };
+		EA4FABCD171DB69500410870 /* mtxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4FABCC171DB69500410870 /* mtxAppDelegate.m */; };
+		EA4FABCF171DB69500410870 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABCE171DB69500410870 /* Default.png */; };
+		EA4FABD1171DB69500410870 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABD0171DB69500410870 /* Default@2x.png */; };
+		EA4FABD3171DB69500410870 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABD2171DB69500410870 /* Default-568h@2x.png */; };
+		EA4FABD6171DB69500410870 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABD4171DB69500410870 /* MainStoryboard_iPhone.storyboard */; };
+		EA4FABD9171DB69500410870 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */; };
+		EA4FABDC171DB69500410870 /* mtxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4FABDB171DB69500410870 /* mtxViewController.m */; };
+		EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADC13FE17200D9F00346437 /* MapKit.framework */; };
+		EADC1402172069C100346437 /* mtxMapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EADC1401172069C100346437 /* mtxMapViewAnnotation.m */; };
+		EADC14121721A29100346437 /* AM1.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14031721A29000346437 /* AM1.png */; };
+		EADC14131721A29100346437 /* AM2.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14041721A29000346437 /* AM2.png */; };
+		EADC14141721A29100346437 /* DC1.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14051721A29000346437 /* DC1.png */; };
+		EADC14151721A29100346437 /* DC2.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14061721A29000346437 /* DC2.png */; };
+		EADC14161721A29100346437 /* GAF.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14071721A29100346437 /* GAF.png */; };
+		EADC14171721A29100346437 /* GAI.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14081721A29100346437 /* GAI.png */; };
+		EADC14181721A29100346437 /* MO1.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14091721A29100346437 /* MO1.png */; };
+		EADC14191721A29100346437 /* MO2.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC140A1721A29100346437 /* MO2.png */; };
+		EADC141A1721A29100346437 /* MO3.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC140B1721A29100346437 /* MO3.png */; };
+		EADC141B1721A29100346437 /* MO4.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC140C1721A29100346437 /* MO4.png */; };
+		EADC141C1721A29100346437 /* MO5.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC140D1721A29100346437 /* MO5.png */; };
+		EADC141D1721A29100346437 /* MO6.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC140E1721A29100346437 /* MO6.png */; };
+		EADC141E1721A29100346437 /* MO7.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC140F1721A29100346437 /* MO7.png */; };
+		EADC141F1721A29100346437 /* MO8.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14101721A29100346437 /* MO8.png */; };
+		EADC14201721A29100346437 /* MO9.png in Resources */ = {isa = PBXBuildFile; fileRef = EADC14111721A29100346437 /* MO9.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EAA9E2C51722A4CC00585999 /* MotoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAA9E2C81722A4CC00585999 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		EAA9E2CA1722A4CC00585999 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		EAA9E2CC1722A4CC00585999 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		EAA9E2D01722A4CC00585999 /* MotoTracking-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MotoTracking-Info.plist"; sourceTree = "<group>"; };
-		EAA9E2D21722A4CC00585999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EAA9E2D41722A4CC00585999 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EAA9E2D61722A4CC00585999 /* MotoTracking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotoTracking-Prefix.pch"; sourceTree = "<group>"; };
-		EAA9E2D71722A4CC00585999 /* mtxAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxAppDelegate.h; sourceTree = "<group>"; };
-		EAA9E2D81722A4CC00585999 /* mtxAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxAppDelegate.m; sourceTree = "<group>"; };
-		EAA9E2DA1722A4CC00585999 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EAA9E2DC1722A4CC00585999 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		EAA9E2DE1722A4CC00585999 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		EAA9E2E11722A4CC00585999 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		EAA9E2E41722A4CC00585999 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		EAA9E2E61722A4CC00585999 /* mtxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxViewController.h; sourceTree = "<group>"; };
-		EAA9E2E71722A4CC00585999 /* mtxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxViewController.m; sourceTree = "<group>"; };
+		EA4FABB9171DB69500410870 /* MotoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4FABBC171DB69500410870 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EA4FABBE171DB69500410870 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EA4FABC0171DB69500410870 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EA4FABC4171DB69500410870 /* MotoTracking-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MotoTracking-Info.plist"; sourceTree = "<group>"; };
+		EA4FABC6171DB69500410870 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA4FABC8171DB69500410870 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EA4FABCA171DB69500410870 /* MotoTracking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotoTracking-Prefix.pch"; sourceTree = "<group>"; };
+		EA4FABCB171DB69500410870 /* mtxAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxAppDelegate.h; sourceTree = "<group>"; };
+		EA4FABCC171DB69500410870 /* mtxAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxAppDelegate.m; sourceTree = "<group>"; };
+		EA4FABCE171DB69500410870 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EA4FABD0171DB69500410870 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EA4FABD2171DB69500410870 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EA4FABD5171DB69500410870 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		EA4FABD8171DB69500410870 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		EA4FABDA171DB69500410870 /* mtxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxViewController.h; sourceTree = "<group>"; };
+		EA4FABDB171DB69500410870 /* mtxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxViewController.m; sourceTree = "<group>"; };
+		EADC13FE17200D9F00346437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EADC1400172069C100346437 /* mtxMapViewAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxMapViewAnnotation.h; sourceTree = "<group>"; };
+		EADC1401172069C100346437 /* mtxMapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxMapViewAnnotation.m; sourceTree = "<group>"; };
+		EADC14031721A29000346437 /* AM1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AM1.png; path = Marker/AM1.png; sourceTree = SOURCE_ROOT; };
+		EADC14041721A29000346437 /* AM2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AM2.png; path = Marker/AM2.png; sourceTree = SOURCE_ROOT; };
+		EADC14051721A29000346437 /* DC1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DC1.png; path = Marker/DC1.png; sourceTree = SOURCE_ROOT; };
+		EADC14061721A29000346437 /* DC2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DC2.png; path = Marker/DC2.png; sourceTree = SOURCE_ROOT; };
+		EADC14071721A29100346437 /* GAF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GAF.png; path = Marker/GAF.png; sourceTree = SOURCE_ROOT; };
+		EADC14081721A29100346437 /* GAI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GAI.png; path = Marker/GAI.png; sourceTree = SOURCE_ROOT; };
+		EADC14091721A29100346437 /* MO1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO1.png; path = Marker/MO1.png; sourceTree = SOURCE_ROOT; };
+		EADC140A1721A29100346437 /* MO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO2.png; path = Marker/MO2.png; sourceTree = SOURCE_ROOT; };
+		EADC140B1721A29100346437 /* MO3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO3.png; path = Marker/MO3.png; sourceTree = SOURCE_ROOT; };
+		EADC140C1721A29100346437 /* MO4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO4.png; path = Marker/MO4.png; sourceTree = SOURCE_ROOT; };
+		EADC140D1721A29100346437 /* MO5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO5.png; path = Marker/MO5.png; sourceTree = SOURCE_ROOT; };
+		EADC140E1721A29100346437 /* MO6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO6.png; path = Marker/MO6.png; sourceTree = SOURCE_ROOT; };
+		EADC140F1721A29100346437 /* MO7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO7.png; path = Marker/MO7.png; sourceTree = SOURCE_ROOT; };
+		EADC14101721A29100346437 /* MO8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO8.png; path = Marker/MO8.png; sourceTree = SOURCE_ROOT; };
+		EADC14111721A29100346437 /* MO9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MO9.png; path = Marker/MO9.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EAA9E2C21722A4CC00585999 /* Frameworks */ = {
+		EA4FABB6171DB69500410870 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAA9E2C91722A4CC00585999 /* UIKit.framework in Frameworks */,
-				EAA9E2CB1722A4CC00585999 /* Foundation.framework in Frameworks */,
-				EAA9E2CD1722A4CC00585999 /* CoreGraphics.framework in Frameworks */,
+				EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */,
+				EA4FABBD171DB69500410870 /* UIKit.framework in Frameworks */,
+				EA4FABBF171DB69500410870 /* Foundation.framework in Frameworks */,
+				EA4FABC1171DB69500410870 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EAA9E2BC1722A4CC00585999 = {
+		EA4FABB0171DB69500410870 = {
 			isa = PBXGroup;
 			children = (
-				EAA9E2CE1722A4CC00585999 /* MotoTracking */,
-				EAA9E2C71722A4CC00585999 /* Frameworks */,
-				EAA9E2C61722A4CC00585999 /* Products */,
+				EADC13FE17200D9F00346437 /* MapKit.framework */,
+				EA4FABC2171DB69500410870 /* MotoTracking */,
+				EA4FABBB171DB69500410870 /* Frameworks */,
+				EA4FABBA171DB69500410870 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EAA9E2C61722A4CC00585999 /* Products */ = {
+		EA4FABBA171DB69500410870 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EAA9E2C51722A4CC00585999 /* MotoTracking.app */,
+				EA4FABB9171DB69500410870 /* MotoTracking.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EAA9E2C71722A4CC00585999 /* Frameworks */ = {
+		EA4FABBB171DB69500410870 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EAA9E2C81722A4CC00585999 /* UIKit.framework */,
-				EAA9E2CA1722A4CC00585999 /* Foundation.framework */,
-				EAA9E2CC1722A4CC00585999 /* CoreGraphics.framework */,
+				EA4FABBC171DB69500410870 /* UIKit.framework */,
+				EA4FABBE171DB69500410870 /* Foundation.framework */,
+				EA4FABC0171DB69500410870 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EAA9E2CE1722A4CC00585999 /* MotoTracking */ = {
+		EA4FABC2171DB69500410870 /* MotoTracking */ = {
 			isa = PBXGroup;
 			children = (
-				EAA9E2D71722A4CC00585999 /* mtxAppDelegate.h */,
-				EAA9E2D81722A4CC00585999 /* mtxAppDelegate.m */,
-				EAA9E2E01722A4CC00585999 /* MainStoryboard_iPhone.storyboard */,
-				EAA9E2E31722A4CC00585999 /* MainStoryboard_iPad.storyboard */,
-				EAA9E2E61722A4CC00585999 /* mtxViewController.h */,
-				EAA9E2E71722A4CC00585999 /* mtxViewController.m */,
-				EAA9E2CF1722A4CC00585999 /* Supporting Files */,
+				EADC14211721A29700346437 /* Markers */,
+				EA4FABCB171DB69500410870 /* mtxAppDelegate.h */,
+				EA4FABCC171DB69500410870 /* mtxAppDelegate.m */,
+				EA4FABD4171DB69500410870 /* MainStoryboard_iPhone.storyboard */,
+				EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */,
+				EA4FABDA171DB69500410870 /* mtxViewController.h */,
+				EA4FABDB171DB69500410870 /* mtxViewController.m */,
+				EA4FABC3171DB69500410870 /* Supporting Files */,
+				EADC1400172069C100346437 /* mtxMapViewAnnotation.h */,
+				EADC1401172069C100346437 /* mtxMapViewAnnotation.m */,
 			);
 			path = MotoTracking;
 			sourceTree = "<group>";
 		};
-		EAA9E2CF1722A4CC00585999 /* Supporting Files */ = {
+		EA4FABC3171DB69500410870 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EAA9E2D01722A4CC00585999 /* MotoTracking-Info.plist */,
-				EAA9E2D11722A4CC00585999 /* InfoPlist.strings */,
-				EAA9E2D41722A4CC00585999 /* main.m */,
-				EAA9E2D61722A4CC00585999 /* MotoTracking-Prefix.pch */,
-				EAA9E2DA1722A4CC00585999 /* Default.png */,
-				EAA9E2DC1722A4CC00585999 /* Default@2x.png */,
-				EAA9E2DE1722A4CC00585999 /* Default-568h@2x.png */,
+				EA4FABC4171DB69500410870 /* MotoTracking-Info.plist */,
+				EA4FABC5171DB69500410870 /* InfoPlist.strings */,
+				EA4FABC8171DB69500410870 /* main.m */,
+				EA4FABCA171DB69500410870 /* MotoTracking-Prefix.pch */,
+				EA4FABCE171DB69500410870 /* Default.png */,
+				EA4FABD0171DB69500410870 /* Default@2x.png */,
+				EA4FABD2171DB69500410870 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EADC14211721A29700346437 /* Markers */ = {
+			isa = PBXGroup;
+			children = (
+				EADC14031721A29000346437 /* AM1.png */,
+				EADC14041721A29000346437 /* AM2.png */,
+				EADC14051721A29000346437 /* DC1.png */,
+				EADC14061721A29000346437 /* DC2.png */,
+				EADC14071721A29100346437 /* GAF.png */,
+				EADC14081721A29100346437 /* GAI.png */,
+				EADC14091721A29100346437 /* MO1.png */,
+				EADC140A1721A29100346437 /* MO2.png */,
+				EADC140B1721A29100346437 /* MO3.png */,
+				EADC140C1721A29100346437 /* MO4.png */,
+				EADC140D1721A29100346437 /* MO5.png */,
+				EADC140E1721A29100346437 /* MO6.png */,
+				EADC140F1721A29100346437 /* MO7.png */,
+				EADC14101721A29100346437 /* MO8.png */,
+				EADC14111721A29100346437 /* MO9.png */,
+			);
+			name = Markers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EAA9E2C41722A4CC00585999 /* MotoTracking */ = {
+		EA4FABB8171DB69500410870 /* MotoTracking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAA9E2EB1722A4CC00585999 /* Build configuration list for PBXNativeTarget "MotoTracking" */;
+			buildConfigurationList = EA4FABDF171DB69500410870 /* Build configuration list for PBXNativeTarget "MotoTracking" */;
 			buildPhases = (
-				EAA9E2C11722A4CC00585999 /* Sources */,
-				EAA9E2C21722A4CC00585999 /* Frameworks */,
-				EAA9E2C31722A4CC00585999 /* Resources */,
+				EA4FABB5171DB69500410870 /* Sources */,
+				EA4FABB6171DB69500410870 /* Frameworks */,
+				EA4FABB7171DB69500410870 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -127,86 +189,102 @@
 			);
 			name = MotoTracking;
 			productName = MotoTracking;
-			productReference = EAA9E2C51722A4CC00585999 /* MotoTracking.app */;
+			productReference = EA4FABB9171DB69500410870 /* MotoTracking.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EAA9E2BD1722A4CC00585999 /* Project object */ = {
+		EA4FABB1171DB69500410870 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = mtx;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "xTreme Software";
 			};
-			buildConfigurationList = EAA9E2C01722A4CC00585999 /* Build configuration list for PBXProject "MotoTracking" */;
+			buildConfigurationList = EA4FABB4171DB69500410870 /* Build configuration list for PBXProject "MotoTracking" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = EAA9E2BC1722A4CC00585999;
-			productRefGroup = EAA9E2C61722A4CC00585999 /* Products */;
+			mainGroup = EA4FABB0171DB69500410870;
+			productRefGroup = EA4FABBA171DB69500410870 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EAA9E2C41722A4CC00585999 /* MotoTracking */,
+				EA4FABB8171DB69500410870 /* MotoTracking */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EAA9E2C31722A4CC00585999 /* Resources */ = {
+		EA4FABB7171DB69500410870 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAA9E2D31722A4CC00585999 /* InfoPlist.strings in Resources */,
-				EAA9E2DB1722A4CC00585999 /* Default.png in Resources */,
-				EAA9E2DD1722A4CC00585999 /* Default@2x.png in Resources */,
-				EAA9E2DF1722A4CC00585999 /* Default-568h@2x.png in Resources */,
-				EAA9E2E21722A4CC00585999 /* MainStoryboard_iPhone.storyboard in Resources */,
-				EAA9E2E51722A4CC00585999 /* MainStoryboard_iPad.storyboard in Resources */,
+				EA4FABC7171DB69500410870 /* InfoPlist.strings in Resources */,
+				EA4FABCF171DB69500410870 /* Default.png in Resources */,
+				EA4FABD1171DB69500410870 /* Default@2x.png in Resources */,
+				EA4FABD3171DB69500410870 /* Default-568h@2x.png in Resources */,
+				EA4FABD6171DB69500410870 /* MainStoryboard_iPhone.storyboard in Resources */,
+				EA4FABD9171DB69500410870 /* MainStoryboard_iPad.storyboard in Resources */,
+				EADC14121721A29100346437 /* AM1.png in Resources */,
+				EADC14131721A29100346437 /* AM2.png in Resources */,
+				EADC14141721A29100346437 /* DC1.png in Resources */,
+				EADC14151721A29100346437 /* DC2.png in Resources */,
+				EADC14161721A29100346437 /* GAF.png in Resources */,
+				EADC14171721A29100346437 /* GAI.png in Resources */,
+				EADC14181721A29100346437 /* MO1.png in Resources */,
+				EADC14191721A29100346437 /* MO2.png in Resources */,
+				EADC141A1721A29100346437 /* MO3.png in Resources */,
+				EADC141B1721A29100346437 /* MO4.png in Resources */,
+				EADC141C1721A29100346437 /* MO5.png in Resources */,
+				EADC141D1721A29100346437 /* MO6.png in Resources */,
+				EADC141E1721A29100346437 /* MO7.png in Resources */,
+				EADC141F1721A29100346437 /* MO8.png in Resources */,
+				EADC14201721A29100346437 /* MO9.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EAA9E2C11722A4CC00585999 /* Sources */ = {
+		EA4FABB5171DB69500410870 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAA9E2D51722A4CC00585999 /* main.m in Sources */,
-				EAA9E2D91722A4CC00585999 /* mtxAppDelegate.m in Sources */,
-				EAA9E2E81722A4CC00585999 /* mtxViewController.m in Sources */,
+				EA4FABC9171DB69500410870 /* main.m in Sources */,
+				EA4FABCD171DB69500410870 /* mtxAppDelegate.m in Sources */,
+				EA4FABDC171DB69500410870 /* mtxViewController.m in Sources */,
+				EADC1402172069C100346437 /* mtxMapViewAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EAA9E2D11722A4CC00585999 /* InfoPlist.strings */ = {
+		EA4FABC5171DB69500410870 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EAA9E2D21722A4CC00585999 /* en */,
+				EA4FABC6171DB69500410870 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		EAA9E2E01722A4CC00585999 /* MainStoryboard_iPhone.storyboard */ = {
+		EA4FABD4171DB69500410870 /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EAA9E2E11722A4CC00585999 /* en */,
+				EA4FABD5171DB69500410870 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		EAA9E2E31722A4CC00585999 /* MainStoryboard_iPad.storyboard */ = {
+		EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EAA9E2E41722A4CC00585999 /* en */,
+				EA4FABD8171DB69500410870 /* en */,
 			);
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
@@ -214,7 +292,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EAA9E2E91722A4CC00585999 /* Debug */ = {
+		EA4FABDD171DB69500410870 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,7 +324,7 @@
 			};
 			name = Debug;
 		};
-		EAA9E2EA1722A4CC00585999 /* Release */ = {
+		EA4FABDE171DB69500410870 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,7 +350,7 @@
 			};
 			name = Release;
 		};
-		EAA9E2EC1722A4CC00585999 /* Debug */ = {
+		EA4FABE0171DB69500410870 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -283,7 +361,7 @@
 			};
 			name = Debug;
 		};
-		EAA9E2ED1722A4CC00585999 /* Release */ = {
+		EA4FABE1171DB69500410870 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -297,24 +375,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EAA9E2C01722A4CC00585999 /* Build configuration list for PBXProject "MotoTracking" */ = {
+		EA4FABB4171DB69500410870 /* Build configuration list for PBXProject "MotoTracking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EAA9E2E91722A4CC00585999 /* Debug */,
-				EAA9E2EA1722A4CC00585999 /* Release */,
+				EA4FABDD171DB69500410870 /* Debug */,
+				EA4FABDE171DB69500410870 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAA9E2EB1722A4CC00585999 /* Build configuration list for PBXNativeTarget "MotoTracking" */ = {
+		EA4FABDF171DB69500410870 /* Build configuration list for PBXNativeTarget "MotoTracking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EAA9E2EC1722A4CC00585999 /* Debug */,
-				EAA9E2ED1722A4CC00585999 /* Release */,
+				EA4FABE0171DB69500410870 /* Debug */,
+				EA4FABE1171DB69500410870 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EAA9E2BD1722A4CC00585999 /* Project object */;
+	rootObject = EA4FABB1171DB69500410870 /* Project object */;
 }
