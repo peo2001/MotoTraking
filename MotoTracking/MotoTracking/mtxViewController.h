@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "mtxAppDelegate.h"
+#import "mtxLoginViewController.h"
 
 #import "mtxMapViewAnnotation.h"
 
-@interface mtxViewController : UIViewController <MKMapViewDelegate>
+@interface mtxViewController : UIViewController <MKMapViewDelegate, SessionManagerDelegate>
 {
     MKMapView *myMapView;
+    mtxLoginViewController *myLogin;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *iPhoneMapView;

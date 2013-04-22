@@ -31,6 +31,10 @@
         myMapView = self.iPhoneMapView;
     }
     
+    // Receive the events from the the main session manager
+    MainAppDelegate.mainSessionManager.delegate = self;
+    
+    [MainAppDelegate.mainSessionManager login];
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -53,11 +57,31 @@
 }
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView{
-    NSLog(@"Map Loaded");
+
 }
 
 
+#pragma - mark Session Manager Events
+
+- (void)sessionManager:(mtxSessionManager *)sessionManager askForLogin:(NSString *)codiceAttivazione{
+    
+    myLogin = [[mtxLoginViewController alloc] init];
+    myLogin.codiceAttivazione = codiceAttivazione;
+    [self.view addSubview:myLogin.view];
+    
+}
+
+- (void)sessionManager:(mtxSessionManager *)sessionManager didNewTrackingReceived:(NSMutableArray *)annotations{
+    
+    [myMapView removeAnnotations:[myMapView annotations]];
+    
+    for (mtxMapViewAnnotation *aAnnotation in annotations) {
+        [myMapView addAnnotation:aAnnotation];
+    }
+}
+
 #pragma - mark Map Events
+
 // When a map annotation point is added, zoom to it (1500 range)
 - (void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views
 {

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA13EC2017254C2100CC37DC /* mtxMapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */; };
+		EA13EC2417254CCD00CC37DC /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EA13EC2317254CCD00CC37DC /* RXMLElement.m */; };
+		EA13EC2B172574AB00CC37DC /* mtxSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA13EC2A172574AB00CC37DC /* mtxSessionManager.m */; };
+		EA13EC2F17257C6600CC37DC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA13EC2E17257C6500CC37DC /* libxml2.dylib */; };
+		EA13EC321725869F00CC37DC /* RemoteConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = EA13EC2617254CF200CC37DC /* RemoteConnector.m */; };
+		EA13EC3617259B4400CC37DC /* mtxLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA13EC3417259B4300CC37DC /* mtxLoginViewController.m */; };
+		EA13EC3717259B4400CC37DC /* mtxLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA13EC3517259B4400CC37DC /* mtxLoginViewController.xib */; };
+		EA13EC3917259D1200CC37DC /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EA13EC3817259D1200CC37DC /* Logo.png */; };
 		EA42135F1722A793000BD5F8 /* AM1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213501722A793000BD5F8 /* AM1.png */; };
 		EA4213601722A793000BD5F8 /* AM2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213511722A793000BD5F8 /* AM2.png */; };
 		EA4213611722A793000BD5F8 /* DC1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213521722A793000BD5F8 /* DC1.png */; };
@@ -38,6 +46,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA13EC2217254CCD00CC37DC /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
+		EA13EC2317254CCD00CC37DC /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
+		EA13EC2517254CF200CC37DC /* RemoteConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteConnector.h; sourceTree = "<group>"; };
+		EA13EC2617254CF200CC37DC /* RemoteConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteConnector.m; sourceTree = "<group>"; };
+		EA13EC2717254CF200CC37DC /* RemoteConnectorParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteConnectorParameters.h; sourceTree = "<group>"; };
+		EA13EC29172574AB00CC37DC /* mtxSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxSessionManager.h; sourceTree = "<group>"; };
+		EA13EC2A172574AB00CC37DC /* mtxSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxSessionManager.m; sourceTree = "<group>"; };
+		EA13EC2E17257C6500CC37DC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		EA13EC3317259B4300CC37DC /* mtxLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxLoginViewController.h; sourceTree = "<group>"; };
+		EA13EC3417259B4300CC37DC /* mtxLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxLoginViewController.m; sourceTree = "<group>"; };
+		EA13EC3517259B4400CC37DC /* mtxLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mtxLoginViewController.xib; sourceTree = "<group>"; };
+		EA13EC3817259D1200CC37DC /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = MotoTracking/Logo.png; sourceTree = "<group>"; };
 		EA4213501722A793000BD5F8 /* AM1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AM1.png; sourceTree = "<group>"; };
 		EA4213511722A793000BD5F8 /* AM2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AM2.png; sourceTree = "<group>"; };
 		EA4213521722A793000BD5F8 /* DC1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DC1.png; sourceTree = "<group>"; };
@@ -80,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA13EC2F17257C6600CC37DC /* libxml2.dylib in Frameworks */,
 				EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */,
 				EA4FABBD171DB69500410870 /* UIKit.framework in Frameworks */,
 				EA4FABBF171DB69500410870 /* Foundation.framework in Frameworks */,
@@ -90,10 +111,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA13EC2117254CCD00CC37DC /* RaptureXML */ = {
+			isa = PBXGroup;
+			children = (
+				EA13EC2217254CCD00CC37DC /* RXMLElement.h */,
+				EA13EC2317254CCD00CC37DC /* RXMLElement.m */,
+			);
+			path = RaptureXML;
+			sourceTree = "<group>";
+		};
+		EA13EC2817254CFF00CC37DC /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				EA13EC2517254CF200CC37DC /* RemoteConnector.h */,
+				EA13EC2617254CF200CC37DC /* RemoteConnector.m */,
+				EA13EC2717254CF200CC37DC /* RemoteConnectorParameters.h */,
+				EA13EC2117254CCD00CC37DC /* RaptureXML */,
+			);
+			name = Communication;
+			sourceTree = "<group>";
+		};
+		EA13EC3A17259D1F00CC37DC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				EA13EC3817259D1200CC37DC /* Logo.png */,
+				EADC14211721A29700346437 /* Markers */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		EA13EC3B17259D8B00CC37DC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EA13EC3317259B4300CC37DC /* mtxLoginViewController.h */,
+				EA13EC3417259B4300CC37DC /* mtxLoginViewController.m */,
+				EA13EC3517259B4400CC37DC /* mtxLoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		EA4FABB0171DB69500410870 = {
 			isa = PBXGroup;
 			children = (
-				EADC13FE17200D9F00346437 /* MapKit.framework */,
+				EA13EC3A17259D1F00CC37DC /* Images */,
 				EA4FABC2171DB69500410870 /* MotoTracking */,
 				EA4FABBB171DB69500410870 /* Frameworks */,
 				EA4FABBA171DB69500410870 /* Products */,
@@ -111,6 +171,8 @@
 		EA4FABBB171DB69500410870 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA13EC2E17257C6500CC37DC /* libxml2.dylib */,
+				EADC13FE17200D9F00346437 /* MapKit.framework */,
 				EA4FABBC171DB69500410870 /* UIKit.framework */,
 				EA4FABBE171DB69500410870 /* Foundation.framework */,
 				EA4FABC0171DB69500410870 /* CoreGraphics.framework */,
@@ -121,15 +183,18 @@
 		EA4FABC2171DB69500410870 /* MotoTracking */ = {
 			isa = PBXGroup;
 			children = (
-				EA4213701722A7CB000BD5F8 /* mtxMapViewAnnotation.h */,
-				EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */,
-				EADC14211721A29700346437 /* Markers */,
-				EA4FABCB171DB69500410870 /* mtxAppDelegate.h */,
-				EA4FABCC171DB69500410870 /* mtxAppDelegate.m */,
+				EA13EC3B17259D8B00CC37DC /* Login */,
+				EA13EC2817254CFF00CC37DC /* Communication */,
 				EA4FABD4171DB69500410870 /* MainStoryboard_iPhone.storyboard */,
 				EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */,
+				EA4FABCB171DB69500410870 /* mtxAppDelegate.h */,
+				EA4FABCC171DB69500410870 /* mtxAppDelegate.m */,
 				EA4FABDA171DB69500410870 /* mtxViewController.h */,
 				EA4FABDB171DB69500410870 /* mtxViewController.m */,
+				EA4213701722A7CB000BD5F8 /* mtxMapViewAnnotation.h */,
+				EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */,
+				EA13EC29172574AB00CC37DC /* mtxSessionManager.h */,
+				EA13EC2A172574AB00CC37DC /* mtxSessionManager.m */,
 				EA4FABC3171DB69500410870 /* Supporting Files */,
 			);
 			path = MotoTracking;
@@ -169,6 +234,7 @@
 				EA42135E1722A793000BD5F8 /* MO9.png */,
 			);
 			name = Markers;
+			path = MotoTracking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +310,8 @@
 				EA42136B1722A793000BD5F8 /* MO7.png in Resources */,
 				EA42136C1722A793000BD5F8 /* MO8.png in Resources */,
 				EA42136D1722A793000BD5F8 /* MO9.png in Resources */,
+				EA13EC3717259B4400CC37DC /* mtxLoginViewController.xib in Resources */,
+				EA13EC3917259D1200CC37DC /* Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,9 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA13EC321725869F00CC37DC /* RemoteConnector.m in Sources */,
+				EA13EC2017254C2100CC37DC /* mtxMapViewAnnotation.m in Sources */,
 				EA4FABC9171DB69500410870 /* main.m in Sources */,
 				EA4FABCD171DB69500410870 /* mtxAppDelegate.m in Sources */,
 				EA4FABDC171DB69500410870 /* mtxViewController.m in Sources */,
+				EA13EC2417254CCD00CC37DC /* RXMLElement.m in Sources */,
+				EA13EC2B172574AB00CC37DC /* mtxSessionManager.m in Sources */,
+				EA13EC3617259B4400CC37DC /* mtxLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,8 +426,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MotoTracking/MotoTracking-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SDK_DIR)\"/usr/include/libxml2";
 				INFOPLIST_FILE = "MotoTracking/MotoTracking-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -364,8 +439,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MotoTracking/MotoTracking-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SDK_DIR)\"/usr/include/libxml2";
 				INFOPLIST_FILE = "MotoTracking/MotoTracking-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

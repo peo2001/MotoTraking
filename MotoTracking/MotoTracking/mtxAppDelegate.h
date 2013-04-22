@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "mtxSessionManager.h"
+
+
+#define MainAppDelegate ((mtxAppDelegate *)[UIApplication sharedApplication].delegate)
 
 @interface mtxAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, readonly) mtxSessionManager *mainSessionManager;
+
+@property bool connectionError;
 
 @end
