@@ -30,23 +30,20 @@
     {
         myMapView = self.iPhoneMapView;
     }
+    myMapView.mapType = MKMapTypeStandard;   // also MKMapTypeSatellite or MKMapTypeHybrid
+    myMapView.showsUserLocation = YES;
+    myMapView.userTrackingMode = MKUserTrackingModeNone;
+
     
+    // Do any additional setup after loading the view, typically from a nib.
+
+}
+
+- (void)viewDidAppear:(BOOL)animated{
     // Receive the events from the the main session manager
     MainAppDelegate.mainSessionManager.delegate = self;
     
-    [MainAppDelegate.mainSessionManager login];
-    
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    // Set some coordinates for our position (Buckingham Palace!)
-	CLLocationCoordinate2D location;
-	location.latitude = (double) 51.501468;
-	location.longitude = (double) -0.141596;
-    
-	// Add the annotation to our map view
-	mtxMapViewAnnotation *newAnnotation = [[mtxMapViewAnnotation alloc] initWithCode:@"AM1" Coordinate:location];
-    
-	[myMapView addAnnotation:newAnnotation];
+    [MainAppDelegate.mainSessionManager loginOnView:self];
 
 }
 
@@ -62,35 +59,24 @@
 
 
 #pragma - mark Session Manager Events
+-(void)sessionManager:(mtxSessionManager *)sessionManager startTracking:(mtxLoggedUser *)theLoggedUser{
+    
 
-- (void)sessionManager:(mtxSessionManager *)sessionManager askForLogin:(NSString *)codiceAttivazione{
-    
-    myLogin = [[mtxLoginViewController alloc] init];
-    myLogin.codiceAttivazione = codiceAttivazione;
-    [self.view addSubview:myLogin.view];
-    
 }
 
-- (void)sessionManager:(mtxSessionManager *)sessionManager didNewTrackingReceived:(NSMutableArray *)annotations{
+-(void)sessionManager:(mtxSessionManager *)sessionManager didNewTrackingReceived:(NSMutableArray *)annotations{
+    [myMapView addAnnotations:(NSArray *) annotations];
     
-    [myMapView removeAnnotations:[myMapView annotations]];
+    MKCoordinateRegion region = sessionManager.getTracking.getFitRegion;
     
-    for (mtxMapViewAnnotation *aAnnotation in annotations) {
-        [myMapView addAnnotation:aAnnotation];
-    }
+    //region = [myMapView regionThatFits:region];
+    [myMapView setRegion:region animated:YES];
+
 }
 
 #pragma - mark Map Events
 
-// When a map annotation point is added, zoom to it (1500 range)
-- (void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views
-{
-	MKAnnotationView *annotationView = [views objectAtIndex:0];
-	id <MKAnnotation> mp = [annotationView annotation];
-	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 1500, 1500);
-	[mv setRegion:region animated:YES];
-	[mv selectAnnotation:mp animated:YES];
-}
+
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
@@ -125,6 +111,7 @@
     
     return nil;
 }
+
 
 
 @end

@@ -24,7 +24,6 @@
 @interface RemoteConnector : NSObject
 {
     NSMutableData *dataWebService;
-    BOOL mStandardBodyPrepared;
 }
 
 @property (nonatomic, assign) id <RemoteConnectorDelegate> delegate;
@@ -35,6 +34,5 @@
 @property (nonatomic, retain) NSString *dataMode;
 
 - (void) rc_:(NSString *) virtualDir;
-+ (NSInteger) nextCall: (NSInteger) increment;
 
 @end

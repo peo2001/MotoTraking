@@ -7,8 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RemoteConnector.h"
+#import "mtxLoggedUser.h"
 
-@interface mtxLoginViewController : UIViewController <UITextFieldDelegate>
+@class mtxLoginViewController;
+
+@protocol LoginDelegate
+
+@optional
+
+- (void) loginViewController:(mtxLoginViewController *)loginViewController loggedIn:(mtxLoggedUser *)loggedUser;
+
+@end
+
+@interface mtxLoginViewController: UIViewController <UITextFieldDelegate, RemoteConnectorDelegate>
+{
+    RemoteConnector *myRemoteConnector;
+}
+@property (nonatomic, assign) id <LoginDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtCodiceAttivazione;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;

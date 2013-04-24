@@ -31,6 +31,8 @@
     _txtCodiceAttivazione.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     _txtCodiceAttivazione.delegate = self;
     _txtCodiceAttivazione.text = _codiceAttivazione;
+    
+    [_btnLogin addTarget:self action:@selector(askLogin:)forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,6 +44,32 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     return ([textField.text length] + [string length] - range.length <=6);
+
+}
+
+- (void) askLogin:(id)sender{
+    _txtCodiceAttivazione.text = [_txtCodiceAttivazione.text uppercaseString];
+    _codiceAttivazione = _txtCodiceAttivazione.text;
+    
+    [self RC_Login];
+    
+}
+
+- (void) RC_Login{
+    
+    myRemoteConnector = [[RemoteConnector alloc] init];
+    myRemoteConnector.delegate = self;
+
+    [myRemoteConnector rc_:[NSString stringWithFormat:@"Accesso.asp?CodiceAttivazione=%@", _codiceAttivazione]];
+}
+
+- (void) remoteConnector:(RemoteConnector *)remoteConnector didDataReceived:(NSData *)data{
+    
+    mtxLoggedUser *theLoggedUser = [[mtxLoggedUser alloc] init];
+    [theLoggedUser parseFromData:data];
+    
+    [self.view removeFromSuperview];
+    [self.delegate loginViewController:self loggedIn:theLoggedUser];
 
 }
 

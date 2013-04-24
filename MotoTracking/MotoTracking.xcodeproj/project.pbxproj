@@ -15,13 +15,14 @@
 		EA13EC3617259B4400CC37DC /* mtxLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA13EC3417259B4300CC37DC /* mtxLoginViewController.m */; };
 		EA13EC3717259B4400CC37DC /* mtxLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA13EC3517259B4400CC37DC /* mtxLoginViewController.xib */; };
 		EA13EC3917259D1200CC37DC /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EA13EC3817259D1200CC37DC /* Logo.png */; };
+		EA13EC3E17268E0300CC37DC /* mtxLoggedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EA13EC3D17268E0300CC37DC /* mtxLoggedUser.m */; };
+		EA1B67DC17280ADA001458CD /* MO1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA1B67DB17280ADA001458CD /* MO1.png */; };
 		EA42135F1722A793000BD5F8 /* AM1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213501722A793000BD5F8 /* AM1.png */; };
 		EA4213601722A793000BD5F8 /* AM2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213511722A793000BD5F8 /* AM2.png */; };
 		EA4213611722A793000BD5F8 /* DC1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213521722A793000BD5F8 /* DC1.png */; };
 		EA4213621722A793000BD5F8 /* DC2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213531722A793000BD5F8 /* DC2.png */; };
 		EA4213631722A793000BD5F8 /* GAF.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213541722A793000BD5F8 /* GAF.png */; };
 		EA4213641722A793000BD5F8 /* GAI.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213551722A793000BD5F8 /* GAI.png */; };
-		EA4213651722A793000BD5F8 /* MO1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213561722A793000BD5F8 /* MO1.png */; };
 		EA4213661722A793000BD5F8 /* MO2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213571722A793000BD5F8 /* MO2.png */; };
 		EA4213671722A793000BD5F8 /* MO3.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213581722A793000BD5F8 /* MO3.png */; };
 		EA4213681722A793000BD5F8 /* MO4.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213591722A793000BD5F8 /* MO4.png */; };
@@ -42,6 +43,8 @@
 		EA4FABD6171DB69500410870 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABD4171DB69500410870 /* MainStoryboard_iPhone.storyboard */; };
 		EA4FABD9171DB69500410870 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */; };
 		EA4FABDC171DB69500410870 /* mtxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4FABDB171DB69500410870 /* mtxViewController.m */; };
+		EA55584C1727BC3900DE711E /* mtxTrackings.m in Sources */ = {isa = PBXBuildFile; fileRef = EA55584B1727BC3900DE711E /* mtxTrackings.m */; };
+		EA55584F1727BFE800DE711E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA55584E1727BFE800DE711E /* CoreLocation.framework */; };
 		EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADC13FE17200D9F00346437 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,13 +61,15 @@
 		EA13EC3417259B4300CC37DC /* mtxLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxLoginViewController.m; sourceTree = "<group>"; };
 		EA13EC3517259B4400CC37DC /* mtxLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mtxLoginViewController.xib; sourceTree = "<group>"; };
 		EA13EC3817259D1200CC37DC /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = MotoTracking/Logo.png; sourceTree = "<group>"; };
+		EA13EC3C17268E0300CC37DC /* mtxLoggedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxLoggedUser.h; sourceTree = "<group>"; };
+		EA13EC3D17268E0300CC37DC /* mtxLoggedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxLoggedUser.m; sourceTree = "<group>"; };
+		EA1B67DB17280ADA001458CD /* MO1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO1.png; sourceTree = "<group>"; };
 		EA4213501722A793000BD5F8 /* AM1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AM1.png; sourceTree = "<group>"; };
 		EA4213511722A793000BD5F8 /* AM2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AM2.png; sourceTree = "<group>"; };
 		EA4213521722A793000BD5F8 /* DC1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DC1.png; sourceTree = "<group>"; };
 		EA4213531722A793000BD5F8 /* DC2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DC2.png; sourceTree = "<group>"; };
 		EA4213541722A793000BD5F8 /* GAF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAF.png; sourceTree = "<group>"; };
 		EA4213551722A793000BD5F8 /* GAI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAI.png; sourceTree = "<group>"; };
-		EA4213561722A793000BD5F8 /* MO1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO1.png; sourceTree = "<group>"; };
 		EA4213571722A793000BD5F8 /* MO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO2.png; sourceTree = "<group>"; };
 		EA4213581722A793000BD5F8 /* MO3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO3.png; sourceTree = "<group>"; };
 		EA4213591722A793000BD5F8 /* MO4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO4.png; sourceTree = "<group>"; };
@@ -92,6 +97,10 @@
 		EA4FABD8171DB69500410870 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		EA4FABDA171DB69500410870 /* mtxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxViewController.h; sourceTree = "<group>"; };
 		EA4FABDB171DB69500410870 /* mtxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxViewController.m; sourceTree = "<group>"; };
+		EA55584A1727BC3900DE711E /* mtxTrackings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxTrackings.h; sourceTree = "<group>"; };
+		EA55584B1727BC3900DE711E /* mtxTrackings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxTrackings.m; sourceTree = "<group>"; };
+		EA55584E1727BFE800DE711E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EA5558501727D8F900DE711E /* TestLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestLocation.gpx; sourceTree = "<group>"; };
 		EADC13FE17200D9F00346437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -100,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA55584F1727BFE800DE711E /* CoreLocation.framework in Frameworks */,
 				EA13EC2F17257C6600CC37DC /* libxml2.dylib in Frameworks */,
 				EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */,
 				EA4FABBD171DB69500410870 /* UIKit.framework in Frameworks */,
@@ -146,6 +156,8 @@
 				EA13EC3317259B4300CC37DC /* mtxLoginViewController.h */,
 				EA13EC3417259B4300CC37DC /* mtxLoginViewController.m */,
 				EA13EC3517259B4400CC37DC /* mtxLoginViewController.xib */,
+				EA13EC3C17268E0300CC37DC /* mtxLoggedUser.h */,
+				EA13EC3D17268E0300CC37DC /* mtxLoggedUser.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -153,6 +165,7 @@
 		EA4FABB0171DB69500410870 = {
 			isa = PBXGroup;
 			children = (
+				EA55584E1727BFE800DE711E /* CoreLocation.framework */,
 				EA13EC3A17259D1F00CC37DC /* Images */,
 				EA4FABC2171DB69500410870 /* MotoTracking */,
 				EA4FABBB171DB69500410870 /* Frameworks */,
@@ -183,16 +196,15 @@
 		EA4FABC2171DB69500410870 /* MotoTracking */ = {
 			isa = PBXGroup;
 			children = (
-				EA13EC3B17259D8B00CC37DC /* Login */,
 				EA13EC2817254CFF00CC37DC /* Communication */,
+				EA13EC3B17259D8B00CC37DC /* Login */,
+				EA55584D1727BC4500DE711E /* Trackings */,
 				EA4FABD4171DB69500410870 /* MainStoryboard_iPhone.storyboard */,
 				EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */,
 				EA4FABCB171DB69500410870 /* mtxAppDelegate.h */,
 				EA4FABCC171DB69500410870 /* mtxAppDelegate.m */,
 				EA4FABDA171DB69500410870 /* mtxViewController.h */,
 				EA4FABDB171DB69500410870 /* mtxViewController.m */,
-				EA4213701722A7CB000BD5F8 /* mtxMapViewAnnotation.h */,
-				EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */,
 				EA13EC29172574AB00CC37DC /* mtxSessionManager.h */,
 				EA13EC2A172574AB00CC37DC /* mtxSessionManager.m */,
 				EA4FABC3171DB69500410870 /* Supporting Files */,
@@ -214,6 +226,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EA55584D1727BC4500DE711E /* Trackings */ = {
+			isa = PBXGroup;
+			children = (
+				EA4213701722A7CB000BD5F8 /* mtxMapViewAnnotation.h */,
+				EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */,
+				EA55584A1727BC3900DE711E /* mtxTrackings.h */,
+				EA55584B1727BC3900DE711E /* mtxTrackings.m */,
+				EA5558501727D8F900DE711E /* TestLocation.gpx */,
+			);
+			name = Trackings;
+			sourceTree = "<group>";
+		};
 		EADC14211721A29700346437 /* Markers */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +247,7 @@
 				EA4213531722A793000BD5F8 /* DC2.png */,
 				EA4213541722A793000BD5F8 /* GAF.png */,
 				EA4213551722A793000BD5F8 /* GAI.png */,
-				EA4213561722A793000BD5F8 /* MO1.png */,
+				EA1B67DB17280ADA001458CD /* MO1.png */,
 				EA4213571722A793000BD5F8 /* MO2.png */,
 				EA4213581722A793000BD5F8 /* MO3.png */,
 				EA4213591722A793000BD5F8 /* MO4.png */,
@@ -301,7 +325,6 @@
 				EA4213621722A793000BD5F8 /* DC2.png in Resources */,
 				EA4213631722A793000BD5F8 /* GAF.png in Resources */,
 				EA4213641722A793000BD5F8 /* GAI.png in Resources */,
-				EA4213651722A793000BD5F8 /* MO1.png in Resources */,
 				EA4213661722A793000BD5F8 /* MO2.png in Resources */,
 				EA4213671722A793000BD5F8 /* MO3.png in Resources */,
 				EA4213681722A793000BD5F8 /* MO4.png in Resources */,
@@ -312,6 +335,7 @@
 				EA42136D1722A793000BD5F8 /* MO9.png in Resources */,
 				EA13EC3717259B4400CC37DC /* mtxLoginViewController.xib in Resources */,
 				EA13EC3917259D1200CC37DC /* Logo.png in Resources */,
+				EA1B67DC17280ADA001458CD /* MO1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +354,8 @@
 				EA13EC2417254CCD00CC37DC /* RXMLElement.m in Sources */,
 				EA13EC2B172574AB00CC37DC /* mtxSessionManager.m in Sources */,
 				EA13EC3617259B4400CC37DC /* mtxLoginViewController.m in Sources */,
+				EA13EC3E17268E0300CC37DC /* mtxLoggedUser.m in Sources */,
+				EA55584C1727BC3900DE711E /* mtxTrackings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

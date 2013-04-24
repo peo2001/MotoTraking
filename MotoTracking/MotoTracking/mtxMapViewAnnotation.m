@@ -31,19 +31,19 @@
 
 - (UIImage *) GetImage:(CGRect)mapViewBounds FrameHeight:(CGFloat) frHeight {
     // setup image for the map
-    UIImage *flagImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _codRuolo]];
-    
+    UIImage *annImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _codRuolo]];
+    return annImage;
     
     CGRect resizeRect;
     
-    resizeRect.size.height = flagImage.size.height * 0.25 ;
-    resizeRect.size.width = flagImage.size.width * 0.25 ;
+    resizeRect.size.height = annImage.size.height * 0.6 ;
+    resizeRect.size.width = annImage.size.width * 0.6 ;
         
     resizeRect.origin = (CGPoint){0.0f, 0.0f};
     UIGraphicsBeginImageContext(resizeRect.size);
     
     
-    [flagImage drawInRect:resizeRect blendMode:kCGBlendModeLuminosity alpha:1];
+    [annImage drawInRect:resizeRect blendMode:kCGBlendModeLuminosity alpha:1];
     UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     

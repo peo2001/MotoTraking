@@ -25,37 +25,28 @@
         MainAppDelegate.connectionError = false;
         _parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
         
-        _dataMode = @"msg";
-        mStandardBodyPrepared = false;
+        _dataMode = @"data";
     }
     return self;
 }
 
-+ (NSInteger) nextCall:(NSInteger)increment{
-    static NSInteger numRC;
-    numRC = numRC + increment;
-    return numRC;
-}
-
 - (void) prepareStandardBody{
     
-    if (!mStandardBodyPrepared) {
-        
-        [_parameters setObject:MainAppDelegate.mainSessionManager.idRuoloInGara forKey:@"IdRuoloInGara"];
-        [_parameters setObject:MainAppDelegate.mainSessionManager.codiceAttivazione forKey:@"CodiceAttivazione"];
-        
-    }
+        _parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
+
+//        [_parameters setObject:[NSString stringWithFormat:@"%i",MainAppDelegate.mainSessionManager.loggedUser.idRuolo] forKey:@"IdRuoloInGara"];
+//        [_parameters setObject:MainAppDelegate.mainSessionManager.loggedUser.codiceAttivazione forKey:@"CodiceAttivazione"];
+
 }
 
 - (void) rc_:(NSString *) virtualDir{
-    if ([RemoteConnector nextCall:0] == 0 && ! MainAppDelegate.connectionError)
+    if (! MainAppDelegate.connectionError)
     {
         
         [self prepareStandardBody];
         
-        NSString *url = [NSString stringWithFormat:@"%@%@%@", remoteServerURL, virtualDir, webServiceExtension];
+        NSString *url = [NSString stringWithFormat:@"%@%@", remoteServerURL, virtualDir];
         
-        [RemoteConnector nextCall:1];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         
         dataWebService = [NSMutableData data];
@@ -95,8 +86,6 @@
 
         NSURLConnection *myConnection = [NSURLConnection connectionWithRequest:request delegate:self];
         [myConnection start];
-
-        _parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
         
 }
     
@@ -140,7 +129,6 @@
     
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    [RemoteConnector nextCall:-1];
     
 }
 
@@ -158,6 +146,5 @@
     MainAppDelegate.connectionError = true;
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    [RemoteConnector nextCall:-1];
 }
 @end

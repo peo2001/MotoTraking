@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "mtxLoginViewController.h"
+#import "mtxLoggedUser.h"
+#import "mtxTrackings.h"
 
 @class mtxSessionManager;
 
@@ -15,18 +18,23 @@
 @optional
 
 //- (void)  didMsgReceived;
-- (void) sessionManager:(mtxSessionManager *)sessionManager didNewTrackingReceived:(NSMutableArray *)annotations;
 - (void) sessionManager:(mtxSessionManager *)sessionManager askForLogin:(NSString *)codiceAttivazione;
+- (void) sessionManager:(mtxSessionManager *)sessionManager startTracking:(mtxLoggedUser *)theLoggedUser;
+- (void) sessionManager:(mtxSessionManager *)sessionManager didNewTrackingReceived:(NSMutableArray *)annotations;
 
 @end
 
-@interface mtxSessionManager : NSObject
+@interface mtxSessionManager : NSObject <LoginDelegate, TrackingDelegate>{
+    mtxLoginViewController *myLogin;
+    NSTimer *myTimer;
+    mtxTrackings *myTracking;
+}
 
 @property (nonatomic, assign) id <SessionManagerDelegate> delegate;
 
-@property (nonatomic, assign) NSString *idRuoloInGara;
-@property (nonatomic, assign) NSString *codiceAttivazione;
+@property (nonatomic, retain, readonly) mtxLoggedUser *loggedUser;
 
-- (void) login;
+- (void)loginOnView:(UIViewController *)aViewController;
+- (mtxTrackings *) getTracking;
 
 @end
