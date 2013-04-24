@@ -17,6 +17,8 @@
 		EA13EC3917259D1200CC37DC /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EA13EC3817259D1200CC37DC /* Logo.png */; };
 		EA13EC3E17268E0300CC37DC /* mtxLoggedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EA13EC3D17268E0300CC37DC /* mtxLoggedUser.m */; };
 		EA1B67DC17280ADA001458CD /* MO1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA1B67DB17280ADA001458CD /* MO1.png */; };
+		EA1B67DE17284A1D001458CD /* Icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = EA1B67DD17284A1D001458CD /* Icon_57.png */; };
+		EA1B67E017284A51001458CD /* Icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = EA1B67DF17284A51001458CD /* Icon_114.png */; };
 		EA42135F1722A793000BD5F8 /* AM1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213501722A793000BD5F8 /* AM1.png */; };
 		EA4213601722A793000BD5F8 /* AM2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213511722A793000BD5F8 /* AM2.png */; };
 		EA4213611722A793000BD5F8 /* DC1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213521722A793000BD5F8 /* DC1.png */; };
@@ -64,6 +66,8 @@
 		EA13EC3C17268E0300CC37DC /* mtxLoggedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxLoggedUser.h; sourceTree = "<group>"; };
 		EA13EC3D17268E0300CC37DC /* mtxLoggedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxLoggedUser.m; sourceTree = "<group>"; };
 		EA1B67DB17280ADA001458CD /* MO1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MO1.png; sourceTree = "<group>"; };
+		EA1B67DD17284A1D001458CD /* Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_57.png; sourceTree = "<group>"; };
+		EA1B67DF17284A51001458CD /* Icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_114.png; sourceTree = "<group>"; };
 		EA4213501722A793000BD5F8 /* AM1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AM1.png; sourceTree = "<group>"; };
 		EA4213511722A793000BD5F8 /* AM2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AM2.png; sourceTree = "<group>"; };
 		EA4213521722A793000BD5F8 /* DC1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DC1.png; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		EA13EC3A17259D1F00CC37DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EA1B67DD17284A1D001458CD /* Icon_57.png */,
 				EA13EC3817259D1200CC37DC /* Logo.png */,
 				EADC14211721A29700346437 /* Markers */,
 			);
@@ -162,9 +167,21 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		EA1B67E117284F88001458CD /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				EA4FABD4171DB69500410870 /* MainStoryboard_iPhone.storyboard */,
+				EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */,
+				EA4FABDA171DB69500410870 /* mtxViewController.h */,
+				EA4FABDB171DB69500410870 /* mtxViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		EA4FABB0171DB69500410870 = {
 			isa = PBXGroup;
 			children = (
+				EA1B67DF17284A51001458CD /* Icon_114.png */,
 				EA55584E1727BFE800DE711E /* CoreLocation.framework */,
 				EA13EC3A17259D1F00CC37DC /* Images */,
 				EA4FABC2171DB69500410870 /* MotoTracking */,
@@ -196,15 +213,12 @@
 		EA4FABC2171DB69500410870 /* MotoTracking */ = {
 			isa = PBXGroup;
 			children = (
+				EA1B67E117284F88001458CD /* Map */,
 				EA13EC2817254CFF00CC37DC /* Communication */,
 				EA13EC3B17259D8B00CC37DC /* Login */,
 				EA55584D1727BC4500DE711E /* Trackings */,
-				EA4FABD4171DB69500410870 /* MainStoryboard_iPhone.storyboard */,
-				EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */,
 				EA4FABCB171DB69500410870 /* mtxAppDelegate.h */,
 				EA4FABCC171DB69500410870 /* mtxAppDelegate.m */,
-				EA4FABDA171DB69500410870 /* mtxViewController.h */,
-				EA4FABDB171DB69500410870 /* mtxViewController.m */,
 				EA13EC29172574AB00CC37DC /* mtxSessionManager.h */,
 				EA13EC2A172574AB00CC37DC /* mtxSessionManager.m */,
 				EA4FABC3171DB69500410870 /* Supporting Files */,
@@ -336,6 +350,8 @@
 				EA13EC3717259B4400CC37DC /* mtxLoginViewController.xib in Resources */,
 				EA13EC3917259D1200CC37DC /* Logo.png in Resources */,
 				EA1B67DC17280ADA001458CD /* MO1.png in Resources */,
+				EA1B67DE17284A1D001458CD /* Icon_57.png in Resources */,
+				EA1B67E017284A51001458CD /* Icon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

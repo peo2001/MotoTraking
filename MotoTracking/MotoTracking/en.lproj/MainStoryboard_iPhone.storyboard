@@ -17,16 +17,39 @@
                                     <outlet property="delegate" destination="2" id="Z2z-Em-BUp"/>
                                 </connections>
                             </mapView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" text="Login Non Effettuato" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfG-V3-TSL">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RNK-PO-u85"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" text="Lock" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vq5-Z9-2ES">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="cVY-gL-cqV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dfG-V3-TSL" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="21L-JK-Q8O"/>
+                            <constraint firstAttribute="trailing" secondItem="dfG-V3-TSL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8un-HP-z41"/>
                             <constraint firstItem="vlb-8Y-lPu" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="DNu-o8-fNc"/>
+                            <constraint firstItem="RNK-PO-u85" firstAttribute="leading" secondItem="Vq5-Z9-2ES" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HNn-9V-r8y"/>
+                            <constraint firstAttribute="trailing" secondItem="RNK-PO-u85" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="IxW-C8-qnw"/>
                             <constraint firstItem="vlb-8Y-lPu" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="eZh-FM-Mle"/>
+                            <constraint firstItem="Vq5-Z9-2ES" firstAttribute="centerY" secondItem="RNK-PO-u85" secondAttribute="centerY" type="default" id="exX-nU-dJf"/>
                             <constraint firstItem="vlb-8Y-lPu" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="fxB-ti-Zax"/>
                             <constraint firstItem="vlb-8Y-lPu" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="ghc-48-wxN"/>
+                            <constraint firstItem="dfG-V3-TSL" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="pwb-SU-byI"/>
+                            <constraint firstAttribute="bottom" secondItem="RNK-PO-u85" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="tRc-Lh-3Sm"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="iPhoneLblGara" destination="dfG-V3-TSL" id="dKR-j3-KvY"/>
                         <outlet property="iPhoneMapView" destination="vlb-8Y-lPu" id="YJf-gH-fo2"/>
                     </connections>
                 </viewController>

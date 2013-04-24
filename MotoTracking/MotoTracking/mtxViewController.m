@@ -26,14 +26,21 @@
     if([[[UIDevice currentDevice] model] hasPrefix:@"iPad"])
     {
         myMapView = self.iPadMapView;
+        lblGara = [[UILabel alloc]init];
     }else
     {
         myMapView = self.iPhoneMapView;
+        lblGara = self.iPhoneLblGara;
     }
     myMapView.mapType = MKMapTypeStandard;   // also MKMapTypeSatellite or MKMapTypeHybrid
     myMapView.showsUserLocation = YES;
     myMapView.userTrackingMode = MKUserTrackingModeNone;
-
+    
+    // add a wildcard gesture recognizer to intercept resizing of mapview
+    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(yourmethod)];
+    [pinch setDelegate:self];
+    [pinch setDelaysTouchesBegan:YES];
+    [myMapView addGestureRecognizer:pinch];
     
     // Do any additional setup after loading the view, typically from a nib.
 
@@ -61,6 +68,8 @@
 #pragma - mark Session Manager Events
 -(void)sessionManager:(mtxSessionManager *)sessionManager startTracking:(mtxLoggedUser *)theLoggedUser{
     
+    lblGara.text = theLoggedUser.gara;
+    lockMapResize = FALSE;
 
 }
 
@@ -69,14 +78,19 @@
     
     MKCoordinateRegion region = sessionManager.getTracking.getFitRegion;
     
-    //region = [myMapView regionThatFits:region];
-    [myMapView setRegion:region animated:YES];
+    if (!lockMapResize){
+        region = [myMapView regionThatFits:region];
+        [myMapView setRegion:region animated:YES];
+    }
 
 }
 
 #pragma - mark Map Events
 
-
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    lockMapResize = TRUE;
+    return TRUE;
+}
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
 {

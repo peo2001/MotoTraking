@@ -13,13 +13,17 @@
 
 #import "mtxMapViewAnnotation.h"
 
-@interface mtxViewController : UIViewController <MKMapViewDelegate, SessionManagerDelegate>
+@interface mtxViewController : UIViewController <MKMapViewDelegate,UIGestureRecognizerDelegate, SessionManagerDelegate>
 {
     MKMapView *myMapView;
     mtxLoginViewController *myLogin;
+    UILabel *lblGara;
+    BOOL lockMapResize;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *iPhoneMapView;
+@property (weak, nonatomic) IBOutlet UILabel *iPhoneLblGara;
+
 @property (strong, nonatomic) IBOutlet MKMapView *iPadMapView;
 
 @end

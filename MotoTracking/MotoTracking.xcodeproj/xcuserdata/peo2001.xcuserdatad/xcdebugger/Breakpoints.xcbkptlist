@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MotoTracking/mtxViewController.m"
-         timestampString = "388491273.740734"
+         timestampString = "388519840.911872"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MotoTracking/mtxViewController.m"
-         timestampString = "388489613.33482"
+         timestampString = "388519840.911872"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
          landmarkName = "-sessionManager:didNewTrackingReceived:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MotoTracking/mtxViewController.m"
-         timestampString = "388491575.562223"
+         timestampString = "388519840.911872"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "73"
-         endingLineNumber = "73"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
          landmarkName = "-sessionManager:didNewTrackingReceived:"
          landmarkType = "5">
       </FileBreakpoint>
