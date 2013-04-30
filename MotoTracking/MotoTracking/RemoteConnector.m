@@ -22,10 +22,14 @@
     self = [super init];
     if (self != nil)
     {
+                        
         MainAppDelegate.connectionError = false;
         _parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
         
         _dataMode = @"data";
+        
+        myLock = [[NSLock alloc] init];
+        
     }
     return self;
 }
@@ -40,6 +44,9 @@
 }
 
 - (void) rc_:(NSString *) virtualDir{
+    
+    if ([myLock tryLock]){
+    
     if (! MainAppDelegate.connectionError)
     {
         
@@ -54,7 +61,7 @@
     
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]] ;
 
-
+        
         [request setHTTPMethod:@"POST"];
 
         NSMutableData *bodyData = [[NSMutableData alloc] init];
@@ -77,17 +84,20 @@
         // Aggiunge la "firma"
         [bodyData appendData:[@"BuildedBy=xTremeSoftware" dataUsingEncoding:NSASCIIStringEncoding]];
         
+#ifdef LOG_CONNECTOR_EVENTS
         NSLog(@"Calling \n%@?%@", url, [[NSString alloc] initWithData:bodyData encoding:NSASCIIStringEncoding]);
-        
+#endif
 
         [request setValue:[NSString stringWithFormat:@"%d", [bodyData length]] forHTTPHeaderField:@"Content-Length"];
         [request setHTTPBody:bodyData];
+        request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+        request.timeoutInterval = 10;
 
-
-        NSURLConnection *myConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+        myConnection = [NSURLConnection connectionWithRequest:request delegate:self];
         [myConnection start];
         
-}
+    }
+    }
     
 }
 
@@ -117,7 +127,9 @@
     
     _message = [[NSString alloc] initWithData:dataWebService encoding:NSUTF8StringEncoding];
     
+#ifdef LOG_CONNECTOR_EVENTS
     NSLog(@"XML Received \n\n%@\n", _message);
+#endif
     
     if ([_dataMode isEqualToString:@"msg"]) {
         [self.delegate remoteConnector:self didMessageReceived:_message];
@@ -126,25 +138,25 @@
         [self.delegate remoteConnector:self didDataReceived:dataWebService];
     }
     
-    
-    
+
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    myConnection = nil;
+
+    [myLock unlock];
     
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"Eror during connection: %@", [error description]);
     
-    UIAlertView *alert;
-    alert = [[UIAlertView alloc] init];
-    [alert setTitle:@"Problemi di connessione"];
-    [alert setMessage:@"La connessione ai server non è al momento disponibile."];
-    [alert setDelegate:self];
-    [alert addButtonWithTitle:@"Ok"];
-    [alert show];
     
-    MainAppDelegate.connectionError = true;
+//    MainAppDelegate.connectionError = true;
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+    [myLock unlock];
+    
+    [self.delegate remoteConnector:self didConnectionErrorReceived:error];
+
 }
 @end

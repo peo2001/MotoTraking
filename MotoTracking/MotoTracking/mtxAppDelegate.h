@@ -13,11 +13,16 @@
 #define MainAppDelegate ((mtxAppDelegate *)[UIApplication sharedApplication].delegate)
 
 @interface mtxAppDelegate : UIResponder <UIApplicationDelegate>
+{
+
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (readonly) BOOL isForeground;
 
 @property (nonatomic, readonly) mtxSessionManager *mainSessionManager;
 
 @property bool connectionError;
+
 
 @end

@@ -18,12 +18,16 @@
 //- (void)  didMsgReceived;
 - (void) remoteConnector:(RemoteConnector *)remoteConnector didMessageReceived:(NSString *)msg;
 - (void) remoteConnector:(RemoteConnector *)remoteConnector didDataReceived:(NSData *)data;
+- (void) remoteConnector:(RemoteConnector *)remoteConnector didConnectionErrorReceived:(NSError *)error;
 
 @end
 
 @interface RemoteConnector : NSObject
 {
     NSMutableData *dataWebService;
+    NSLock *myLock;
+    NSURLConnection *myConnection;
+    
 }
 
 @property (nonatomic, assign) id <RemoteConnectorDelegate> delegate;

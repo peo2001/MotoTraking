@@ -27,14 +27,20 @@
 @interface mtxSessionManager : NSObject <LoginDelegate, TrackingDelegate>{
     mtxLoginViewController *myLogin;
     NSTimer *myTimer;
-    mtxTrackings *myTracking;
+    NSLock *myLock;
 }
 
 @property (nonatomic, assign) id <SessionManagerDelegate> delegate;
-
 @property (nonatomic, retain, readonly) mtxLoggedUser *loggedUser;
+@property (nonatomic, retain) NSString *annotationFilter;
+@property (nonatomic, retain, readonly) mtxTrackings *tracking;
 
 - (void)loginOnView:(UIViewController *)aViewController;
-- (mtxTrackings *) getTracking;
+- (void) reloadTrackings;
+- (void) terminateTracking;
+- (NSArray *) annotations;
+- (NSArray *) previousAnnotations;
+- (BOOL) tryLockTracking;
+- (void) unlockTracking;
 
 @end

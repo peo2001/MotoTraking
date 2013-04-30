@@ -18,6 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        _codiceAttivazione = @"";
         // Custom initialization
     }
     return self;
@@ -30,6 +31,11 @@
     
     _txtCodiceAttivazione.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     _txtCodiceAttivazione.delegate = self;
+    
+    if ([_codiceAttivazione isEqualToString:@""]) {
+        [self loadSettings];
+    }
+
     _txtCodiceAttivazione.text = _codiceAttivazione;
     
     [_btnLogin addTarget:self action:@selector(askLogin:)forControlEvents:UIControlEventTouchUpInside];
@@ -57,6 +63,8 @@
 
 - (void) RC_Login{
     
+    [self saveSettings];
+    
     myRemoteConnector = [[RemoteConnector alloc] init];
     myRemoteConnector.delegate = self;
 
@@ -73,5 +81,30 @@
 
 }
 
+- (void) remoteConnector:(RemoteConnector *)remoteConnector didConnectionErrorReceived:(NSError *)error{
+
+    NSLog(@"Eror during connection: %@", [error description]);
+    
+    
+    UIAlertView *alert;
+    alert = [[UIAlertView alloc] init];
+    [alert setTitle:@"Problemi di connessione"];
+    [alert setMessage:@"La connessione ai server non è disponibile."];
+    [alert setDelegate:self];
+    [alert addButtonWithTitle:@"Ok"];
+    [alert show];
+
+}
+
+-(void)loadSettings{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    _codiceAttivazione = [prefs stringForKey:@"CodiceAttivazione"];
+}
+
+-(void)saveSettings{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:_codiceAttivazione forKey:@"CodiceAttivazione"];
+    [prefs synchronize];
+}
 
 @end

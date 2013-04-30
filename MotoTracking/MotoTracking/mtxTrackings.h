@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+
 #import "RemoteConnector.h"
 #import "RXMLElement.h"
 #import "mtxMapViewAnnotation.h"
@@ -28,12 +29,15 @@
     RemoteConnector *myRemoteConnector;
     IBOutlet CLLocationManager *locationManager;
 }
+
 @property (nonatomic, assign) id <TrackingDelegate> delegate;
 
 @property (nonatomic, retain, readonly) NSMutableArray *tracks;
+@property (nonatomic, retain, readonly) NSMutableArray *previousTracks;
 
-- (void) RC_Tracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara;
--(CLLocation *)deviceLocation;
+- (void) RC_Tracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara annotationFilter:annotationFilter;
+- (void) RC_terminateTracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara;
+- (CLLocation *)deviceLocation;
 - (MKCoordinateRegion)getFitRegion;
 
 @end

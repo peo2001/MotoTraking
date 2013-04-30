@@ -7,6 +7,7 @@
 //
 
 #import "mtxTrackings.h"
+#import "mtxAppDelegate.h"
 
 static const CGFloat MIMAL_ACCURACY = 200.0;
 
@@ -26,6 +27,7 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
         myRemoteConnector.delegate = self;
         
         _tracks = [[NSMutableArray alloc] initWithCapacity:0];
+        _previousTracks = [[NSMutableArray alloc] initWithCapacity:0];
         
     }
     return self;
@@ -52,22 +54,42 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
     
 }
 
-- (void) RC_Tracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara{
+- (void) RC_Tracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara annotationFilter:annotationFilter{
     NSString *aURL = [NSString stringWithFormat:@"Tracking.asp?IdGara=%i&IdRuoloInGara=%i&Lat=%f&Long=%f",
                       idGara, idRuoloInGara,
                       [self deviceLocation].coordinate.latitude, [self deviceLocation].coordinate.longitude];
+    if (![annotationFilter isEqualToString:@""]) {
+        aURL = [NSString stringWithFormat:@"%@&AnnotationFilter=%@", aURL, annotationFilter];
+    }
+    
+    [myRemoteConnector rc_:aURL];
+}
+
+- (void) RC_terminateTracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara {
+    NSString *aURL = [NSString stringWithFormat:@"TerminateTracking.asp?IdGara=%i&IdRuoloInGara=%i&Lat=%f&Long=%f",
+                      idGara, idRuoloInGara,
+                      [self deviceLocation].coordinate.latitude, [self deviceLocation].coordinate.longitude];
+    
     [myRemoteConnector rc_:aURL];
 }
 
 - (void) remoteConnector:(RemoteConnector *)remoteConnector didDataReceived:(NSData *)data{
     
-    [self parse:[RXMLElement elementFromXMLData:data]];
-    
+    if (MainAppDelegate.isForeground) {
+        //NSLog(@"Parsing...");
+        [self parse:[RXMLElement elementFromXMLData:data]];
+    }
+
+}
+
+- (void) remoteConnector:(RemoteConnector *)remoteConnector didConnectionErrorReceived:(NSError *)error{
+    [self.delegate tracking:self newTackingRetrieved:_tracks];
 }
 
 - (void) parse:(RXMLElement *) rootXML{
     // cicla sui menuitems
     
+    _previousTracks = _tracks;
     _tracks = [[NSMutableArray alloc] initWithCapacity:0];
 
     [rootXML iterate:@"Tracks.Track" usingBlock: ^(RXMLElement *aMenuItemXML) {
@@ -79,6 +101,7 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
         NSString *codRuolo = [aMenuItemXML  attribute:@"cr"];
 
         mtxMapViewAnnotation *aAnnotation = [[mtxMapViewAnnotation alloc] initWithCode:codRuolo Coordinate:aCoord];
+        aAnnotation.idRuoloInGara = [aMenuItemXML  attributeAsInt:@"idRG"];
         
         [_tracks addObject:aAnnotation];
 
@@ -117,8 +140,8 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
     region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
     
     // Add a little extra space on the sides
-    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) *1.1;
-    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) *1.1;
+    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) *1.4;
+    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) *1.4;
     
     return region;
         

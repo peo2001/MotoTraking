@@ -11,6 +11,7 @@
 
 @interface mtxMapViewAnnotation : NSObject <MKAnnotation>
 
+@property NSInteger idRuoloInGara;
 @property (nonatomic, readonly) NSString *codRuolo;
 @property (nonatomic, retain) NSString *codiceAttivazione;
 @property (nonatomic, retain) NSString *title;
