@@ -29,6 +29,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtCodiceAttivazione;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 
-@property (nonatomic, assign) NSString *codiceAttivazione;
+@property (nonatomic, retain) NSString *codiceAttivazione;
 
 @end

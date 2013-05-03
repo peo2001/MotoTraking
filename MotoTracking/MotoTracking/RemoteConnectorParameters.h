@@ -7,5 +7,5 @@ NSString * const remoteServerURL = @"http://hq.xtremesoftware.it/MotoTracking/re
 NSString * const userName = @"XTM_MotoTracking";
 NSString * const password = @"mototracking";
 
-#define _LOG_CONNECTOR_EVENTS
+#define LOG_CONNECTOR_EVENTS
 #define IGNORE_CONNECTION_ERROR

@@ -9,7 +9,7 @@
 #import "mtxViewController.h"
 
 
-const NSTimeInterval LOCK_INTERVAL_SECS = 10.0;
+const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
 
 
 @implementation mtxViewController
@@ -81,7 +81,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 10.0;
 
 
 #pragma - mark Session Manager Events
--(void)sessionManager:(mtxSessionManager *)sessionManager startTracking:(mtxLoggedUser *)theLoggedUser{
+-(void)sessionManager:(mtxSessionManager *)sessionManager loggedIn:(mtxLoggedUser *)theLoggedUser{
     
     lblGara.text = theLoggedUser.gara;
     myLockMapResize = FALSE;
@@ -125,6 +125,8 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 10.0;
         imgLock.image = nil;
         
         [self unlockMapresize];
+        
+        [MainAppDelegate.mainSessionManager reloadTrackings];
         
     }
 }
@@ -197,6 +199,8 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 10.0;
         
         [self unlockMapresize];
         [MainAppDelegate.mainSessionManager unlockTracking];
+        
+        [MainAppDelegate.mainSessionManager reloadTrackings];
     }
 }
 

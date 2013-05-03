@@ -65,20 +65,10 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
     [myRemoteConnector rc_:aURL];
 }
 
-- (void) RC_terminateTracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara {
-    NSString *aURL = [NSString stringWithFormat:@"TerminateTracking.asp?IdGara=%i&IdRuoloInGara=%i&Lat=%f&Long=%f",
-                      idGara, idRuoloInGara,
-                      [self deviceLocation].coordinate.latitude, [self deviceLocation].coordinate.longitude];
-    
-    [myRemoteConnector rc_:aURL];
-}
-
 - (void) remoteConnector:(RemoteConnector *)remoteConnector didDataReceived:(NSData *)data{
     
-    if (MainAppDelegate.isForeground) {
-        //NSLog(@"Parsing...");
+
         [self parse:[RXMLElement elementFromXMLData:data]];
-    }
 
 }
 
@@ -87,28 +77,45 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
 }
 
 - (void) parse:(RXMLElement *) rootXML{
-    // cicla sui menuitems
     
-    _previousTracks = _tracks;
-    _tracks = [[NSMutableArray alloc] initWithCapacity:0];
-
-    [rootXML iterate:@"Tracks.Track" usingBlock: ^(RXMLElement *aMenuItemXML) {
-        
-        CLLocationCoordinate2D aCoord;
-        aCoord.latitude = [aMenuItemXML  attributeAsDouble:@"y"] ;
-        aCoord.longitude = [aMenuItemXML  attributeAsDouble:@"x"] ;
-        
-        NSString *codRuolo = [aMenuItemXML  attribute:@"cr"];
-
-        mtxMapViewAnnotation *aAnnotation = [[mtxMapViewAnnotation alloc] initWithCode:codRuolo Coordinate:aCoord];
-        aAnnotation.idRuoloInGara = [aMenuItemXML  attributeAsInt:@"idRG"];
-        
-        [_tracks addObject:aAnnotation];
-
-    }];
+    _status = [rootXML attribute:@"St"];
     
-    [self.delegate tracking:self newTackingRetrieved:_tracks];
-    
+    if (!MainAppDelegate.isForeground) {
+        if ([_status isEqualToString:@"R"]) {
+            [self.delegate tracking:self idleTracking:_status];
+        }
+    }else{
+        
+        _previousTracks = _tracks;
+        _tracks = [[NSMutableArray alloc] initWithCapacity:0];
+        
+        // cicla sui menuitems
+        [rootXML iterate:@"Tracks.Track" usingBlock: ^(RXMLElement *aMenuItemXML) {
+            
+            CGFloat aReliability;
+            aReliability = [aMenuItemXML  attributeAsDouble:@"Rel"];
+            
+            CLLocationCoordinate2D aCoord;
+            aCoord.latitude = [aMenuItemXML  attributeAsDouble:@"y"] ;
+            aCoord.longitude = [aMenuItemXML  attributeAsDouble:@"x"] ;
+            
+            NSString *codRuolo = [aMenuItemXML  attribute:@"cr"];
+            
+            mtxMapViewAnnotation *aAnnotation = [[mtxMapViewAnnotation alloc] initWithCode:codRuolo Coordinate:aCoord];
+            aAnnotation.idRuoloInGara = [aMenuItemXML  attributeAsInt:@"idRG"];
+            aAnnotation.Reliability = aReliability;
+            
+            [_tracks addObject:aAnnotation];
+            
+        }];
+        
+        if ([_status isEqualToString:@"R"]) {
+            [self.delegate tracking:self newTackingRetrieved:_tracks];
+        }
+    }
+    if (![_status isEqualToString:@"R"]){
+        [self.delegate tracking:self raceNoMoreValid:_status];
+    }
 }
 
 - (MKCoordinateRegion)getFitRegion {

@@ -19,15 +19,19 @@
 
 //- (void)  didMsgReceived;
 - (void) sessionManager:(mtxSessionManager *)sessionManager askForLogin:(NSString *)codiceAttivazione;
-- (void) sessionManager:(mtxSessionManager *)sessionManager startTracking:(mtxLoggedUser *)theLoggedUser;
+- (void) sessionManager:(mtxSessionManager *)sessionManager loggedIn:(mtxLoggedUser *)theLoggedUser;
 - (void) sessionManager:(mtxSessionManager *)sessionManager didNewTrackingReceived:(NSMutableArray *)annotations;
 
 @end
 
 @interface mtxSessionManager : NSObject <LoginDelegate, TrackingDelegate>{
+    
+    UIViewController *mapViewController;
     mtxLoginViewController *myLogin;
     NSTimer *myTimer;
     NSLock *myLock;
+    BOOL isTrackingRunning;
+    bool trakingStoppedInBackground;
 }
 
 @property (nonatomic, assign) id <SessionManagerDelegate> delegate;
@@ -37,10 +41,11 @@
 
 - (void)loginOnView:(UIViewController *)aViewController;
 - (void) reloadTrackings;
-- (void) terminateTracking;
 - (NSArray *) annotations;
 - (NSArray *) previousAnnotations;
 - (BOOL) tryLockTracking;
 - (void) unlockTracking;
+- (void) startTracking;
+- (BOOL) isLogged;
 
 @end

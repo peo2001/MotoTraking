@@ -23,43 +23,62 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
         _annotationFilter = @"";
         
         myLock = [[NSLock alloc]init];
+        
+        trakingStoppedInBackground = FALSE;
+        isTrackingRunning = false;
+
+        myTimer = [NSTimer scheduledTimerWithTimeInterval:RELOAD_INTERVAL_SECS
+                                                   target:self selector:@selector(reloadTrackings)
+                                                 userInfo:nil repeats:YES];
     }
     return self;
 }
 
 - (void)loginOnView:(UIViewController *)aViewController{
     
-    
+    if(mapViewController == nil){
+        mapViewController = aViewController;
+    }
     myLogin = [[mtxLoginViewController alloc] init];
     myLogin.codiceAttivazione = _loggedUser.codiceAttivazione;
     myLogin.delegate = self;
-    [aViewController.view addSubview:myLogin.view];
+    [mapViewController.view addSubview:myLogin.view];
     
 }
 
 -(void)loginViewController:(mtxLoginViewController *)loginViewController loggedIn:(mtxLoggedUser *)loggedUser{
     
     _loggedUser = loggedUser;
-    
+
     myLogin = nil;
     
-    if (![loggedUser.codiceAttivazione isEqualToString:@""]) {
-        [self.delegate sessionManager:self startTracking:loggedUser];
-        [self startReloadTimer];
+    if ([self isLogged]) {
+        [self.delegate sessionManager:self loggedIn:loggedUser];
+        [self startTracking];
     }
 }
 
--(void) startReloadTimer{
-    myTimer = [NSTimer scheduledTimerWithTimeInterval:RELOAD_INTERVAL_SECS
-                                            target:self selector:@selector(reloadTrackings)
-                                            userInfo:nil repeats:YES];
+- (void) stopTracking{
+    isTrackingRunning = false;
+    
+}
+- (void) startTracking{
+    
+    isTrackingRunning = true;
     [self reloadTrackings];
 }
 
 -(void)reloadTrackings{
-    if ([myLock tryLock]) {
-        //NSLog(@"Reload tracking");
-        [_tracking RC_Tracking:_loggedUser.idRuoloInGara idGara:_loggedUser.idGara annotationFilter:_annotationFilter];
+    if (MainAppDelegate.isForeground && trakingStoppedInBackground) {
+        trakingStoppedInBackground = FALSE;
+        [self startTracking];
+    }
+    else
+    {
+        if (isTrackingRunning && [myLock tryLock]) {
+            //NSLog(@"Reload tracking");
+            [_tracking RC_Tracking:_loggedUser.idRuoloInGara idGara:_loggedUser.idGara annotationFilter:_annotationFilter];
+        }
     }
 }
 
@@ -68,10 +87,21 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
     [self.delegate sessionManager:self didNewTrackingReceived:tracks];
 }
 
+- (void)tracking:(mtxTrackings *)tracking raceNoMoreValid:(NSString *)status{
+    [myLock unlock];
+    [self stopTracking];
 
--(void)terminateTracking{
-    //NSLog(@"Terminate tracking");
-    [_tracking RC_terminateTracking:_loggedUser.idRuoloInGara idGara:_loggedUser.idGara];
+    if (MainAppDelegate.isForeground) {
+        [_loggedUser alertForInvalidLogin:status];
+        [self loginOnView:nil];
+    }else{
+        trakingStoppedInBackground = true;
+    }
+}
+
+-(void)tracking:(mtxTrackings *)tracking idleTracking:(NSString *)status
+{
+    [myLock unlock];
 }
 
 - (NSArray *) annotations{
@@ -92,6 +122,10 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
 
 - (void) unlockTracking{
     [myLock unlock];
+}
+
+- (BOOL) isLogged{
+    return _loggedUser.isLogged;
 }
 
 @end

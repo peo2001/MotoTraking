@@ -13,13 +13,18 @@
 {
 }
 
-@property NSInteger idGara;
-@property NSInteger idRuolo;
-@property NSInteger idRuoloInGara;
-@property (nonatomic, readonly, assign) NSString * codRuolo;
-@property (nonatomic, readonly, assign) NSString * gara;
-@property (nonatomic, readonly, assign) NSString * codiceAttivazione;
+@property (nonatomic, readonly, retain) NSString *status;
+@property (readonly) NSInteger idGara;
+@property (readonly) NSInteger idRuolo;
+@property (readonly) NSInteger idRuoloInGara;
+@property (nonatomic, readonly, retain) NSString * codRuolo;
+@property (nonatomic, readonly, retain) NSString * gara;
+@property (nonatomic, readonly, retain) NSString * codiceAttivazione;
+@property (nonatomic, readonly, retain) NSString * dataInizio;
+@property (nonatomic, readonly, retain) NSString * dataFine;
 
 - (void) parseFromData:(NSData *)data;
+- (BOOL) isLogged;
+- (void) alertForInvalidLogin:(NSString *) aStatus;
 
 @end

@@ -76,8 +76,14 @@
     mtxLoggedUser *theLoggedUser = [[mtxLoggedUser alloc] init];
     [theLoggedUser parseFromData:data];
     
-    [self.view removeFromSuperview];
-    [self.delegate loginViewController:self loggedIn:theLoggedUser];
+    if ([theLoggedUser.status isEqualToString:@"R"]) {
+        [self.view removeFromSuperview];
+        [self.delegate loginViewController:self loggedIn:theLoggedUser];
+    }
+    else
+    {
+        [theLoggedUser alertForInvalidLogin:theLoggedUser.status];
+    }
 
 }
 

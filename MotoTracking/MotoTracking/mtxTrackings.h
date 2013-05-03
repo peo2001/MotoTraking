@@ -21,6 +21,8 @@
 @optional
 
 - (void) tracking:(mtxTrackings *)tracking newTackingRetrieved:(NSMutableArray *)tracks;
+- (void) tracking:(mtxTrackings *)tracking idleTracking:(NSString *)status;
+- (void) tracking:(mtxTrackings *)tracking raceNoMoreValid:(NSString *)status;
 
 @end
 
@@ -32,11 +34,12 @@
 
 @property (nonatomic, assign) id <TrackingDelegate> delegate;
 
+@property (nonatomic, readonly, retain) NSString *status;
+
 @property (nonatomic, retain, readonly) NSMutableArray *tracks;
 @property (nonatomic, retain, readonly) NSMutableArray *previousTracks;
 
 - (void) RC_Tracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara annotationFilter:annotationFilter;
-- (void) RC_terminateTracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara;
 - (CLLocation *)deviceLocation;
 - (MKCoordinateRegion)getFitRegion;
 

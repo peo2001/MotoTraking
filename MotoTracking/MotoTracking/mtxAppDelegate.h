@@ -16,9 +16,9 @@
 {
 
 }
+@property (readonly) BOOL isForeground;
 
 @property (strong, nonatomic) UIWindow *window;
-@property (readonly) BOOL isForeground;
 
 @property (nonatomic, readonly) mtxSessionManager *mainSessionManager;
 

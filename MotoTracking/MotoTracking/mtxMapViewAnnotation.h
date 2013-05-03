@@ -12,10 +12,11 @@
 @interface mtxMapViewAnnotation : NSObject <MKAnnotation>
 
 @property NSInteger idRuoloInGara;
-@property (nonatomic, readonly) NSString *codRuolo;
+@property (nonatomic, readonly, retain) NSString *codRuolo;
 @property (nonatomic, retain) NSString *codiceAttivazione;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property  CGFloat Reliability;
 
 - (id)initWithCode:(NSString *)aCodRuolo Coordinate:(CLLocationCoordinate2D)aCoordinate;
 

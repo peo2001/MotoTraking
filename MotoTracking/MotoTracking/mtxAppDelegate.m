@@ -14,7 +14,8 @@
 {
     // Override point for customization after application launch.
     
-    _isForeground = TRUE;   // first time is alwais foreground, not to reload tracking without login
+    _isForeground = FALSE;
+    
     _mainSessionManager = [[mtxSessionManager alloc] init];
     self.connectionError = FALSE;
 
@@ -55,14 +56,11 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    if (!_isForeground) {
-        _isForeground = TRUE;
-        [self.mainSessionManager reloadTrackings];
+    _isForeground = TRUE;
         
-    }
     application.IdleTimerDisabled = YES;
     
-
+    [_mainSessionManager reloadTrackings];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
