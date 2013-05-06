@@ -65,6 +65,7 @@
 		EA4FABD9171DB69500410870 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4FABD7171DB69500410870 /* MainStoryboard_iPad.storyboard */; };
 		EA4FABDC171DB69500410870 /* mtxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4FABDB171DB69500410870 /* mtxViewController.m */; };
 		EA55584C1727BC3900DE711E /* mtxTrackings.m in Sources */ = {isa = PBXBuildFile; fileRef = EA55584B1727BC3900DE711E /* mtxTrackings.m */; };
+		EA724177173844EC004FF8D7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EA724176173844EC004FF8D7 /* .gitignore */; };
 		EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADC13FE17200D9F00346437 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +172,7 @@
 		EA55584A1727BC3900DE711E /* mtxTrackings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxTrackings.h; sourceTree = "<group>"; };
 		EA55584B1727BC3900DE711E /* mtxTrackings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxTrackings.m; sourceTree = "<group>"; };
 		EA5558501727D8F900DE711E /* TestLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestLocation.gpx; sourceTree = "<group>"; };
+		EA724176173844EC004FF8D7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EADC13FE17200D9F00346437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -322,6 +324,7 @@
 		EA4FABB0171DB69500410870 = {
 			isa = PBXGroup;
 			children = (
+				EA724176173844EC004FF8D7 /* .gitignore */,
 				EA13EC3A17259D1F00CC37DC /* Images */,
 				EA4FABC2171DB69500410870 /* MotoTracking */,
 				EA4FABBB171DB69500410870 /* Frameworks */,
@@ -477,6 +480,7 @@
 				EA04BDD5172E8BEA00ED8235 /* LockOpen.png in Resources */,
 				EA04BDD7172E902600ED8235 /* Clessidra.png in Resources */,
 				EA04BDD9172E917100ED8235 /* Clock.png in Resources */,
+				EA724177173844EC004FF8D7 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
