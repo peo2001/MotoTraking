@@ -13,10 +13,11 @@
 
 @property NSInteger idRuoloInGara;
 @property (nonatomic, readonly, retain) NSString *codRuolo;
+@property int progressivo;
 @property (nonatomic, retain) NSString *codiceAttivazione;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property  CGFloat Reliability;
+@property  int Reliability;
 
 - (id)initWithCode:(NSString *)aCodRuolo Coordinate:(CLLocationCoordinate2D)aCoordinate;
 

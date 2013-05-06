@@ -8,7 +8,6 @@
 
 #import "mtxViewController.h"
 
-
 const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
 
 
@@ -210,27 +209,28 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
     
+    mtxMapViewAnnotation *theAnn = annotation;
+
     // handle custom annotations
-    //
+    NSString *aIdentifier = [NSString stringWithFormat:@"%@%i",theAnn.codRuolo, theAnn.progressivo];
     if ([annotation isKindOfClass:[mtxMapViewAnnotation class]])   // Annotation di mark
     {
-        static NSString* SFAnnotationIdentifier = @"MarkAnnId";
-        MKPinAnnotationView* pinView = (MKPinAnnotationView *)[myMapView dequeueReusableAnnotationViewWithIdentifier:SFAnnotationIdentifier];
+        //static NSString* SFAnnotationIdentifier = @"MarkAnnId";
+        MKPinAnnotationView* pinView = (MKPinAnnotationView *)[myMapView dequeueReusableAnnotationViewWithIdentifier:aIdentifier];
         if (!pinView)
         {
-            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:SFAnnotationIdentifier];
-            annotationView.canShowCallout = YES;
+            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:aIdentifier];
             
-            // setup image for the map
-            annotationView.image = [(mtxMapViewAnnotation *)annotation GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
-            annotationView.opaque = NO;
+            
+            [self designPin:annotationView withAnnotation:theAnn];
             
             return annotationView;
         }
         else
         {
-            pinView.image = [(mtxMapViewAnnotation *)annotation GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
-            pinView.annotation = annotation;
+            
+            [self designPin:pinView withAnnotation:theAnn];
+            
             return pinView;
         }
     }
@@ -238,4 +238,39 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
     return nil;
 }
 
+- (void) designPin:(MKAnnotationView *) pinView withAnnotation:(mtxMapViewAnnotation *) theAnn{
+
+    pinView.canShowCallout = NO;
+    
+    // setup image for the map
+    pinView.image = [theAnn GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
+    //pinView.alpha = 1 - 0.4* theAnn.Reliability;
+    pinView.opaque = NO;
+    
+    if (theAnn.progressivo >0 && pinView.subviews.count == 0) {
+        NIBadgeView* badgeView = [[NIBadgeView alloc] initWithFrame:CGRectZero];
+        badgeView.text = [NSString stringWithFormat:@"%i", theAnn.progressivo];
+        badgeView.font = [UIFont boldSystemFontOfSize:10];
+        badgeView.backgroundColor = [UIColor clearColor];
+        badgeView.tintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:0.7];
+        badgeView.textColor = [UIColor blackColor];
+        badgeView.shadowColor = [UIColor blackColor];
+        [badgeView sizeToFit];
+        [pinView addSubview:badgeView];
+        
+        /*
+        // Ann text over annotation
+        UILabel *label = [[UILabel alloc] initWithFrame:pinView.frame];
+        label.text = [NSString stringWithFormat:@"%i", theAnn.progressivo];
+        label.textAlignment = NSTextAlignmentCenter;
+        //label.backgroundColor = [UIColor clearColor];
+        
+        [pinView addSubview:label];
+        */
+    }
+    
+//    NSLog(@"N. Subviews: %i", pinView.subviews.count);
+
+
+}
 @end

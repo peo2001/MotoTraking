@@ -92,8 +92,8 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
         // cicla sui menuitems
         [rootXML iterate:@"Tracks.Track" usingBlock: ^(RXMLElement *aMenuItemXML) {
             
-            CGFloat aReliability;
-            aReliability = [aMenuItemXML  attributeAsDouble:@"Rel"];
+            int aReliability = [aMenuItemXML  attributeAsInt:@"Rel"];
+            int aProgressivo = [aMenuItemXML  attributeAsInt:@"Pr"];
             
             CLLocationCoordinate2D aCoord;
             aCoord.latitude = [aMenuItemXML  attributeAsDouble:@"y"] ;
@@ -104,6 +104,7 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
             mtxMapViewAnnotation *aAnnotation = [[mtxMapViewAnnotation alloc] initWithCode:codRuolo Coordinate:aCoord];
             aAnnotation.idRuoloInGara = [aMenuItemXML  attributeAsInt:@"idRG"];
             aAnnotation.Reliability = aReliability;
+            aAnnotation.progressivo = aProgressivo;
             
             [_tracks addObject:aAnnotation];
             

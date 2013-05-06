@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "NIBadgeView.h"
+
 #import "mtxAppDelegate.h"
 #import "mtxLoginViewController.h"
-
 #import "mtxMapViewAnnotation.h"
 
 @interface mtxViewController : UIViewController <MKMapViewDelegate, UIGestureRecognizerDelegate, SessionManagerDelegate>
