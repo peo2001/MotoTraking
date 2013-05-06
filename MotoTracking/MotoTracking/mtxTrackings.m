@@ -119,7 +119,7 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
     }
 }
 
-- (MKCoordinateRegion)getFitRegion {
+- (MKCoordinateRegion)getFitRegion:(BOOL)forceInvalidAnnotation {
     
     MKCoordinateRegion region;
 
@@ -138,10 +138,12 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
         bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, [self deviceLocation].coordinate.latitude);
     }
     for(mtxMapViewAnnotation *aAnn in _tracks) {
-        topLeftCoord.longitude = fmin(topLeftCoord.longitude, aAnn.coordinate.longitude);
-        topLeftCoord.latitude = fmax(topLeftCoord.latitude, aAnn.coordinate.latitude);
-        bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, aAnn.coordinate.longitude);
-        bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, aAnn.coordinate.latitude);
+        if (aAnn.Reliability<2 || forceInvalidAnnotation) {
+            topLeftCoord.longitude = fmin(topLeftCoord.longitude, aAnn.coordinate.longitude);
+            topLeftCoord.latitude = fmax(topLeftCoord.latitude, aAnn.coordinate.latitude);
+            bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, aAnn.coordinate.longitude);
+            bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, aAnn.coordinate.latitude);
+        }
     }
     
     region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;

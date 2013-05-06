@@ -84,6 +84,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
     
     lblGara.text = theLoggedUser.gara;
     myLockMapResize = FALSE;
+    myAnnotationFiltered = FALSE;
 
 }
 
@@ -92,9 +93,8 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
     [myMapView removeAnnotations:MainAppDelegate.mainSessionManager.previousAnnotations];
     [myMapView addAnnotations:(NSArray *) annotations];
     
-    MKCoordinateRegion region = sessionManager.tracking.getFitRegion;
-    
     if (!myLockMapResize){
+        MKCoordinateRegion region = [sessionManager.tracking getFitRegion: myAnnotationFiltered];
         region = [myMapView regionThatFits:region];
         [myMapView setRegion:region animated:YES];
     }
@@ -121,6 +121,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
         //NSLog(@"Tapped");
 
         [MainAppDelegate.mainSessionManager setAnnotationFilter:@""];
+        myAnnotationFiltered = FALSE;
         imgLock.image = nil;
         
         [self unlockMapresize];
@@ -194,11 +195,13 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
         
         [MainAppDelegate.mainSessionManager setAnnotationFilter:annToShow];
         
+        myAnnotationFiltered = TRUE;
+        
         imgLock.image = [UIImage imageNamed:@"Lock.png"];
         
         [self unlockMapresize];
-        [MainAppDelegate.mainSessionManager unlockTracking];
         
+        [MainAppDelegate.mainSessionManager unlockTracking];
         [MainAppDelegate.mainSessionManager reloadTrackings];
     }
 }
@@ -244,7 +247,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
     
     // setup image for the map
     pinView.image = [theAnn GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
-    //pinView.alpha = 1 - 0.4* theAnn.Reliability;
+    pinView.alpha = 1 - theAnn.Reliability==0 ? 0 : 0.4;
     pinView.opaque = NO;
     
     if (theAnn.progressivo >0 && pinView.subviews.count == 0) {
@@ -253,7 +256,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
         badgeView.font = [UIFont boldSystemFontOfSize:10];
         badgeView.backgroundColor = [UIColor clearColor];
         badgeView.tintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:0.7];
-        badgeView.textColor = [UIColor blackColor];
+        badgeView.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1 - theAnn.Reliability==2 ? 0.4 : 0];
         badgeView.shadowColor = [UIColor blackColor];
         [badgeView sizeToFit];
         [pinView addSubview:badgeView];

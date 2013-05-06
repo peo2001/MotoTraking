@@ -172,7 +172,7 @@
 		EA55584A1727BC3900DE711E /* mtxTrackings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxTrackings.h; sourceTree = "<group>"; };
 		EA55584B1727BC3900DE711E /* mtxTrackings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxTrackings.m; sourceTree = "<group>"; };
 		EA5558501727D8F900DE711E /* TestLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestLocation.gpx; sourceTree = "<group>"; };
-		EA724176173844EC004FF8D7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EA724176173844EC004FF8D7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		EADC13FE17200D9F00346437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -269,7 +269,8 @@
 				EA13EC2217254CCD00CC37DC /* RXMLElement.h */,
 				EA13EC2317254CCD00CC37DC /* RXMLElement.m */,
 			);
-			path = RaptureXML;
+			name = RaptureXML;
+			path = MotoTracking/RaptureXML;
 			sourceTree = "<group>";
 		};
 		EA13EC2817254CFF00CC37DC /* Communication */ = {
@@ -278,7 +279,6 @@
 				EA13EC2517254CF200CC37DC /* RemoteConnector.h */,
 				EA13EC2617254CF200CC37DC /* RemoteConnector.m */,
 				EA13EC2717254CF200CC37DC /* RemoteConnectorParameters.h */,
-				EA13EC2117254CCD00CC37DC /* RaptureXML */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -324,7 +324,6 @@
 		EA4FABB0171DB69500410870 = {
 			isa = PBXGroup;
 			children = (
-				EA724176173844EC004FF8D7 /* .gitignore */,
 				EA13EC3A17259D1F00CC37DC /* Images */,
 				EA4FABC2171DB69500410870 /* MotoTracking */,
 				EA4FABBB171DB69500410870 /* Frameworks */,
@@ -343,6 +342,7 @@
 		EA4FABBB171DB69500410870 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA13EC2117254CCD00CC37DC /* RaptureXML */,
 				EA0F9FEE173839B000579777 /* badge */,
 				EA13EC2E17257C6500CC37DC /* libxml2.dylib */,
 				EA0FA044173841D500579777 /* CoreLocation.framework */,
@@ -373,6 +373,7 @@
 		EA4FABC3171DB69500410870 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA724176173844EC004FF8D7 /* .gitignore */,
 				EA4FABC4171DB69500410870 /* MotoTracking-Info.plist */,
 				EA4FABC5171DB69500410870 /* InfoPlist.strings */,
 				EA4FABC8171DB69500410870 /* main.m */,

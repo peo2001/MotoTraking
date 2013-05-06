@@ -41,6 +41,6 @@
 
 - (void) RC_Tracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara annotationFilter:annotationFilter;
 - (CLLocation *)deviceLocation;
-- (MKCoordinateRegion)getFitRegion;
+- (MKCoordinateRegion)getFitRegion: (BOOL) forceInvalidAnnotation;
 
 @end

@@ -23,6 +23,7 @@
     
     NSTimer *myLockTimer;
     BOOL myLockMapResize;
+    BOOL myAnnotationFiltered;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *iPhoneMapView;
