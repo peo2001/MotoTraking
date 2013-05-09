@@ -30,6 +30,7 @@
 {
     RemoteConnector *myRemoteConnector;
     IBOutlet CLLocationManager *locationManager;
+    CLLocation *myOldLocation;
 }
 
 @property (nonatomic, assign) id <TrackingDelegate> delegate;

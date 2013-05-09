@@ -9,7 +9,7 @@
 #import "mtxTrackings.h"
 #import "mtxAppDelegate.h"
 
-static const CGFloat MIMAL_ACCURACY = 200.0;
+static const CGFloat MIMAL_ACCURACY = 250.0;
 
 @implementation mtxTrackings
 
@@ -29,6 +29,8 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
         _tracks = [[NSMutableArray alloc] initWithCapacity:0];
         _previousTracks = [[NSMutableArray alloc] initWithCapacity:0];
         
+        myOldLocation = [[CLLocation alloc] initWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude];
+        
     }
     return self;
 }
@@ -38,6 +40,7 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
         return false;
     }
     if ((locationManager.location.horizontalAccuracy+locationManager.location.verticalAccuracy) > MIMAL_ACCURACY){
+        NSLog(@"Low accuracy %f", locationManager.location.horizontalAccuracy+locationManager.location.verticalAccuracy);
         return false;
     }
     return true;
@@ -46,18 +49,22 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
 -(CLLocation *)deviceLocation{
     
     if ([self validDeviceLocation]){
+        myOldLocation = myOldLocation = [[CLLocation alloc] initWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude];
         return locationManager.location;
         }
     else{
-        return [[CLLocation alloc] init];
+        return myOldLocation;
     }
     
 }
 
 - (void) RC_Tracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara annotationFilter:annotationFilter{
-    NSString *aURL = [NSString stringWithFormat:@"Tracking.asp?IdGara=%i&IdRuoloInGara=%i&Lat=%f&Long=%f",
+    
+    NSString *aURL = [NSString stringWithFormat:@"Tracking.asp?IdGara=%i&IdRuoloInGara=%i&Lat=%f&Long=%f&Course=%f&Speed=%f",
                       idGara, idRuoloInGara,
-                      [self deviceLocation].coordinate.latitude, [self deviceLocation].coordinate.longitude];
+                      [self deviceLocation].coordinate.latitude, [self deviceLocation].coordinate.longitude,
+                      [self deviceLocation].course, [self deviceLocation].speed];
+    
     if (![annotationFilter isEqualToString:@""]) {
         aURL = [NSString stringWithFormat:@"%@&AnnotationFilter=%@", aURL, annotationFilter];
     }
@@ -121,6 +128,7 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
 
 - (MKCoordinateRegion)getFitRegion:(BOOL)forceInvalidAnnotation {
     
+    BOOL mapResized = FALSE;
     MKCoordinateRegion region;
 
     CLLocationCoordinate2D topLeftCoord;
@@ -132,6 +140,7 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
     bottomRightCoord.latitude = 90;
     
     if ([self validDeviceLocation]) {
+        mapResized = TRUE;
         topLeftCoord.longitude = fmin(topLeftCoord.longitude, [self deviceLocation].coordinate.longitude);
         topLeftCoord.latitude = fmax(topLeftCoord.latitude, [self deviceLocation].coordinate.latitude);
         bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, [self deviceLocation].coordinate.longitude);
@@ -139,6 +148,7 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
     }
     for(mtxMapViewAnnotation *aAnn in _tracks) {
         if (aAnn.Reliability<2 || forceInvalidAnnotation) {
+            mapResized = TRUE;
             topLeftCoord.longitude = fmin(topLeftCoord.longitude, aAnn.coordinate.longitude);
             topLeftCoord.latitude = fmax(topLeftCoord.latitude, aAnn.coordinate.latitude);
             bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, aAnn.coordinate.longitude);
@@ -149,10 +159,17 @@ static const CGFloat MIMAL_ACCURACY = 200.0;
     region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
     region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
     
-    // Add a little extra space on the sides
-    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) *1.4;
-    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) *1.4;
-    
+    if (mapResized) {
+        
+        // Add a little extra space on the sides
+        region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) *1.4;
+        region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) *1.4;
+        
+        if ((region.span.latitudeDelta+region.span.longitudeDelta) < 0.006) {
+            region.span.latitudeDelta = 0.003;
+            region.span.longitudeDelta = 0.003;
+        }
+    }
     return region;
         
 }

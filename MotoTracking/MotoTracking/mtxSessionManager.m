@@ -112,10 +112,6 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
     return (NSArray *)_tracking.previousTracks;
 }
 
-- (void) setAnnotationFilter:(NSString *)annotationFilter{
-    _annotationFilter = annotationFilter;
-}
-
 - (BOOL) tryLockTracking{
     return [myLock tryLock];
 }

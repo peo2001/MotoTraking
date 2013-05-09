@@ -21,9 +21,11 @@
     UILabel *lblGara;
     UIImageView *imgLock;
     
-    NSTimer *myLockTimer;
-    BOOL myLockMapResize;
-    BOOL myAnnotationFiltered;
+    NSTimer *myTimer;
+
+    BOOL myAnnotationFiltered;  // se la mappa è "filtrata" su solo alcune annotations
+    int secsToFiltering;    // quanti secondi mancano alla definizione del filtro
+    
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *iPhoneMapView;

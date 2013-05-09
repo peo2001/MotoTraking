@@ -8,7 +8,7 @@
 
 #import "mtxViewController.h"
 
-const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
+const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
 
 
 @implementation mtxViewController
@@ -39,6 +39,11 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
     myMapView.mapType = MKMapTypeStandard;   // also MKMapTypeSatellite or MKMapTypeHybrid
     myMapView.showsUserLocation = YES;
     myMapView.userTrackingMode = MKUserTrackingModeNone;
+    
+    myTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                   target:self selector:@selector(phaseManager)
+                                                 userInfo:nil repeats:YES];
+
     
     // Add gesture recognizer for map pinching
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
@@ -83,7 +88,6 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
 -(void)sessionManager:(mtxSessionManager *)sessionManager loggedIn:(mtxLoggedUser *)theLoggedUser{
     
     lblGara.text = theLoggedUser.gara;
-    myLockMapResize = FALSE;
     myAnnotationFiltered = FALSE;
 
 }
@@ -93,12 +97,6 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
     [myMapView removeAnnotations:MainAppDelegate.mainSessionManager.previousAnnotations];
     [myMapView addAnnotations:(NSArray *) annotations];
     
-    if (!myLockMapResize){
-        MKCoordinateRegion region = [sessionManager.tracking getFitRegion: myAnnotationFiltered];
-        region = [myMapView regionThatFits:region];
-        [myMapView setRegion:region animated:YES];
-    }
-
 }
 
 #pragma - mark Map Events
@@ -109,75 +107,91 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
 }
 
 - (void)handlePinchGesture:(UIGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateRecognized) {
-        //NSLog(@"Pinched");
-        
-        [self lockMapresize];
-    }
-}
-
-- (void)handleTapGesture:(UIGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateRecognized) {
-        //NSLog(@"Tapped");
-
-        [MainAppDelegate.mainSessionManager setAnnotationFilter:@""];
-        myAnnotationFiltered = FALSE;
-        imgLock.image = nil;
-        
-        [self unlockMapresize];
-        
-        [MainAppDelegate.mainSessionManager reloadTrackings];
-        
-    }
+    
+    [self handleResizeGesture:sender.state];
+    
 }
 
 - (void)handlePanGesture:(UIGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateRecognized){
-        //NSLog(@"Panned");
+    
+    [self handleResizeGesture:sender.state];
+    
+}
+
+- (void)handleResizeGesture:(UIGestureRecognizerState) state {
+    
+    if (state == UIGestureRecognizerStateBegan){
         
-        [self lockMapresize];
-    }
-}
+        //NSLog(@"handleResizeGesture state:%i", state);
 
-- (void) unlockMapresize{
-    
-    [self clearLockTimer];
-    myLockMapResize = FALSE;
-    [MainAppDelegate.mainSessionManager reloadTrackings];
-    
-}
-
-- (void) lockMapresize{
-    if (!myLockMapResize) {
-        imgLock.image = [UIImage imageNamed:@"Clock.png"];
-        myLockMapResize = TRUE;
-        [self resetLockTimer];
-    }
-}
-
-- (void) resetLockTimer {
-    
-    [self clearLockTimer];
-    
-    myLockTimer = [NSTimer scheduledTimerWithTimeInterval:LOCK_INTERVAL_SECS
-                                                   target:self selector:@selector(filterTrackingAnnotation)
-                                                 userInfo:nil repeats:NO];
-
-
-}
-
-- (void) clearLockTimer{
-    if (myLockTimer != nil) {
-        [myLockTimer invalidate];
-        myLockTimer = nil;
+        secsToFiltering=LOCK_INTERVAL_SECS;
+        [self phaseManager];
     }
 
 }
+
+- (void)handleTapGesture:(UIGestureRecognizer *)sender {
+    
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        //NSLog(@"Tapped");
+        
+        [MainAppDelegate.mainSessionManager setAnnotationFilter:@""];
+        
+        secsToFiltering = 0;
+        
+        if (myAnnotationFiltered){
+            myAnnotationFiltered = FALSE;
+            imgLock.image = nil;
+            [self phaseManager];
+        }
+        
+    }
+}
+
+
+- (void) phaseManager{
+    // viene chiamato ogni secondo e, a secondo dello stato della maschera, attiva le funzioni corrispondenti.
+    
+    if (MainAppDelegate.isForeground && MainAppDelegate.mainSessionManager.isLogged){
+        
+        
+        if (secsToFiltering > 0){
+            secsToFiltering -- ;
+            if (secsToFiltering == 0) {
+                [self filterTrackingAnnotation];
+            }
+        }
+
+        if (secsToFiltering == 0) {
+            // aggiorna la mappa
+            MKCoordinateRegion region = [MainAppDelegate.mainSessionManager.tracking getFitRegion: myAnnotationFiltered];
+            region = [myMapView regionThatFits:region];
+            [myMapView setRegion:region animated:YES];
+            
+        }
+        
+        if (secsToFiltering>0){
+            imgLock.image = [UIImage imageNamed:@"Clock.png"];
+        }
+        else if (myAnnotationFiltered) {
+            
+            imgLock.image = [UIImage imageNamed:@"Lock.png"];
+            
+        }
+        else{
+            imgLock.image = nil;
+        }
+        
+        
+    }
+}
+
+
 
 
 - (void) filterTrackingAnnotation{
     
-    myLockTimer = nil;
+    myTimer = nil;
 
     if ([MainAppDelegate.mainSessionManager tryLockTracking]){
     
@@ -193,16 +207,14 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
         
         annToShow = [NSString stringWithFormat:@"%@0)", annToShow];
         
-        [MainAppDelegate.mainSessionManager setAnnotationFilter:annToShow];
-        
-        myAnnotationFiltered = TRUE;
-        
-        imgLock.image = [UIImage imageNamed:@"Lock.png"];
-        
-        [self unlockMapresize];
+        if (![annToShow isEqualToString:@"(0)"]) {
+
+            [MainAppDelegate.mainSessionManager setAnnotationFilter:annToShow];
+            
+            myAnnotationFiltered = TRUE;
+        }
         
         [MainAppDelegate.mainSessionManager unlockTracking];
-        [MainAppDelegate.mainSessionManager reloadTrackings];
     }
 }
 
@@ -247,7 +259,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
     
     // setup image for the map
     pinView.image = [theAnn GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
-    pinView.alpha = 1 - theAnn.Reliability==0 ? 0 : 0.4;
+    pinView.alpha = 1 - (theAnn.Reliability * .4);
     pinView.opaque = NO;
     
     if (theAnn.progressivo >0 && pinView.subviews.count == 0) {
@@ -255,8 +267,8 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 8.0;
         badgeView.text = [NSString stringWithFormat:@"%i", theAnn.progressivo];
         badgeView.font = [UIFont boldSystemFontOfSize:10];
         badgeView.backgroundColor = [UIColor clearColor];
-        badgeView.tintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:0.7];
-        badgeView.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1 - theAnn.Reliability==2 ? 0.4 : 0];
+        badgeView.tintColor = [UIColor whiteColor];
+        badgeView.textColor = [UIColor blackColor];
         badgeView.shadowColor = [UIColor blackColor];
         [badgeView sizeToFit];
         [pinView addSubview:badgeView];

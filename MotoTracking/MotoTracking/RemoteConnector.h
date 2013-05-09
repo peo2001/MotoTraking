@@ -37,6 +37,8 @@
 
 @property (nonatomic, retain) NSString *dataMode;
 
+@property (readonly) CGFloat signalStrenght;
+
 - (void) rc_:(NSString *) virtualDir;
 
 @end
