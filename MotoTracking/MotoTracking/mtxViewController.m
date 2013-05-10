@@ -25,16 +25,21 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     if([[[UIDevice currentDevice] model] hasPrefix:@"iPad"])
     {
         myMapView = self.iPadMapView;
-        lblGara = [[UILabel alloc]init];
-        imgLock = [[UIImageView alloc] init];
+        lblGara = self.iPadLblGara;
+        imgLock = self.iPadImgLock;
+        imgSignal = self.iPadImgSignal;
     }else
     {
         myMapView = self.iPhoneMapView;
         lblGara = self.iPhoneLblGara;
         imgLock = self.iPhoneImgLock;
+        imgSignal = self.iPhoneImgSignal;
     }
     
     imgLock.image = nil;
+    imgLock.alpha = .5;
+
+    imgSignal.alpha = .7;
     
     myMapView.mapType = MKMapTypeStandard;   // also MKMapTypeSatellite or MKMapTypeHybrid
     myMapView.showsUserLocation = YES;
@@ -90,6 +95,12 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     lblGara.text = theLoggedUser.gara;
     myAnnotationFiltered = FALSE;
 
+}
+
+-(void)sessionManager:(mtxSessionManager *)sessionManager signalMeasured:(int)signalStrengt{
+    
+    imgSignal.image = [UIImage imageNamed:[NSString stringWithFormat:@"SIG%i", signalStrengt]];
+        
 }
 
 -(void)sessionManager:(mtxSessionManager *)sessionManager didNewTrackingReceived:(NSMutableArray *)annotations{

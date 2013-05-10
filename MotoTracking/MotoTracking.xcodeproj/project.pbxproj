@@ -66,6 +66,12 @@
 		EA880119173A666000B22310 /* NIState.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8800FF173A666000B22310 /* NIState.m */; };
 		EA88011A173A666000B22310 /* NIViewRecycler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA880101173A666000B22310 /* NIViewRecycler.m */; };
 		EA88011B173A666000B22310 /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = EA880103173A666000B22310 /* NSString+NimbusCore.m */; };
+		EACC22B5173D0342002E70E1 /* SIG0.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22AF173D0342002E70E1 /* SIG0.png */; };
+		EACC22B6173D0342002E70E1 /* SIG1.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B0173D0342002E70E1 /* SIG1.png */; };
+		EACC22B7173D0342002E70E1 /* SIG2.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B1173D0342002E70E1 /* SIG2.png */; };
+		EACC22B8173D0342002E70E1 /* SIG3.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B2173D0342002E70E1 /* SIG3.png */; };
+		EACC22B9173D0342002E70E1 /* SIG4.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B3173D0342002E70E1 /* SIG4.png */; };
+		EACC22BA173D0342002E70E1 /* SIG5.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B4173D0342002E70E1 /* SIG5.png */; };
 		EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADC13FE17200D9F00346437 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -173,6 +179,12 @@
 		EA880101173A666000B22310 /* NIViewRecycler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIViewRecycler.m; sourceTree = "<group>"; };
 		EA880102173A666000B22310 /* NSString+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NimbusCore.h"; sourceTree = "<group>"; };
 		EA880103173A666000B22310 /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
+		EACC22AF173D0342002E70E1 /* SIG0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG0.png; sourceTree = "<group>"; };
+		EACC22B0173D0342002E70E1 /* SIG1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG1.png; sourceTree = "<group>"; };
+		EACC22B1173D0342002E70E1 /* SIG2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG2.png; sourceTree = "<group>"; };
+		EACC22B2173D0342002E70E1 /* SIG3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG3.png; sourceTree = "<group>"; };
+		EACC22B3173D0342002E70E1 /* SIG4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG4.png; sourceTree = "<group>"; };
+		EACC22B4173D0342002E70E1 /* SIG5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG5.png; sourceTree = "<group>"; };
 		EADC13FE17200D9F00346437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -225,6 +237,12 @@
 		EA13EC3A17259D1F00CC37DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EACC22AF173D0342002E70E1 /* SIG0.png */,
+				EACC22B0173D0342002E70E1 /* SIG1.png */,
+				EACC22B1173D0342002E70E1 /* SIG2.png */,
+				EACC22B2173D0342002E70E1 /* SIG3.png */,
+				EACC22B3173D0342002E70E1 /* SIG4.png */,
+				EACC22B4173D0342002E70E1 /* SIG5.png */,
 				EA04BDD8172E917100ED8235 /* Clock.png */,
 				EA04BDD6172E902600ED8235 /* Clessidra.png */,
 				EA1B67DF17284A51001458CD /* Icon_114.png */,
@@ -482,6 +500,12 @@
 				EA04BDD7172E902600ED8235 /* Clessidra.png in Resources */,
 				EA04BDD9172E917100ED8235 /* Clock.png in Resources */,
 				EA724177173844EC004FF8D7 /* .gitignore in Resources */,
+				EACC22B5173D0342002E70E1 /* SIG0.png in Resources */,
+				EACC22B6173D0342002E70E1 /* SIG1.png in Resources */,
+				EACC22B7173D0342002E70E1 /* SIG2.png in Resources */,
+				EACC22B8173D0342002E70E1 /* SIG3.png in Resources */,
+				EACC22B9173D0342002E70E1 /* SIG4.png in Resources */,
+				EACC22BA173D0342002E70E1 /* SIG5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

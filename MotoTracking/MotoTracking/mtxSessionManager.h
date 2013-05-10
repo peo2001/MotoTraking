@@ -21,7 +21,7 @@
 - (void) sessionManager:(mtxSessionManager *)sessionManager askForLogin:(NSString *)codiceAttivazione;
 - (void) sessionManager:(mtxSessionManager *)sessionManager loggedIn:(mtxLoggedUser *)theLoggedUser;
 - (void) sessionManager:(mtxSessionManager *)sessionManager didNewTrackingReceived:(NSMutableArray *)annotations;
-
+- (void) sessionManager:(mtxSessionManager *)sessionManager signalMeasured:(int)signalStrengt;
 @end
 
 @interface mtxSessionManager : NSObject <LoginDelegate, TrackingDelegate>{

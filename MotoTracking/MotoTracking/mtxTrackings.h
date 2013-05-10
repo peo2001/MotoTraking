@@ -23,6 +23,7 @@
 - (void) tracking:(mtxTrackings *)tracking newTackingRetrieved:(NSMutableArray *)tracks;
 - (void) tracking:(mtxTrackings *)tracking idleTracking:(NSString *)status;
 - (void) tracking:(mtxTrackings *)tracking raceNoMoreValid:(NSString *)status;
+- (void) tracking:(mtxTrackings *)tracking signalMeasured:(int)signalStrengt;
 
 @end
 
@@ -31,6 +32,10 @@
     RemoteConnector *myRemoteConnector;
     IBOutlet CLLocationManager *locationManager;
     CLLocation *myOldLocation;
+
+    NSTimeInterval startTime;
+    NSTimeInterval endTime;
+
 }
 
 @property (nonatomic, assign) id <TrackingDelegate> delegate;

@@ -40,7 +40,7 @@ static const CGFloat MIMAL_ACCURACY = 250.0;
         return false;
     }
     if ((locationManager.location.horizontalAccuracy+locationManager.location.verticalAccuracy) > MIMAL_ACCURACY){
-        NSLog(@"Low accuracy %f", locationManager.location.horizontalAccuracy+locationManager.location.verticalAccuracy);
+        //NSLog(@"Low accuracy %f", locationManager.location.horizontalAccuracy+locationManager.location.verticalAccuracy);
         return false;
     }
     return true;
@@ -70,20 +70,37 @@ static const CGFloat MIMAL_ACCURACY = 250.0;
     }
     
     [myRemoteConnector rc_:aURL];
+    
+    // Start timer
+    startTime = [NSDate timeIntervalSinceReferenceDate];
+
 }
 
 - (void) remoteConnector:(RemoteConnector *)remoteConnector didDataReceived:(NSData *)data{
     
+    RXMLElement * aRootElement = [RXMLElement elementFromXMLData:data];
+    
+    // Stop timer
+    endTime = [NSDate timeIntervalSinceReferenceDate];
+    
+    [self parse:aRootElement];
 
-        [self parse:[RXMLElement elementFromXMLData:data]];
+    
+    [self.delegate tracking:self signalMeasured:[self getSignalStrenght]];
 
 }
 
 - (void) remoteConnector:(RemoteConnector *)remoteConnector didConnectionErrorReceived:(NSError *)error{
+
+    // Stop timer
+    endTime = 0;
+    [self.delegate tracking:self signalMeasured:[self getSignalStrenght]];
+
     [self.delegate tracking:self newTackingRetrieved:_tracks];
 }
 
 - (void) parse:(RXMLElement *) rootXML{
+    
     
     _status = [rootXML attribute:@"St"];
     
@@ -174,5 +191,37 @@ static const CGFloat MIMAL_ACCURACY = 250.0;
         
 }
 
+- (int) getSignalStrenght{
 
+    if (endTime==0) {
+        return 0;
+    }
+
+    // Get the elapsed time in milliseconds
+    NSTimeInterval enlapsedTime = pow((endTime - startTime) + 0.7 * self.getReliability, 2);
+    
+    NSLog(@"enlapsed time: %f", enlapsedTime);
+    
+    if (enlapsedTime>5) {
+        enlapsedTime = 5;
+    }
+    else if (enlapsedTime < 1) {
+        enlapsedTime = 1;
+    }
+    
+    return (int) (6-enlapsedTime);
+
+}
+
+- (CGFloat) getReliability{
+    if (_tracks.count==0) {
+        return 2.0;
+    }else{
+        CGFloat totReliability = 0.0;
+        for (mtxMapViewAnnotation * aTrack in _tracks) {
+            totReliability = totReliability + aTrack.Reliability;
+        }
+        return totReliability / _tracks.count;
+    }
+}
 @end

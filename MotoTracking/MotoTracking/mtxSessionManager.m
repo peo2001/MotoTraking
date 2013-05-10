@@ -42,7 +42,9 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
     myLogin = [[mtxLoginViewController alloc] init];
     myLogin.codiceAttivazione = _loggedUser.codiceAttivazione;
     myLogin.delegate = self;
+    myLogin.view.frame = mapViewController.view.bounds;
     [mapViewController.view addSubview:myLogin.view];
+
     
 }
 
@@ -80,6 +82,10 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
             [_tracking RC_Tracking:_loggedUser.idRuoloInGara idGara:_loggedUser.idGara annotationFilter:_annotationFilter];
         }
     }
+}
+
+-(void)tracking:(mtxTrackings *)tracking signalMeasured:(int)signalStrengt{
+    [self.delegate sessionManager:self signalMeasured:signalStrengt];
 }
 
 -(void)tracking:(mtxTrackings *)tracking newTackingRetrieved:(NSMutableArray *)tracks{

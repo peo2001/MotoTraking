@@ -20,6 +20,7 @@
     mtxLoginViewController *myLogin;
     UILabel *lblGara;
     UIImageView *imgLock;
+    UIImageView *imgSignal;
     
     NSTimer *myTimer;
 
@@ -31,7 +32,11 @@
 @property (weak, nonatomic) IBOutlet MKMapView *iPhoneMapView;
 @property (weak, nonatomic) IBOutlet UILabel *iPhoneLblGara;
 @property (weak, nonatomic) IBOutlet UIImageView *iPhoneImgLock;
+@property (weak, nonatomic) IBOutlet UIImageView *iPhoneImgSignal;
 
-@property (strong, nonatomic) IBOutlet MKMapView *iPadMapView;
+@property (weak, nonatomic) IBOutlet MKMapView *iPadMapView;
+@property (weak, nonatomic) IBOutlet UILabel *iPadLblGara;
+@property (weak, nonatomic) IBOutlet UIImageView *iPadImgLock;
+@property (weak, nonatomic) IBOutlet UIImageView *iPadImgSignal;
 
 @end

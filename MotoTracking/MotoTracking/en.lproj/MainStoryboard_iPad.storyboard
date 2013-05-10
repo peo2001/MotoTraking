@@ -8,21 +8,66 @@
         <scene sceneID="4">
             <objects>
                 <viewController id="2" customClass="mtxViewController" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="zLG-4v-0eV">
+                    <view key="view" contentMode="scaleToFill" id="KCX-jp-LHB">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <connections>
-                            <outlet property="delegate" destination="2" id="fcz-do-qVw"/>
-                        </connections>
-                    </mapView>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4cM-xH-d9V">
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="kge-o9-qyz"/>
+                                </connections>
+                            </mapView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00P-IZ-Psb">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="362" id="y1E-ah-Lld"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="center" image="Lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Fa-Lk-mDi">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="77H-FJ-zi2"/>
+                                    <constraint firstAttribute="width" constant="67" id="qAV-tx-IEC"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SIG0.png" translatesAutoresizingMaskIntoConstraints="NO" id="WwN-fB-BZ2">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="J4j-Bv-QLx"/>
+                                    <constraint firstAttribute="width" constant="69" id="kSV-wo-u1r"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4cM-xH-d9V" firstAttribute="trailing" secondItem="KCX-jp-LHB" secondAttribute="trailing" type="default" id="50K-6X-qjz"/>
+                            <constraint firstItem="00P-IZ-Psb" firstAttribute="top" secondItem="KCX-jp-LHB" secondAttribute="top" constant="20" symbolic="YES" type="default" id="FEn-tZ-lYy"/>
+                            <constraint firstItem="4cM-xH-d9V" firstAttribute="bottom" secondItem="KCX-jp-LHB" secondAttribute="bottom" type="default" id="MOg-OP-7wk"/>
+                            <constraint firstAttribute="bottom" secondItem="7Fa-Lk-mDi" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="cax-0v-PMf"/>
+                            <constraint firstAttribute="trailing" secondItem="7Fa-Lk-mDi" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fGG-Bh-wmw"/>
+                            <constraint firstItem="WwN-fB-BZ2" firstAttribute="leading" secondItem="KCX-jp-LHB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mjm-sM-j6C"/>
+                            <constraint firstItem="00P-IZ-Psb" firstAttribute="centerX" secondItem="4cM-xH-d9V" secondAttribute="centerX" type="default" id="nPT-Eg-qNo"/>
+                            <constraint firstItem="4cM-xH-d9V" firstAttribute="top" secondItem="KCX-jp-LHB" secondAttribute="top" type="default" id="nrm-ph-bye"/>
+                            <constraint firstItem="WwN-fB-BZ2" firstAttribute="top" secondItem="KCX-jp-LHB" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vTY-oo-s3p"/>
+                            <constraint firstItem="4cM-xH-d9V" firstAttribute="leading" secondItem="KCX-jp-LHB" secondAttribute="leading" type="default" id="wdK-XH-Zj5"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="iPadMapView" destination="zLG-4v-0eV" id="V56-qD-GPy"/>
+                        <outlet property="iPadImgLock" destination="7Fa-Lk-mDi" id="Asb-KP-YlW"/>
+                        <outlet property="iPadImgSignal" destination="WwN-fB-BZ2" id="RN8-fi-Btq"/>
+                        <outlet property="iPadLblGara" destination="00P-IZ-Psb" id="77n-FI-yrh"/>
+                        <outlet property="iPadMapView" destination="4cM-xH-d9V" id="Qsr-HG-1AD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="-328"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Lock.png" width="64" height="64"/>
+        <image name="SIG0.png" width="256" height="256"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
