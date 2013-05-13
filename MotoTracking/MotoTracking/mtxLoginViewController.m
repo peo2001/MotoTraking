@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _codiceAttivazione = @"";
+        _deviceId = @"";
         // Custom initialization
     }
     return self;
@@ -54,6 +55,9 @@
 }
 
 - (void) askLogin:(id)sender{
+    
+    _btnLogin.enabled = FALSE;
+    
     _txtCodiceAttivazione.text = [_txtCodiceAttivazione.text uppercaseString];
     _codiceAttivazione = _txtCodiceAttivazione.text;
     
@@ -68,13 +72,15 @@
     myRemoteConnector = [[RemoteConnector alloc] init];
     myRemoteConnector.delegate = self;
 
-    [myRemoteConnector rc_:[NSString stringWithFormat:@"Accesso.asp?CodiceAttivazione=%@", _codiceAttivazione]];
+    [myRemoteConnector rc_:[NSString stringWithFormat:@"Accesso.asp?DeviceId=%@&CodiceAttivazione=%@", _deviceId, _codiceAttivazione]];
 }
 
 - (void) remoteConnector:(RemoteConnector *)remoteConnector didDataReceived:(NSData *)data{
     
     mtxLoggedUser *theLoggedUser = [[mtxLoggedUser alloc] init];
     [theLoggedUser parseFromData:data];
+    
+    _btnLogin.enabled = TRUE;
     
     if ([theLoggedUser.status isEqualToString:@"R"]) {
         [self.view removeFromSuperview];
@@ -99,6 +105,8 @@
     [alert setDelegate:self];
     [alert addButtonWithTitle:@"Ok"];
     [alert show];
+    
+    _btnLogin.enabled = TRUE;
 
 }
 

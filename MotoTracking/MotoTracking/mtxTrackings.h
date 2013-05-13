@@ -20,6 +20,7 @@
 
 @optional
 
+- (void) deviceLocationNotAvailable;
 - (void) tracking:(mtxTrackings *)tracking newTackingRetrieved:(NSMutableArray *)tracks;
 - (void) tracking:(mtxTrackings *)tracking idleTracking:(NSString *)status;
 - (void) tracking:(mtxTrackings *)tracking raceNoMoreValid:(NSString *)status;
@@ -31,7 +32,6 @@
 {
     RemoteConnector *myRemoteConnector;
     IBOutlet CLLocationManager *locationManager;
-    CLLocation *myOldLocation;
 
     NSTimeInterval startTime;
     NSTimeInterval endTime;
@@ -47,6 +47,7 @@
 
 - (void) RC_Tracking:(NSInteger) idRuoloInGara idGara:(NSInteger) idGara annotationFilter:annotationFilter;
 - (CLLocation *)deviceLocation;
+- (CGFloat) deviceLocationAccuracy;
 - (MKCoordinateRegion)getFitRegion: (BOOL) forceInvalidAnnotation;
 
 @end

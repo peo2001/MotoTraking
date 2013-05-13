@@ -30,5 +30,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 
 @property (nonatomic, retain) NSString *codiceAttivazione;
+@property (nonatomic, retain) NSString *deviceId;
 
 @end

@@ -72,6 +72,7 @@
 		EACC22B8173D0342002E70E1 /* SIG3.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B2173D0342002E70E1 /* SIG3.png */; };
 		EACC22B9173D0342002E70E1 /* SIG4.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B3173D0342002E70E1 /* SIG4.png */; };
 		EACC22BA173D0342002E70E1 /* SIG5.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B4173D0342002E70E1 /* SIG5.png */; };
+		EACC22BF17413582002E70E1 /* SELF.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22BE17413582002E70E1 /* SELF.png */; };
 		EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADC13FE17200D9F00346437 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +186,7 @@
 		EACC22B2173D0342002E70E1 /* SIG3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG3.png; sourceTree = "<group>"; };
 		EACC22B3173D0342002E70E1 /* SIG4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG4.png; sourceTree = "<group>"; };
 		EACC22B4173D0342002E70E1 /* SIG5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG5.png; sourceTree = "<group>"; };
+		EACC22BE17413582002E70E1 /* SELF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SELF.png; sourceTree = "<group>"; };
 		EADC13FE17200D9F00346437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -237,6 +239,7 @@
 		EA13EC3A17259D1F00CC37DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EACC22BE17413582002E70E1 /* SELF.png */,
 				EACC22AF173D0342002E70E1 /* SIG0.png */,
 				EACC22B0173D0342002E70E1 /* SIG1.png */,
 				EACC22B1173D0342002E70E1 /* SIG2.png */,
@@ -438,6 +441,7 @@
 				EA4FABB5171DB69500410870 /* Sources */,
 				EA4FABB6171DB69500410870 /* Frameworks */,
 				EA4FABB7171DB69500410870 /* Resources */,
+				EACC22BB173D5D2B002E70E1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -506,10 +510,27 @@
 				EACC22B8173D0342002E70E1 /* SIG3.png in Resources */,
 				EACC22B9173D0342002E70E1 /* SIG4.png in Resources */,
 				EACC22BA173D0342002E70E1 /* SIG5.png in Resources */,
+				EACC22BF17413582002E70E1 /* SELF.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EACC22BB173D5D2B002E70E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbN=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbN=$((0x$bN))\nbN=$(($bN + 1))\nbN=$(printf \"%X\" $bN)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bN\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA4FABB5171DB69500410870 /* Sources */ = {

@@ -25,6 +25,7 @@
     _codRuolo = aCodRuolo;
 	_title = @"";
 	_coordinate = aCoordinate;
+    _course = 0.0;
     }
 	return self;
 }

@@ -13,15 +13,16 @@
 {
 }
 
-@property (nonatomic, readonly, retain) NSString *status;
+@property (nonatomic, readonly) NSString *status;
 @property (readonly) NSInteger idGara;
 @property (readonly) NSInteger idRuolo;
 @property (readonly) NSInteger idRuoloInGara;
-@property (nonatomic, readonly, retain) NSString * codRuolo;
-@property (nonatomic, readonly, retain) NSString * gara;
-@property (nonatomic, readonly, retain) NSString * codiceAttivazione;
-@property (nonatomic, readonly, retain) NSString * dataInizio;
-@property (nonatomic, readonly, retain) NSString * dataFine;
+@property (nonatomic, readonly) NSString * codRuolo;
+@property (nonatomic, readonly) NSString * gara;
+@property (nonatomic, readonly) NSString * codiceAttivazione;
+@property (nonatomic, readonly) NSString * dataInizio;
+@property (nonatomic, readonly) NSString * dataFine;
+@property (nonatomic, readonly) NSString * deviceId;
 
 - (void) parseFromData:(NSData *)data;
 - (BOOL) isLogged;

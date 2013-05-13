@@ -34,6 +34,8 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
     return self;
 }
 
+#pragma mark - Login
+
 - (void)loginOnView:(UIViewController *)aViewController{
     
     if(mapViewController == nil){
@@ -41,6 +43,7 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
     }
     myLogin = [[mtxLoginViewController alloc] init];
     myLogin.codiceAttivazione = _loggedUser.codiceAttivazione;
+    myLogin.deviceId = _loggedUser.deviceId;
     myLogin.delegate = self;
     myLogin.view.frame = mapViewController.view.bounds;
     [mapViewController.view addSubview:myLogin.view];
@@ -59,6 +62,8 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
         [self startTracking];
     }
 }
+
+#pragma mark - Tracking cycle
 
 - (void) stopTracking{
     isTrackingRunning = false;
@@ -83,6 +88,8 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
         }
     }
 }
+
+#pragma mark - tracking events
 
 -(void)tracking:(mtxTrackings *)tracking signalMeasured:(int)signalStrengt{
     [self.delegate sessionManager:self signalMeasured:signalStrengt];
@@ -109,6 +116,21 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
 {
     [myLock unlock];
 }
+
+-(void)deviceLocationNotAvailable{
+    [myLock unlock];
+    [self stopTracking];
+    
+    if (MainAppDelegate.isForeground) {
+        [_loggedUser alertForInvalidLogin:@"G"];    //G = No Gps
+        [self loginOnView:nil];
+    }else{
+        trakingStoppedInBackground = true;
+    }
+
+}
+
+#pragma mark - property methods
 
 - (NSArray *) annotations{
     return (NSArray *)_tracking.tracks;

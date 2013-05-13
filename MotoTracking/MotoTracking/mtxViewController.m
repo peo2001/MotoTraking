@@ -10,7 +10,6 @@
 
 const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
 
-
 @implementation mtxViewController
 
 
@@ -28,21 +27,20 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
         lblGara = self.iPadLblGara;
         imgLock = self.iPadImgLock;
         imgSignal = self.iPadImgSignal;
+        lblTime = self.iPadTime;
     }else
     {
         myMapView = self.iPhoneMapView;
         lblGara = self.iPhoneLblGara;
         imgLock = self.iPhoneImgLock;
         imgSignal = self.iPhoneImgSignal;
+        lblTime = self.iPhoneTime;
     }
     
     imgLock.image = nil;
-    imgLock.alpha = .5;
-
-    imgSignal.alpha = .7;
     
     myMapView.mapType = MKMapTypeStandard;   // also MKMapTypeSatellite or MKMapTypeHybrid
-    myMapView.showsUserLocation = YES;
+    myMapView.showsUserLocation = NO;
     myMapView.userTrackingMode = MKUserTrackingModeNone;
     
     myTimer = [NSTimer scheduledTimerWithTimeInterval:1
@@ -66,6 +64,9 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     panGesture.maximumNumberOfTouches = 1;  // In order to discard dragging when pinching
     [myMapView addGestureRecognizer:panGesture];
     
+    
+    degrees = 0;
+    
     // Do any additional setup after loading the view, typically from a nib.
 
 }
@@ -84,9 +85,6 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView{
-
-}
 
 
 #pragma - mark Session Manager Events
@@ -110,7 +108,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     
 }
 
-#pragma - mark Map Events
+#pragma - mark gesture Events
 
 // Allow to recognize multiple gestures simultaneously (Implementation of the protocole UIGestureRecognizerDelegate)
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -159,6 +157,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     }
 }
 
+#pragma mark - PHASE MANAGER
 
 - (void) phaseManager{
     // viene chiamato ogni secondo e, a secondo dello stato della maschera, attiva le funzioni corrispondenti.
@@ -166,13 +165,6 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     if (MainAppDelegate.isForeground && MainAppDelegate.mainSessionManager.isLogged){
         
         
-        if (secsToFiltering > 0){
-            secsToFiltering -- ;
-            if (secsToFiltering == 0) {
-                [self filterTrackingAnnotation];
-            }
-        }
-
         if (secsToFiltering == 0) {
             // aggiorna la mappa
             MKCoordinateRegion region = [MainAppDelegate.mainSessionManager.tracking getFitRegion: myAnnotationFiltered];
@@ -180,6 +172,14 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
             [myMapView setRegion:region animated:YES];
             
         }
+
+        if (secsToFiltering > 0){
+            secsToFiltering -- ;
+            if (secsToFiltering == 0) {
+                [self filterTrackingAnnotation];
+            }
+        }
+
         
         if (secsToFiltering>0){
             imgLock.image = [UIImage imageNamed:@"Clock.png"];
@@ -194,6 +194,17 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
         }
         
         
+        // Visulaizza l'ora.
+        NSDate *today = [[NSDate alloc] init];
+        NSCalendar *calendar = [[NSCalendar alloc]
+                                initWithCalendarIdentifier:NSGregorianCalendar];
+        
+        NSDateComponents *components = [calendar components:(NSHourCalendarUnit
+                                                             | NSMinuteCalendarUnit)
+                                                   fromDate:today];
+        lblTime.text = [NSString stringWithFormat:@"%d:%d", components.hour, components.minute];
+
+        
     }
 }
 
@@ -203,9 +214,9 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
 - (void) filterTrackingAnnotation{
     
     myTimer = nil;
-
-    if ([MainAppDelegate.mainSessionManager tryLockTracking]){
     
+    if ([MainAppDelegate.mainSessionManager tryLockTracking]){
+        
         MKMapRect visibleMapRect = myMapView.visibleMapRect;
         NSSet *visibleAnnotations = [myMapView annotationsInMapRect:visibleMapRect];
         NSString *annToShow = @"(";
@@ -219,14 +230,22 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
         annToShow = [NSString stringWithFormat:@"%@0)", annToShow];
         
         if (![annToShow isEqualToString:@"(0)"]) {
-
+            
             [MainAppDelegate.mainSessionManager setAnnotationFilter:annToShow];
             
             myAnnotationFiltered = TRUE;
         }
         
         [MainAppDelegate.mainSessionManager unlockTracking];
+        
+        [MainAppDelegate.mainSessionManager reloadTrackings];
     }
+}
+
+#pragma mark - map events
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView{
+    
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
@@ -269,7 +288,12 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     pinView.canShowCallout = NO;
     
     // setup image for the map
-    pinView.image = [theAnn GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
+    
+    UIImage *aImg = [theAnn GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
+
+
+    pinView.image = [theAnn.codRuolo isEqualToString:@"SELF"] ? rotate(aImg, theAnn.course) : aImg;
+    
     pinView.alpha = 1 - (theAnn.Reliability * .4);
     pinView.opaque = NO;
     
@@ -283,20 +307,32 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
         badgeView.shadowColor = [UIColor blackColor];
         [badgeView sizeToFit];
         [pinView addSubview:badgeView];
-        
-        /*
-        // Ann text over annotation
-        UILabel *label = [[UILabel alloc] initWithFrame:pinView.frame];
-        label.text = [NSString stringWithFormat:@"%i", theAnn.progressivo];
-        label.textAlignment = NSTextAlignmentCenter;
-        //label.backgroundColor = [UIColor clearColor];
-        
-        [pinView addSubview:label];
-        */
-    }
-    
-//    NSLog(@"N. Subviews: %i", pinView.subviews.count);
 
+    }
 
 }
+
+static inline double radians (double degrees) {return degrees * M_PI/180;}
+
+static UIImage* rotate(UIImage* src, double degrees)
+{
+    CGSize aSize = src.size;
+    
+    UIGraphicsBeginImageContext(aSize);
+
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //CGContextSetAllowsAntialiasing(context, YES);
+    //CGContextSetShouldAntialias(context, YES);
+    
+    CGContextTranslateCTM(context, src.size.width/2, src.size.height/2);
+    CGContextRotateCTM (context, radians(degrees));
+    [src drawInRect:(CGRect){ { -aSize.width * 0.5f, -aSize.height * 0.5f }, aSize }];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 @end

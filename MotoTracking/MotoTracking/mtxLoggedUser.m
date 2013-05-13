@@ -24,6 +24,7 @@
         _gara = @"";
         _dataInizio = @"";
         _dataFine = @"";
+        _deviceId = [UIDevice currentDevice].identifierForVendor.UUIDString;
     }
     return self;
 }
@@ -74,6 +75,9 @@
     }
     else if([_status isEqualToString:@"E"]){
         aMessage = [NSString stringWithFormat:@"La gara\n%@\n è terminata\n\n%@", _gara, _dataFine];
+    }
+    else if([_status isEqualToString:@"G"]){
+        aMessage = [NSString stringWithFormat:@"Per utilizzare questa applicazione\noccorre attivare i servizi di localizzazione."];
     }
     [alert setMessage:aMessage];
     [alert setDelegate:self];
