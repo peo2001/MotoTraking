@@ -105,14 +105,14 @@
 		EA4213551722A793000BD5F8 /* GAI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAI.png; sourceTree = "<group>"; };
 		EA4213701722A7CB000BD5F8 /* mtxMapViewAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxMapViewAnnotation.h; sourceTree = "<group>"; };
 		EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxMapViewAnnotation.m; sourceTree = "<group>"; };
-		EA4FABB9171DB69500410870 /* MotoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4FABB9171DB69500410870 /* RaceTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaceTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4FABBC171DB69500410870 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA4FABBE171DB69500410870 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EA4FABC0171DB69500410870 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		EA4FABC4171DB69500410870 /* MotoTracking-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MotoTracking-Info.plist"; sourceTree = "<group>"; };
+		EA4FABC4171DB69500410870 /* RaceTracking-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RaceTracking-Info.plist"; sourceTree = "<group>"; };
 		EA4FABC6171DB69500410870 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA4FABC8171DB69500410870 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EA4FABCA171DB69500410870 /* MotoTracking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotoTracking-Prefix.pch"; sourceTree = "<group>"; };
+		EA4FABCA171DB69500410870 /* RaceTracking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RaceTracking-Prefix.pch"; sourceTree = "<group>"; };
 		EA4FABCB171DB69500410870 /* mtxAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxAppDelegate.h; sourceTree = "<group>"; };
 		EA4FABCC171DB69500410870 /* mtxAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxAppDelegate.m; sourceTree = "<group>"; };
 		EA4FABCE171DB69500410870 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				EA13EC3A17259D1F00CC37DC /* Images */,
-				EA4FABC2171DB69500410870 /* MotoTracking */,
+				EA4FABC2171DB69500410870 /* RaceTracking */,
 				EA4FABBB171DB69500410870 /* Frameworks */,
 				EA4FABBA171DB69500410870 /* Products */,
 			);
@@ -300,7 +300,7 @@
 		EA4FABBA171DB69500410870 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EA4FABB9171DB69500410870 /* MotoTracking.app */,
+				EA4FABB9171DB69500410870 /* RaceTracking.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA4FABC2171DB69500410870 /* MotoTracking */ = {
+		EA4FABC2171DB69500410870 /* RaceTracking */ = {
 			isa = PBXGroup;
 			children = (
 				EA1B67E117284F88001458CD /* Map */,
@@ -333,6 +333,7 @@
 				EA13EC2A172574AB00CC37DC /* mtxSessionManager.m */,
 				EA4FABC3171DB69500410870 /* Supporting Files */,
 			);
+			name = RaceTracking;
 			path = MotoTracking;
 			sourceTree = "<group>";
 		};
@@ -340,10 +341,10 @@
 			isa = PBXGroup;
 			children = (
 				EA724176173844EC004FF8D7 /* .gitignore */,
-				EA4FABC4171DB69500410870 /* MotoTracking-Info.plist */,
+				EA4FABC4171DB69500410870 /* RaceTracking-Info.plist */,
 				EA4FABC5171DB69500410870 /* InfoPlist.strings */,
 				EA4FABC8171DB69500410870 /* main.m */,
-				EA4FABCA171DB69500410870 /* MotoTracking-Prefix.pch */,
+				EA4FABCA171DB69500410870 /* RaceTracking-Prefix.pch */,
 				EA4FABCE171DB69500410870 /* Default.png */,
 				EA4FABD0171DB69500410870 /* Default@2x.png */,
 				EA4FABD2171DB69500410870 /* Default-568h@2x.png */,
@@ -449,9 +450,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EA4FABB8171DB69500410870 /* MotoTracking */ = {
+		EA4FABB8171DB69500410870 /* RaceTracking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EA4FABDF171DB69500410870 /* Build configuration list for PBXNativeTarget "MotoTracking" */;
+			buildConfigurationList = EA4FABDF171DB69500410870 /* Build configuration list for PBXNativeTarget "RaceTracking" */;
 			buildPhases = (
 				EA4FABB5171DB69500410870 /* Sources */,
 				EA4FABB6171DB69500410870 /* Frameworks */,
@@ -462,9 +463,9 @@
 			);
 			dependencies = (
 			);
-			name = MotoTracking;
+			name = RaceTracking;
 			productName = MotoTracking;
-			productReference = EA4FABB9171DB69500410870 /* MotoTracking.app */;
+			productReference = EA4FABB9171DB69500410870 /* RaceTracking.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -477,7 +478,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "xTreme Software";
 			};
-			buildConfigurationList = EA4FABB4171DB69500410870 /* Build configuration list for PBXProject "MotoTracking" */;
+			buildConfigurationList = EA4FABB4171DB69500410870 /* Build configuration list for PBXProject "RaceTracking" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -489,7 +490,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EA4FABB8171DB69500410870 /* MotoTracking */,
+				EA4FABB8171DB69500410870 /* RaceTracking */,
 			);
 		};
 /* End PBXProject section */
@@ -682,15 +683,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MotoTracking/MotoTracking-Prefix.pch";
+				GCC_PREFIX_HEADER = "MotoTracking/RaceTracking-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SDK_DIR)\"/usr/include/libxml2";
-				INFOPLIST_FILE = "MotoTracking/MotoTracking-Info.plist";
+				INFOPLIST_FILE = "MotoTracking/RaceTracking-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Nimbus/badge\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RaceTracking;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				WRAPPER_EXTENSION = app;
@@ -701,15 +702,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MotoTracking/MotoTracking-Prefix.pch";
+				GCC_PREFIX_HEADER = "MotoTracking/RaceTracking-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SDK_DIR)\"/usr/include/libxml2";
-				INFOPLIST_FILE = "MotoTracking/MotoTracking-Info.plist";
+				INFOPLIST_FILE = "MotoTracking/RaceTracking-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Nimbus/badge\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RaceTracking;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				WRAPPER_EXTENSION = app;
@@ -719,7 +720,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EA4FABB4171DB69500410870 /* Build configuration list for PBXProject "MotoTracking" */ = {
+		EA4FABB4171DB69500410870 /* Build configuration list for PBXProject "RaceTracking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EA4FABDD171DB69500410870 /* Debug */,
@@ -728,7 +729,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EA4FABDF171DB69500410870 /* Build configuration list for PBXNativeTarget "MotoTracking" */ = {
+		EA4FABDF171DB69500410870 /* Build configuration list for PBXNativeTarget "RaceTracking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EA4FABE0171DB69500410870 /* Debug */,
