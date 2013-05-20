@@ -27,6 +27,7 @@
         _parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
         
         _dataMode = @"data";
+        _tag = @"";
         
         myLock = [[NSLock alloc] init];
         

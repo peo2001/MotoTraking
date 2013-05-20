@@ -30,6 +30,7 @@
     
 }
 
+@property (nonatomic, retain) NSString *tag;
 @property (nonatomic, assign) id <RemoteConnectorDelegate> delegate;
 @property (nonatomic, retain) NSString *message;
 
@@ -37,7 +38,7 @@
 
 @property (nonatomic, retain) NSString *dataMode;
 
-@property (readonly) CGFloat signalStrenght;
+@property (readonly) double signalStrenght;
 
 - (void) rc_:(NSString *) virtualDir;
 

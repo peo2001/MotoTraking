@@ -8,10 +8,9 @@
 
 #import "mtxViewController.h"
 
-const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
+const NSTimeInterval LOCK_INTERVAL_SECS = 4.0;
 
 @implementation mtxViewController
-
 
 - (void)viewDidLoad
 {
@@ -40,7 +39,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     imgLock.image = nil;
     
     myMapView.mapType = MKMapTypeStandard;   // also MKMapTypeSatellite or MKMapTypeHybrid
-    myMapView.showsUserLocation = NO;
+    myMapView.showsUserLocation = YES;
     myMapView.userTrackingMode = MKUserTrackingModeNone;
     
     myTimer = [NSTimer scheduledTimerWithTimeInterval:1
@@ -87,7 +86,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
 
 
 
-#pragma - mark Session Manager Events
+#pragma mark - Session Manager Events
 -(void)sessionManager:(mtxSessionManager *)sessionManager loggedIn:(mtxLoggedUser *)theLoggedUser{
     
     lblGara.text = theLoggedUser.gara;
@@ -106,9 +105,12 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     [myMapView removeAnnotations:MainAppDelegate.mainSessionManager.previousAnnotations];
     [myMapView addAnnotations:(NSArray *) annotations];
     
+    if (secsToFiltering == 0)
+        [self resizeMap];
+    
 }
 
-#pragma - mark gesture Events
+#pragma mark - gesture Events
 
 // Allow to recognize multiple gestures simultaneously (Implementation of the protocole UIGestureRecognizerDelegate)
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -151,7 +153,11 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
         if (myAnnotationFiltered){
             myAnnotationFiltered = FALSE;
             imgLock.image = nil;
-            [self phaseManager];
+            [MainAppDelegate.mainSessionManager reloadTrackings];
+        }
+        else{
+            [self resizeMap];
+
         }
         
     }
@@ -164,30 +170,22 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     
     if (MainAppDelegate.isForeground && MainAppDelegate.mainSessionManager.isLogged){
         
+        if (secsToFiltering == 0 && !myMapView.userLocationVisible)
+            [self resizeMap];
         
-        if (secsToFiltering == 0) {
-            // aggiorna la mappa
-            MKCoordinateRegion region = [MainAppDelegate.mainSessionManager.tracking getFitRegion: myAnnotationFiltered];
-            region = [myMapView regionThatFits:region];
-            [myMapView setRegion:region animated:YES];
-            
-        }
-
         if (secsToFiltering > 0){
             secsToFiltering -- ;
             if (secsToFiltering == 0) {
                 [self filterTrackingAnnotation];
             }
         }
-
+        
         
         if (secsToFiltering>0){
             imgLock.image = [UIImage imageNamed:@"Clock.png"];
         }
         else if (myAnnotationFiltered) {
-            
             imgLock.image = [UIImage imageNamed:@"Lock.png"];
-            
         }
         else{
             imgLock.image = nil;
@@ -202,18 +200,23 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
         NSDateComponents *components = [calendar components:(NSHourCalendarUnit
                                                              | NSMinuteCalendarUnit)
                                                    fromDate:today];
-        lblTime.text = [NSString stringWithFormat:@"%d:%d", components.hour, components.minute];
+        lblTime.text = [NSString stringWithFormat:@"%2d:%02d", components.hour, components.minute];
 
         
     }
 }
 
 
+- (void) resizeMap{
+    // ridimensiona la mappa
 
+    MKCoordinateRegion region = [MainAppDelegate.mainSessionManager.tracking getFitRegion: myAnnotationFiltered];
+    region = [myMapView regionThatFits:region];
+    [myMapView setRegion:region animated:YES];
+
+}
 
 - (void) filterTrackingAnnotation{
-    
-    myTimer = nil;
     
     if ([MainAppDelegate.mainSessionManager tryLockTracking]){
         
@@ -229,15 +232,11 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
         
         annToShow = [NSString stringWithFormat:@"%@0)", annToShow];
         
-        if (![annToShow isEqualToString:@"(0)"]) {
-            
+        myAnnotationFiltered = ![annToShow isEqualToString:@"(0)"];
+        if (myAnnotationFiltered)
             [MainAppDelegate.mainSessionManager setAnnotationFilter:annToShow];
-            
-            myAnnotationFiltered = TRUE;
-        }
         
         [MainAppDelegate.mainSessionManager unlockTracking];
-        
         [MainAppDelegate.mainSessionManager reloadTrackings];
     }
 }
@@ -250,22 +249,19 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    // if it's the user location, just return nil.
-    if ([annotation isKindOfClass:[MKUserLocation class]])
-        return nil;
-    
-    mtxMapViewAnnotation *theAnn = annotation;
+    if ([annotation isKindOfClass:[MKUserLocation class]]){
 
-    // handle custom annotations
-    NSString *aIdentifier = [NSString stringWithFormat:@"%@%i",theAnn.codRuolo, theAnn.progressivo];
-    if ([annotation isKindOfClass:[mtxMapViewAnnotation class]])   // Annotation di mark
-    {
+        return nil;
+
+        mtxMapViewAnnotation *theAnn = [mtxMapViewAnnotation annFromUserLocation:annotation];
+        NSString *aIdentifier = [NSString stringWithFormat:@"%@%i",theAnn.codRuolo, theAnn.progressivo];
+
         //static NSString* SFAnnotationIdentifier = @"MarkAnnId";
         MKPinAnnotationView* pinView = (MKPinAnnotationView *)[myMapView dequeueReusableAnnotationViewWithIdentifier:aIdentifier];
+        
         if (!pinView)
         {
             MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:aIdentifier];
-            
             
             [self designPin:annotationView withAnnotation:theAnn];
             
@@ -273,14 +269,41 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
         }
         else
         {
+            [self designPin:pinView withAnnotation:theAnn];
             
+            return pinView;
+        }
+        
+    }
+    else if ([annotation isKindOfClass:[mtxMapViewAnnotation class]]){
+        // Annotation mtxMapViewAnnotation - handle custom annotations
+        
+        mtxMapViewAnnotation *theAnn = annotation;
+        NSString *aIdentifier = [NSString stringWithFormat:@"%@%i",theAnn.codRuolo, theAnn.progressivo];
+        
+        //static NSString* SFAnnotationIdentifier = @"MarkAnnId";
+        MKPinAnnotationView* pinView = (MKPinAnnotationView *)[myMapView dequeueReusableAnnotationViewWithIdentifier:aIdentifier];
+        
+        if (!pinView)
+        {
+            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:aIdentifier];
+            
+            [self designPin:annotationView withAnnotation:theAnn];
+            
+            return annotationView;
+        }
+        else
+        {
             [self designPin:pinView withAnnotation:theAnn];
             
             return pinView;
         }
     }
     
-    return nil;
+    else{
+        // other kind of annotation
+        return nil;
+    }
 }
 
 - (void) designPin:(MKAnnotationView *) pinView withAnnotation:(mtxMapViewAnnotation *) theAnn{
@@ -289,10 +312,7 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
     
     // setup image for the map
     
-    UIImage *aImg = [theAnn GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
-
-
-    pinView.image = [theAnn.codRuolo isEqualToString:@"SELF"] ? rotate(aImg, theAnn.course) : aImg;
+    pinView.image = [theAnn GetImage:self.view.bounds FrameHeight:self.navigationController.navigationBar.frame.size.height];
     
     pinView.alpha = 1 - (theAnn.Reliability * .4);
     pinView.opaque = NO;
@@ -312,27 +332,8 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 5.0;
 
 }
 
-static inline double radians (double degrees) {return degrees * M_PI/180;}
-
-static UIImage* rotate(UIImage* src, double degrees)
-{
-    CGSize aSize = src.size;
-    
-    UIGraphicsBeginImageContext(aSize);
-
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    //CGContextSetAllowsAntialiasing(context, YES);
-    //CGContextSetShouldAntialias(context, YES);
-    
-    CGContextTranslateCTM(context, src.size.width/2, src.size.height/2);
-    CGContextRotateCTM (context, radians(degrees));
-    [src drawInRect:(CGRect){ { -aSize.width * 0.5f, -aSize.height * 0.5f }, aSize }];
-    
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
 @end
+
+
+
+

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EA04BDD5172E8BEA00ED8235 /* LockOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = EA04BDD4172E8BEA00ED8235 /* LockOpen.png */; };
-		EA04BDD7172E902600ED8235 /* Clessidra.png in Resources */ = {isa = PBXBuildFile; fileRef = EA04BDD6172E902600ED8235 /* Clessidra.png */; };
 		EA04BDD9172E917100ED8235 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = EA04BDD8172E917100ED8235 /* Clock.png */; };
 		EA0FA045173841D500579777 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0FA044173841D500579777 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		EA13EC2017254C2100CC37DC /* mtxMapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */; };
@@ -66,19 +65,20 @@
 		EA880119173A666000B22310 /* NIState.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8800FF173A666000B22310 /* NIState.m */; };
 		EA88011A173A666000B22310 /* NIViewRecycler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA880101173A666000B22310 /* NIViewRecycler.m */; };
 		EA88011B173A666000B22310 /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = EA880103173A666000B22310 /* NSString+NimbusCore.m */; };
+		EA8FCE38174625860028F84D /* TG_CIC.png in Resources */ = {isa = PBXBuildFile; fileRef = EA8FCE37174625860028F84D /* TG_CIC.png */; };
 		EACC22B5173D0342002E70E1 /* SIG0.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22AF173D0342002E70E1 /* SIG0.png */; };
 		EACC22B6173D0342002E70E1 /* SIG1.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B0173D0342002E70E1 /* SIG1.png */; };
 		EACC22B7173D0342002E70E1 /* SIG2.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B1173D0342002E70E1 /* SIG2.png */; };
 		EACC22B8173D0342002E70E1 /* SIG3.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B2173D0342002E70E1 /* SIG3.png */; };
 		EACC22B9173D0342002E70E1 /* SIG4.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B3173D0342002E70E1 /* SIG4.png */; };
 		EACC22BA173D0342002E70E1 /* SIG5.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B4173D0342002E70E1 /* SIG5.png */; };
-		EACC22BF17413582002E70E1 /* SELF.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22BE17413582002E70E1 /* SELF.png */; };
+		EADBDE8A1742E00A005E1CFB /* SELF.png in Resources */ = {isa = PBXBuildFile; fileRef = EADBDE891742E00A005E1CFB /* SELF.png */; };
+		EADBDE8D1744DA3D005E1CFB /* mtxLiveRace.m in Sources */ = {isa = PBXBuildFile; fileRef = EADBDE8C1744DA3C005E1CFB /* mtxLiveRace.m */; };
 		EADC13FF17200D9F00346437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADC13FE17200D9F00346437 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EA04BDD4172E8BEA00ED8235 /* LockOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LockOpen.png; sourceTree = "<group>"; };
-		EA04BDD6172E902600ED8235 /* Clessidra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clessidra.png; sourceTree = "<group>"; };
 		EA04BDD8172E917100ED8235 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
 		EA0FA044173841D500579777 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EA13EC2217254CCD00CC37DC /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
@@ -180,14 +180,18 @@
 		EA880101173A666000B22310 /* NIViewRecycler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIViewRecycler.m; sourceTree = "<group>"; };
 		EA880102173A666000B22310 /* NSString+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NimbusCore.h"; sourceTree = "<group>"; };
 		EA880103173A666000B22310 /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
+		EA8FCE37174625860028F84D /* TG_CIC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TG_CIC.png; sourceTree = "<group>"; };
 		EACC22AF173D0342002E70E1 /* SIG0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG0.png; sourceTree = "<group>"; };
 		EACC22B0173D0342002E70E1 /* SIG1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG1.png; sourceTree = "<group>"; };
 		EACC22B1173D0342002E70E1 /* SIG2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG2.png; sourceTree = "<group>"; };
 		EACC22B2173D0342002E70E1 /* SIG3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG3.png; sourceTree = "<group>"; };
 		EACC22B3173D0342002E70E1 /* SIG4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG4.png; sourceTree = "<group>"; };
 		EACC22B4173D0342002E70E1 /* SIG5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG5.png; sourceTree = "<group>"; };
-		EACC22BE17413582002E70E1 /* SELF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SELF.png; sourceTree = "<group>"; };
+		EADBDE891742E00A005E1CFB /* SELF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SELF.png; sourceTree = "<group>"; };
+		EADBDE8B1744DA3C005E1CFB /* mtxLiveRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxLiveRace.h; sourceTree = "<group>"; };
+		EADBDE8C1744DA3C005E1CFB /* mtxLiveRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxLiveRace.m; sourceTree = "<group>"; };
 		EADC13FE17200D9F00346437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EAF2361E17421324002624B1 /* StaticFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticFunctions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +243,8 @@
 		EA13EC3A17259D1F00CC37DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				EACC22BE17413582002E70E1 /* SELF.png */,
+				EA8FCE30174616170028F84D /* SportIcon */,
+				EADBDE891742E00A005E1CFB /* SELF.png */,
 				EACC22AF173D0342002E70E1 /* SIG0.png */,
 				EACC22B0173D0342002E70E1 /* SIG1.png */,
 				EACC22B1173D0342002E70E1 /* SIG2.png */,
@@ -247,7 +252,6 @@
 				EACC22B3173D0342002E70E1 /* SIG4.png */,
 				EACC22B4173D0342002E70E1 /* SIG5.png */,
 				EA04BDD8172E917100ED8235 /* Clock.png */,
-				EA04BDD6172E902600ED8235 /* Clessidra.png */,
 				EA1B67DF17284A51001458CD /* Icon_114.png */,
 				EA04BDD4172E8BEA00ED8235 /* LockOpen.png */,
 				EA1B67E2172AD8B4001458CD /* Lock.png */,
@@ -261,11 +265,13 @@
 		EA13EC3B17259D8B00CC37DC /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				EA13EC3317259B4300CC37DC /* mtxLoginViewController.h */,
-				EA13EC3417259B4300CC37DC /* mtxLoginViewController.m */,
 				EA13EC3517259B4400CC37DC /* mtxLoginViewController.xib */,
 				EA13EC3C17268E0300CC37DC /* mtxLoggedUser.h */,
 				EA13EC3D17268E0300CC37DC /* mtxLoggedUser.m */,
+				EADBDE8B1744DA3C005E1CFB /* mtxLiveRace.h */,
+				EADBDE8C1744DA3C005E1CFB /* mtxLiveRace.m */,
+				EA13EC3317259B4300CC37DC /* mtxLoginViewController.h */,
+				EA13EC3417259B4300CC37DC /* mtxLoginViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				EA4FABCE171DB69500410870 /* Default.png */,
 				EA4FABD0171DB69500410870 /* Default@2x.png */,
 				EA4FABD2171DB69500410870 /* Default-568h@2x.png */,
+				EAF2361E17421324002624B1 /* StaticFunctions.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -416,6 +423,14 @@
 				EA880103173A666000B22310 /* NSString+NimbusCore.m */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		EA8FCE30174616170028F84D /* SportIcon */ = {
+			isa = PBXGroup;
+			children = (
+				EA8FCE37174625860028F84D /* TG_CIC.png */,
+			);
+			name = SportIcon;
 			sourceTree = "<group>";
 		};
 		EADC14211721A29700346437 /* Markers */ = {
@@ -501,7 +516,6 @@
 				EA1B67E017284A51001458CD /* Icon_114.png in Resources */,
 				EA1B67E3172AD8B4001458CD /* Lock.png in Resources */,
 				EA04BDD5172E8BEA00ED8235 /* LockOpen.png in Resources */,
-				EA04BDD7172E902600ED8235 /* Clessidra.png in Resources */,
 				EA04BDD9172E917100ED8235 /* Clock.png in Resources */,
 				EA724177173844EC004FF8D7 /* .gitignore in Resources */,
 				EACC22B5173D0342002E70E1 /* SIG0.png in Resources */,
@@ -510,7 +524,8 @@
 				EACC22B8173D0342002E70E1 /* SIG3.png in Resources */,
 				EACC22B9173D0342002E70E1 /* SIG4.png in Resources */,
 				EACC22BA173D0342002E70E1 /* SIG5.png in Resources */,
-				EACC22BF17413582002E70E1 /* SELF.png in Resources */,
+				EADBDE8A1742E00A005E1CFB /* SELF.png in Resources */,
+				EA8FCE38174625860028F84D /* TG_CIC.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +586,7 @@
 				EA880119173A666000B22310 /* NIState.m in Sources */,
 				EA88011A173A666000B22310 /* NIViewRecycler.m in Sources */,
 				EA88011B173A666000B22310 /* NSString+NimbusCore.m in Sources */,
+				EADBDE8D1744DA3D005E1CFB /* mtxLiveRace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RemoteConnector.h"
 #import "mtxLoggedUser.h"
+#import "mtxLiveRace.h"
 
 @class mtxLoginViewController;
 
@@ -20,14 +21,16 @@
 
 @end
 
-@interface mtxLoginViewController: UIViewController <UITextFieldDelegate, RemoteConnectorDelegate>
+@interface mtxLoginViewController: UIViewController <UITextFieldDelegate, RemoteConnectorDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     RemoteConnector *myRemoteConnector;
+    NSMutableArray *myLiveRaces;
 }
 @property (nonatomic, assign) id <LoginDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtCodiceAttivazione;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
+@property (weak, nonatomic) IBOutlet UITableView *tblLiveRace;
 
 @property (nonatomic, retain) NSString *codiceAttivazione;
 @property (nonatomic, retain) NSString *deviceId;

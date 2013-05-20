@@ -28,7 +28,7 @@
     BOOL myAnnotationFiltered;  // se la mappa è "filtrata" su solo alcune annotations
     int secsToFiltering;    // quanti secondi mancano alla definizione del filtro
     
-    CGFloat degrees;
+    double degrees;
     
 }
 

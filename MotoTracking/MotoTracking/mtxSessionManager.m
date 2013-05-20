@@ -65,6 +65,14 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
 
 #pragma mark - Tracking cycle
 
+- (BOOL) tryLockTracking{
+    return [myLock tryLock];
+}
+
+- (void) unlockTracking{
+    [myLock unlock];
+}
+
 - (void) stopTracking{
     isTrackingRunning = false;
     
@@ -132,20 +140,13 @@ const NSTimeInterval RELOAD_INTERVAL_SECS = 5.0;
 
 #pragma mark - property methods
 
+
 - (NSArray *) annotations{
     return (NSArray *)_tracking.tracks;
 }
 
 - (NSArray *) previousAnnotations{
     return (NSArray *)_tracking.previousTracks;
-}
-
-- (BOOL) tryLockTracking{
-    return [myLock tryLock];
-}
-
-- (void) unlockTracking{
-    [myLock unlock];
 }
 
 - (BOOL) isLogged{

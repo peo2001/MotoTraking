@@ -17,11 +17,13 @@
 @property (nonatomic, retain) NSString *codiceAttivazione;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property CGFloat course;
+@property double course;
 @property int Reliability;
 
-- (id)initWithCode:(NSString *)aCodRuolo Coordinate:(CLLocationCoordinate2D)aCoordinate;
+- (id)initWithCode:(const NSString *)aCodRuolo Coordinate:(CLLocationCoordinate2D)aCoordinate;
 
-- (UIImage *) GetImage:(CGRect)mapViewBounds FrameHeight:(CGFloat) frHeight;
+- (UIImage *) GetImage:(CGRect)mapViewBounds FrameHeight:(double) frHeight;
+
++ annFromUserLocation:(MKUserLocation *) aUserLocation;
 
 @end

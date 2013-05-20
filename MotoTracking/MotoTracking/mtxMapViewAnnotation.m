@@ -7,22 +7,34 @@
 //
 
 #import "mtxMapViewAnnotation.h"
+#import "StaticFunctions.h"
+
+static const NSString *DEVICE_ANN_COD = @"SELF";
 
 @implementation mtxMapViewAnnotation
 
-+ (CGFloat)annotationPadding;
++ annFromUserLocation:(MKUserLocation *) aUserLocation{
+    
+    mtxMapViewAnnotation *aAnn = [[mtxMapViewAnnotation alloc] initWithCode:DEVICE_ANN_COD Coordinate:aUserLocation.coordinate];
+    aAnn.course = aUserLocation.heading.trueHeading;
+    
+    return aAnn;
+}
+
+
++ (double)annotationPadding;
 {
     return 10.0f;
 }
-+ (CGFloat)calloutHeight;
++ (double)calloutHeight;
 {
     return 40.0f;
 }
-- (id)initWithCode:(NSString *)aCodRuolo Coordinate:(CLLocationCoordinate2D)aCoordinate {
+- (id)initWithCode:(const NSString *) aCodRuolo Coordinate:(CLLocationCoordinate2D)aCoordinate {
     self = [super init];
     if (self != nil)
     {
-    _codRuolo = aCodRuolo;
+    _codRuolo = [NSString stringWithFormat:@"%@", aCodRuolo];
 	_title = @"";
 	_coordinate = aCoordinate;
     _course = 0.0;
@@ -30,10 +42,11 @@
 	return self;
 }
 
-- (UIImage *) GetImage:(CGRect)mapViewBounds FrameHeight:(CGFloat) frHeight {
+- (UIImage *) GetImage:(CGRect)mapViewBounds FrameHeight:(double) frHeight {
     // setup image for the map
-    UIImage *annImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _codRuolo]];
-    return annImage;    
+    UIImage *annImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",  _codRuolo]];
+    return [DEVICE_ANN_COD isEqualToString:_codRuolo] ? rotate(annImage, _course) : annImage;
+    
 }
 
 @end

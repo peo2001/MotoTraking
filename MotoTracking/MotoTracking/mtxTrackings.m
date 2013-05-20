@@ -9,7 +9,7 @@
 #import "mtxTrackings.h"
 #import "mtxAppDelegate.h"
 
-static const CGFloat MIMAL_ACCURACY = 250.0;
+static const double MIMAL_ACCURACY = 250.0;
 
 @implementation mtxTrackings
 
@@ -48,27 +48,12 @@ static const CGFloat MIMAL_ACCURACY = 250.0;
 
 }
 
-- (CGFloat) deviceLocationAccuracy{
+- (double) deviceLocationAccuracy{
 //    NSLog(@"Accuracy: %f, %f", self.deviceLocation.horizontalAccuracy, self.deviceLocation.verticalAccuracy);
     return sqrtf( pow(self.deviceLocation.horizontalAccuracy,2)+ pow(self.deviceLocation.verticalAccuracy,2));
 }
 
-- (mtxMapViewAnnotation *) deviceAnnotation{
-    
-    // Crea la annotation della posizione del device;
-    
-    CLLocationCoordinate2D aMeCoord;
-    aMeCoord.latitude = self.deviceLocation.coordinate.latitude;
-    aMeCoord.longitude = self.deviceLocation.coordinate.longitude;
-    mtxMapViewAnnotation *aMeAnnotation = [[mtxMapViewAnnotation alloc] initWithCode:@"SELF" Coordinate:aMeCoord];
-    aMeAnnotation.idRuoloInGara = MainAppDelegate.mainSessionManager.loggedUser.idRuoloInGara;
-    aMeAnnotation.Reliability = 0;
-    aMeAnnotation.progressivo = 0;
-    aMeAnnotation.course = self.deviceLocation.course;
-    
-    return aMeAnnotation;
-    
-}
+
 
 - (MKCoordinateRegion)getFitRegion:(BOOL)forceInvalidAnnotation {
     
@@ -126,7 +111,7 @@ static const CGFloat MIMAL_ACCURACY = 250.0;
     // Get the elapsed time in milliseconds
     NSTimeInterval enlapsedTime = pow((endTime - startTime) + 0.7 * self.getReliability, 2);
     
-    NSLog(@"enlapsed time: %f", enlapsedTime);
+    //NSLog(@"enlapsed time: %f", enlapsedTime);
     
     if (enlapsedTime>5) {
         enlapsedTime = 5;
@@ -139,11 +124,11 @@ static const CGFloat MIMAL_ACCURACY = 250.0;
     
 }
 
-- (CGFloat) getReliability{
+- (double) getReliability{
     if (_tracks.count==0) {
         return 2.0;
     }else{
-        CGFloat totReliability = 0.0;
+        double totReliability = 0.0;
         for (mtxMapViewAnnotation * aTrack in _tracks) {
             totReliability = totReliability + aTrack.Reliability;
         }
@@ -184,9 +169,6 @@ static const CGFloat MIMAL_ACCURACY = 250.0;
         
         _previousTracks = _tracks;
         _tracks = [[NSMutableArray alloc] initWithCapacity:0];
-        
-        // Aggiunge la annotation della posizione ME
-        [_tracks addObject:self.deviceAnnotation];
         
         
         // cicla sui menuitems
