@@ -71,6 +71,9 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 4.0;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
     // Receive the events from the the main session manager
     MainAppDelegate.mainSessionManager.delegate = self;
     
