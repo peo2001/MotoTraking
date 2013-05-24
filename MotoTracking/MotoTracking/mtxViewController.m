@@ -7,6 +7,7 @@
 //
 
 #import "mtxViewController.h"
+#import "mtxImageManager.h"
 
 const NSTimeInterval LOCK_INTERVAL_SECS = 4.0;
 
@@ -94,6 +95,9 @@ const NSTimeInterval LOCK_INTERVAL_SECS = 4.0;
     
     lblGara.text = theLoggedUser.gara;
     myAnnotationFiltered = FALSE;
+    
+    // test image loading
+    [mtxImageManager loadRolesImage:MainAppDelegate.mainSessionManager.loggedUser.codRuoliPrevisti];
 
 }
 

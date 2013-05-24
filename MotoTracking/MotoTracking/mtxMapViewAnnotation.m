@@ -8,6 +8,7 @@
 
 #import "mtxMapViewAnnotation.h"
 #import "StaticFunctions.h"
+#import "mtxImageManager.h"
 
 static const NSString *DEVICE_ANN_COD = @"SELF";
 
@@ -44,7 +45,8 @@ static const NSString *DEVICE_ANN_COD = @"SELF";
 
 - (UIImage *) GetImage:(CGRect)mapViewBounds FrameHeight:(double) frHeight {
     // setup image for the map
-    UIImage *annImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",  _codRuolo]];
+    //UIImage *annImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",  _codRuolo]];
+    UIImage *annImage = [mtxImageManager getRoleImage:_codRuolo];
     return [DEVICE_ANN_COD isEqualToString:_codRuolo] ? rotate(annImage, _course) : annImage;
     
 }

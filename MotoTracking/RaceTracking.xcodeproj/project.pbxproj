@@ -25,6 +25,9 @@
 		EA4213611722A793000BD5F8 /* DCO.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213521722A793000BD5F8 /* DCO.png */; };
 		EA4213631722A793000BD5F8 /* GAF.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213541722A793000BD5F8 /* GAF.png */; };
 		EA4213641722A793000BD5F8 /* GAI.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4213551722A793000BD5F8 /* GAI.png */; };
+		EA461AD5174FA4670038AA6D /* Icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = EA461AD2174FA4670038AA6D /* Icon_57.png */; };
+		EA461AD6174FA4670038AA6D /* Icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = EA461AD3174FA4670038AA6D /* Icon_72.png */; };
+		EA461AD7174FA4670038AA6D /* Icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = EA461AD4174FA4670038AA6D /* Icon_114.png */; };
 		EA4FABBD171DB69500410870 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABBC171DB69500410870 /* UIKit.framework */; };
 		EA4FABBF171DB69500410870 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABBE171DB69500410870 /* Foundation.framework */; };
 		EA4FABC1171DB69500410870 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4FABC0171DB69500410870 /* CoreGraphics.framework */; };
@@ -64,9 +67,7 @@
 		EA88011A173A666000B22310 /* NIViewRecycler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA880101173A666000B22310 /* NIViewRecycler.m */; };
 		EA88011B173A666000B22310 /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = EA880103173A666000B22310 /* NSString+NimbusCore.m */; };
 		EA8FCE38174625860028F84D /* TG_CIC.png in Resources */ = {isa = PBXBuildFile; fileRef = EA8FCE37174625860028F84D /* TG_CIC.png */; };
-		EAC7FB27174A895F00C0192E /* Icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC7FB24174A895F00C0192E /* Icon_57.png */; };
-		EAC7FB28174A895F00C0192E /* Icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC7FB25174A895F00C0192E /* Icon_72.png */; };
-		EAC7FB29174A895F00C0192E /* Icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC7FB26174A895F00C0192E /* Icon_114.png */; };
+		EAC6A32A174DF0E800FB58F0 /* mtxImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6A329174DF0E800FB58F0 /* mtxImageManager.m */; };
 		EACC22B5173D0342002E70E1 /* SIG0.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22AF173D0342002E70E1 /* SIG0.png */; };
 		EACC22B6173D0342002E70E1 /* SIG1.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B0173D0342002E70E1 /* SIG1.png */; };
 		EACC22B7173D0342002E70E1 /* SIG2.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC22B1173D0342002E70E1 /* SIG2.png */; };
@@ -104,6 +105,9 @@
 		EA4213551722A793000BD5F8 /* GAI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAI.png; sourceTree = "<group>"; };
 		EA4213701722A7CB000BD5F8 /* mtxMapViewAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mtxMapViewAnnotation.h; sourceTree = "<group>"; };
 		EA4213711722A7CB000BD5F8 /* mtxMapViewAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mtxMapViewAnnotation.m; sourceTree = "<group>"; };
+		EA461AD2174FA4670038AA6D /* Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_57.png; sourceTree = "<group>"; };
+		EA461AD3174FA4670038AA6D /* Icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_72.png; sourceTree = "<group>"; };
+		EA461AD4174FA4670038AA6D /* Icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_114.png; sourceTree = "<group>"; };
 		EA4FABB9171DB69500410870 /* RaceTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaceTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4FABBC171DB69500410870 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA4FABBE171DB69500410870 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -180,9 +184,8 @@
 		EA880102173A666000B22310 /* NSString+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NimbusCore.h"; sourceTree = "<group>"; };
 		EA880103173A666000B22310 /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
 		EA8FCE37174625860028F84D /* TG_CIC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TG_CIC.png; sourceTree = "<group>"; };
-		EAC7FB24174A895F00C0192E /* Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_57.png; sourceTree = "<group>"; };
-		EAC7FB25174A895F00C0192E /* Icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_72.png; sourceTree = "<group>"; };
-		EAC7FB26174A895F00C0192E /* Icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_114.png; sourceTree = "<group>"; };
+		EAC6A328174DF0E800FB58F0 /* mtxImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtxImageManager.h; sourceTree = "<group>"; };
+		EAC6A329174DF0E800FB58F0 /* mtxImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mtxImageManager.m; sourceTree = "<group>"; };
 		EACC22AF173D0342002E70E1 /* SIG0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG0.png; sourceTree = "<group>"; };
 		EACC22B0173D0342002E70E1 /* SIG1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG1.png; sourceTree = "<group>"; };
 		EACC22B1173D0342002E70E1 /* SIG2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIG2.png; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 		EA13EC2817254CFF00CC37DC /* Communication */ = {
 			isa = PBXGroup;
 			children = (
+				EAC6A327174DF0D400FB58F0 /* ImageManager */,
 				EA13EC2517254CF200CC37DC /* RemoteConnector.h */,
 				EA13EC2617254CF200CC37DC /* RemoteConnector.m */,
 				EA13EC2717254CF200CC37DC /* RemoteConnectorParameters.h */,
@@ -245,9 +249,9 @@
 		EA13EC3A17259D1F00CC37DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				EAC7FB24174A895F00C0192E /* Icon_57.png */,
-				EAC7FB25174A895F00C0192E /* Icon_72.png */,
-				EAC7FB26174A895F00C0192E /* Icon_114.png */,
+				EA461AD2174FA4670038AA6D /* Icon_57.png */,
+				EA461AD3174FA4670038AA6D /* Icon_72.png */,
+				EA461AD4174FA4670038AA6D /* Icon_114.png */,
 				EA8FCE30174616170028F84D /* SportIcon */,
 				EADBDE891742E00A005E1CFB /* SELF.png */,
 				EACC22AF173D0342002E70E1 /* SIG0.png */,
@@ -437,6 +441,16 @@
 			name = SportIcon;
 			sourceTree = "<group>";
 		};
+		EAC6A327174DF0D400FB58F0 /* ImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6A328174DF0E800FB58F0 /* mtxImageManager.h */,
+				EAC6A329174DF0E800FB58F0 /* mtxImageManager.m */,
+			);
+			name = ImageManager;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		EADC14211721A29700346437 /* Markers */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,9 +542,9 @@
 				EACC22BA173D0342002E70E1 /* SIG5.png in Resources */,
 				EADBDE8A1742E00A005E1CFB /* SELF.png in Resources */,
 				EA8FCE38174625860028F84D /* TG_CIC.png in Resources */,
-				EAC7FB27174A895F00C0192E /* Icon_57.png in Resources */,
-				EAC7FB28174A895F00C0192E /* Icon_72.png in Resources */,
-				EAC7FB29174A895F00C0192E /* Icon_114.png in Resources */,
+				EA461AD5174FA4670038AA6D /* Icon_57.png in Resources */,
+				EA461AD6174FA4670038AA6D /* Icon_72.png in Resources */,
+				EA461AD7174FA4670038AA6D /* Icon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +606,7 @@
 				EA88011A173A666000B22310 /* NIViewRecycler.m in Sources */,
 				EA88011B173A666000B22310 /* NSString+NimbusCore.m in Sources */,
 				EADBDE8D1744DA3D005E1CFB /* mtxLiveRace.m in Sources */,
+				EAC6A32A174DF0E800FB58F0 /* mtxImageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

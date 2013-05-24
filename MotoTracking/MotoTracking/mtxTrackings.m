@@ -57,7 +57,6 @@ static const double MIMAL_ACCURACY = 250.0;
 
 - (MKCoordinateRegion)getFitRegion:(BOOL)forceInvalidAnnotation {
     
-    BOOL mapResized = FALSE;
     MKCoordinateRegion region;
     
     CLLocationCoordinate2D topLeftCoord;
@@ -68,7 +67,6 @@ static const double MIMAL_ACCURACY = 250.0;
     bottomRightCoord.longitude = -180;
     bottomRightCoord.latitude = 90;
     
-    mapResized = TRUE;
     topLeftCoord.longitude = fmin(topLeftCoord.longitude, [self deviceLocation].coordinate.longitude);
     topLeftCoord.latitude = fmax(topLeftCoord.latitude, [self deviceLocation].coordinate.latitude);
     bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, [self deviceLocation].coordinate.longitude);
@@ -76,7 +74,6 @@ static const double MIMAL_ACCURACY = 250.0;
     
     for(mtxMapViewAnnotation *aAnn in _tracks) {
         if (aAnn.Reliability<2 || forceInvalidAnnotation) {
-            mapResized = TRUE;
             topLeftCoord.longitude = fmin(topLeftCoord.longitude, aAnn.coordinate.longitude);
             topLeftCoord.latitude = fmax(topLeftCoord.latitude, aAnn.coordinate.latitude);
             bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, aAnn.coordinate.longitude);
@@ -87,17 +84,16 @@ static const double MIMAL_ACCURACY = 250.0;
     region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
     region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
     
-    if (mapResized) {
-        
-        // Add a little extra space on the sides
-        region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) *1.4;
-        region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) *1.4;
-        
-        if ((region.span.latitudeDelta+region.span.longitudeDelta) < 0.006) {
-            region.span.latitudeDelta = 0.003;
-            region.span.longitudeDelta = 0.003;
-        }
+    
+    // Add a little extra space on the sides
+    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) *1.4;
+    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) *1.4;
+    
+    if ((region.span.latitudeDelta+region.span.longitudeDelta) < 0.006) {
+        region.span.latitudeDelta = 0.003;
+        region.span.longitudeDelta = 0.003;
     }
+    
     return region;
     
 }

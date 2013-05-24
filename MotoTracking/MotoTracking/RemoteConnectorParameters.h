@@ -1,11 +1,16 @@
 
 
+#ifndef CONNECTION_PARAMETERS
+#define CONNECTION_PARAMETERS
+
 //NSString * const remoteServerURL = @"http://test.mototracking.xtremesoftware.it/";
 //NSString * const remoteServerURL = @"http://kiss/MotoTracking/rest/";
-NSString * const remoteServerURL = @"http://hq1.xtremesoftware.it/MotoTracking/rest/";
+static NSString * const remoteServerURL = @"http://hq1.xtremesoftware.it/MotoTracking/rest/";
 
-NSString * const userName = @"XTM_MotoTracking";
-NSString * const password = @"mototracking";
+static NSString * const userName = @"XTM_MotoTracking";
+static NSString * const password = @"mototracking";
 
-#define LOG_CONNECTOR_EVENTS
+#endif
+
+#define _LOG_CONNECTOR_EVENTS
 #define IGNORE_CONNECTION_ERROR

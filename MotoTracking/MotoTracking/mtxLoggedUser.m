@@ -42,6 +42,7 @@
     
     [rootXML iterate:@"LoggedUser" usingBlock: ^(RXMLElement *aMenuItemXML) {
         
+        _codRuoliPrevisti = [[NSMutableArray alloc] initWithCapacity:0];
         // legge gli attributi del login
         _idGara = [aMenuItemXML child:@"IdGara"].textAsInt;
         _idRuolo = [aMenuItemXML child:@"IdRuolo"].textAsInt;
@@ -51,6 +52,11 @@
         _codRuolo = [aMenuItemXML child:@"CodRuolo"].text;
         _dataInizio = [aMenuItemXML child:@"DataInizio"].text;
         _dataFine = [aMenuItemXML child:@"DataFine"].text;
+        [aMenuItemXML iterate:@"RuoliPrevisti.RuoloPrevisto" usingBlock: ^(RXMLElement *aRuoloXML) {
+            NSString *aRuolo = [aRuoloXML attribute:@"CodRuolo"];
+            [_codRuoliPrevisti addObject:aRuolo];
+        }];
+
     }];
 }
 

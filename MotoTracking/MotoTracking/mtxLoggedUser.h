@@ -23,6 +23,7 @@
 @property (nonatomic, readonly) NSString * dataInizio;
 @property (nonatomic, readonly) NSString * dataFine;
 @property (nonatomic, readonly) NSString * deviceId;
+@property (nonatomic, readonly) NSMutableArray *codRuoliPrevisti;
 
 - (void) parseFromData:(NSData *)data;
 - (BOOL) isLogged;
